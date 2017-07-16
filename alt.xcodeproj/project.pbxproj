@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C178C4C01F1B70A10089BAFF /* UIColor+colorFromRGB.swift in Sources */ = {isa = PBXBuildFile; fileRef = C178C4BF1F1B70A10089BAFF /* UIColor+colorFromRGB.swift */; };
 		C1D9D8A41F1B016400FBE298 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D9D8A31F1B016400FBE298 /* AppDelegate.swift */; };
 		C1D9D8A61F1B016400FBE298 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D9D8A51F1B016400FBE298 /* FirstViewController.swift */; };
 		C1D9D8A81F1B016400FBE298 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D9D8A71F1B016400FBE298 /* SecondViewController.swift */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C178C4BF1F1B70A10089BAFF /* UIColor+colorFromRGB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+colorFromRGB.swift"; sourceTree = "<group>"; };
 		C1D9D8A01F1B016400FBE298 /* alt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = alt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1D9D8A31F1B016400FBE298 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C1D9D8A51F1B016400FBE298 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 				C1D9D8A71F1B016400FBE298 /* SecondViewController.swift */,
 				C1D9D8D51F1B053400FBE298 /* LectureCardTableViewCell.swift */,
 				C1D9D8D61F1B053400FBE298 /* LectureCardTableViewCell.xib */,
+				C178C4BF1F1B70A10089BAFF /* UIColor+colorFromRGB.swift */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -288,6 +291,7 @@
 				C1D9D8A81F1B016400FBE298 /* SecondViewController.swift in Sources */,
 				C1D9D8A41F1B016400FBE298 /* AppDelegate.swift in Sources */,
 				C1D9D8D71F1B053400FBE298 /* LectureCardTableViewCell.swift in Sources */,
+				C178C4C01F1B70A10089BAFF /* UIColor+colorFromRGB.swift in Sources */,
 				C1D9D8A61F1B016400FBE298 /* FirstViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -533,6 +537,7 @@
 				C1D9D8CC1F1B016500FBE298 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C1D9D8CD1F1B016500FBE298 /* Build configuration list for PBXNativeTarget "altTests" */ = {
 			isa = XCConfigurationList;
@@ -541,6 +546,7 @@
 				C1D9D8CF1F1B016500FBE298 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C1D9D8D01F1B016500FBE298 /* Build configuration list for PBXNativeTarget "altUITests" */ = {
 			isa = XCConfigurationList;
@@ -549,6 +555,7 @@
 				C1D9D8D21F1B016500FBE298 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
