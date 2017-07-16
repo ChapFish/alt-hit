@@ -15,6 +15,8 @@
 		C1D9D8B01F1B016400FBE298 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1D9D8AE1F1B016400FBE298 /* LaunchScreen.storyboard */; };
 		C1D9D8BB1F1B016500FBE298 /* altTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D9D8BA1F1B016500FBE298 /* altTests.swift */; };
 		C1D9D8C61F1B016500FBE298 /* altUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D9D8C51F1B016500FBE298 /* altUITests.swift */; };
+		C1D9D8D71F1B053400FBE298 /* LectureCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D9D8D51F1B053400FBE298 /* LectureCardTableViewCell.swift */; };
+		C1D9D8D81F1B053400FBE298 /* LectureCardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1D9D8D61F1B053400FBE298 /* LectureCardTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		C1D9D8C11F1B016500FBE298 /* altUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = altUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1D9D8C51F1B016500FBE298 /* altUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = altUITests.swift; sourceTree = "<group>"; };
 		C1D9D8C71F1B016500FBE298 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C1D9D8D51F1B053400FBE298 /* LectureCardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LectureCardTableViewCell.swift; sourceTree = "<group>"; };
+		C1D9D8D61F1B053400FBE298 /* LectureCardTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LectureCardTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,13 +103,10 @@
 		C1D9D8A21F1B016400FBE298 /* alt */ = {
 			isa = PBXGroup;
 			children = (
-				C1D9D8A31F1B016400FBE298 /* AppDelegate.swift */,
-				C1D9D8A51F1B016400FBE298 /* FirstViewController.swift */,
-				C1D9D8A71F1B016400FBE298 /* SecondViewController.swift */,
+				C1D9D8D31F1B01CD00FBE298 /* Classes */,
+				C1D9D8D41F1B01EF00FBE298 /* Resources */,
 				C1D9D8A91F1B016400FBE298 /* Main.storyboard */,
-				C1D9D8AC1F1B016400FBE298 /* Assets.xcassets */,
 				C1D9D8AE1F1B016400FBE298 /* LaunchScreen.storyboard */,
-				C1D9D8B11F1B016400FBE298 /* Info.plist */,
 			);
 			path = alt;
 			sourceTree = "<group>";
@@ -126,6 +127,27 @@
 				C1D9D8C71F1B016500FBE298 /* Info.plist */,
 			);
 			path = altUITests;
+			sourceTree = "<group>";
+		};
+		C1D9D8D31F1B01CD00FBE298 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				C1D9D8A31F1B016400FBE298 /* AppDelegate.swift */,
+				C1D9D8A51F1B016400FBE298 /* FirstViewController.swift */,
+				C1D9D8A71F1B016400FBE298 /* SecondViewController.swift */,
+				C1D9D8D51F1B053400FBE298 /* LectureCardTableViewCell.swift */,
+				C1D9D8D61F1B053400FBE298 /* LectureCardTableViewCell.xib */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		C1D9D8D41F1B01EF00FBE298 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C1D9D8AC1F1B016400FBE298 /* Assets.xcassets */,
+				C1D9D8B11F1B016400FBE298 /* Info.plist */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -237,6 +259,7 @@
 			files = (
 				C1D9D8B01F1B016400FBE298 /* LaunchScreen.storyboard in Resources */,
 				C1D9D8AD1F1B016400FBE298 /* Assets.xcassets in Resources */,
+				C1D9D8D81F1B053400FBE298 /* LectureCardTableViewCell.xib in Resources */,
 				C1D9D8AB1F1B016400FBE298 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -264,6 +287,7 @@
 			files = (
 				C1D9D8A81F1B016400FBE298 /* SecondViewController.swift in Sources */,
 				C1D9D8A41F1B016400FBE298 /* AppDelegate.swift in Sources */,
+				C1D9D8D71F1B053400FBE298 /* LectureCardTableViewCell.swift in Sources */,
 				C1D9D8A61F1B016400FBE298 /* FirstViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
