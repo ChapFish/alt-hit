@@ -35,7 +35,7 @@ class LectureCardTableViewCell: UITableViewCell {
  
     func setLectureCard(lectureName:Array<String>, lectureRoom:Array<String>, lectureStatus:Array<String>, lectureFlag:Array<Bool>){
     //カードのコンテンツを入力（入力内容はSetLectureCardItem.swiftで規定）
-        LectureContenairView.setLectureIndicatorColor(lectureStatus: lectureStatus)
+        LectureContenairView.setLectureIndicatorColor(lectureStatus: lectureStatus, lectureFlag: lectureFlag)
         FirstLectureNameLabel.setLectureName(lectureName: lectureName, lectureFlag: lectureFlag, lectureNameCount: 1)
         SecondLectureNameLabel.setLectureName(lectureName: lectureName, lectureFlag: lectureFlag, lectureNameCount: 2)
         ThirdLectureNameLabel.setLectureName(lectureName: lectureName, lectureFlag: lectureFlag, lectureNameCount: 3)
@@ -46,7 +46,7 @@ class LectureCardTableViewCell: UITableViewCell {
         ThirdLectureRoomLable.setLectureRoom(lectureRoom: lectureRoom, lectureFlag: lectureFlag, lectureRoomCount: 3)
         FourthLectureRoomLabel.setLectureRoom(lectureRoom: lectureRoom, lectureFlag: lectureFlag, lectureRoomCount: 4)
         FifthLectureRoomLabel.setLectureRoom(lectureRoom: lectureRoom, lectureFlag: lectureFlag, lectureRoomCount: 5)
-    //カードの見た目を設定
+
         self.backgroundColor = UIColor.clear
         self.LectureContenairView.backgroundColor = UIColor.white
         self.LectureContenairView.layer.shadowColor = UIColor.black.cgColor /* 影の色 */
