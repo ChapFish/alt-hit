@@ -13,6 +13,7 @@ class TextCardTableViewCell: UITableViewCell {
     
     @IBOutlet weak var textCardNameLabel: UILabel!
     @IBOutlet weak var textCardContentLabel: UILabel!
+    @IBOutlet weak var textCardContainerView: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -25,8 +26,19 @@ class TextCardTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
  
-    //カードの内容を書き込む
-    func setCard(){
+    func setTextCard(cardNumber:Int, title:Array<String>, content:Array<String>){
+        //カードの内容を書き込む
+        self.textCardNameLabel.text = title[cardNumber]
+        self.textCardContentLabel.text = content[cardNumber]
+        
+        //カードの外見を設定
+        self.backgroundColor = UIColor.clear
+        self.textCardContainerView.backgroundColor = UIColor.white
+        self.textCardContainerView.addCardShadow()
+        self.layer.shadowPath = UIBezierPath(rect: self.bounds).cgPath
+        self.layer.shouldRasterize = true
+        self.layer.rasterizationScale = UIScreen.main.scale
+        self.textCardContainerView.layer.masksToBounds = false
     }
     
 }

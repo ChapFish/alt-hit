@@ -27,7 +27,7 @@
                                 <color key="textColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G0D-Pc-5iK">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G0D-Pc-5iK">
                                 <rect key="frame" x="20" y="43.5" width="37.5" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
@@ -52,9 +52,8 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="cardName" destination="auc-Vv-eQK" id="wuH-ca-gZr"/>
+                <outlet property="textCardContainerView" destination="hM5-4f-reu" id="XdM-MP-lhw"/>
                 <outlet property="textCardContentLabel" destination="G0D-Pc-5iK" id="B9y-RS-8Dp"/>
-                <outlet property="textCardName" destination="auc-Vv-eQK" id="Xlf-fB-bdG"/>
                 <outlet property="textCardNameLabel" destination="auc-Vv-eQK" id="PqW-h7-Kal"/>
             </connections>
             <point key="canvasLocation" x="75.5" y="90"/>

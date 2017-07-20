@@ -49,10 +49,7 @@ class LectureCardTableViewCell: UITableViewCell {
 
         self.backgroundColor = UIColor.clear
         self.LectureContenairView.backgroundColor = UIColor.white
-        self.LectureContenairView.layer.shadowColor = UIColor.black.cgColor /* 影の色 */
-        self.LectureContenairView.layer.shadowOffset = CGSize(width:2, height:2) /* 影の大きさ */
-        self.LectureContenairView.layer.shadowOpacity = 0.3 /* 透明度 */
-        self.LectureContenairView.layer.shadowRadius = 1 /* 影の距離 */
+        self.LectureContenairView.addCardShadow()
         self.layer.shadowPath = UIBezierPath(rect: self.bounds).cgPath
         self.layer.shouldRasterize = true
         self.layer.rasterizationScale = UIScreen.main.scale
@@ -100,5 +97,3 @@ extension UIView{
         }
     }
 }
-
-
