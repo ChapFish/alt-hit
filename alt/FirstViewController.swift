@@ -14,7 +14,7 @@ let lectureRoom = ["1201", "", "21", "20", "401"]
 let lectureStatus = ["経済学部", "", "社会学部", "法学部", "経済学部"]
 let lectureFlag = [false, false, false, false, true]
 let textCardTitles = ["title1","title2","title3","title4"]
-let textCardContents = ["content1","content2","content3content3content3content3content3content3content3content3content3content3","content4"]
+let textCardContents = ["content1","content2","content3","content4"]
 
 class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 

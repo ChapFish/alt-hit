@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C117DE6A1F20DB0D00E3BCB7 /* UIView+addCardShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C117DE691F20DB0D00E3BCB7 /* UIView+addCardShadow.swift */; };
+		C117DE6C1F20EB2E00E3BCB7 /* UIView+addBorderBottom.swift in Sources */ = {isa = PBXBuildFile; fileRef = C117DE6B1F20EB2E00E3BCB7 /* UIView+addBorderBottom.swift */; };
 		C178C4C01F1B70A10089BAFF /* UIColor+colorFromRGB.swift in Sources */ = {isa = PBXBuildFile; fileRef = C178C4BF1F1B70A10089BAFF /* UIColor+colorFromRGB.swift */; };
 		C1CE9A711F1E536600B9EE0D /* TextCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1CE9A6F1F1E536600B9EE0D /* TextCardTableViewCell.swift */; };
 		C1CE9A721F1E536600B9EE0D /* TextCardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1CE9A701F1E536600B9EE0D /* TextCardTableViewCell.xib */; };
@@ -42,6 +43,7 @@
 
 /* Begin PBXFileReference section */
 		C117DE691F20DB0D00E3BCB7 /* UIView+addCardShadow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+addCardShadow.swift"; sourceTree = "<group>"; };
+		C117DE6B1F20EB2E00E3BCB7 /* UIView+addBorderBottom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+addBorderBottom.swift"; sourceTree = "<group>"; };
 		C178C4BF1F1B70A10089BAFF /* UIColor+colorFromRGB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+colorFromRGB.swift"; sourceTree = "<group>"; };
 		C1CE9A6F1F1E536600B9EE0D /* TextCardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextCardTableViewCell.swift; sourceTree = "<group>"; };
 		C1CE9A701F1E536600B9EE0D /* TextCardTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextCardTableViewCell.xib; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 				C1CE9A6F1F1E536600B9EE0D /* TextCardTableViewCell.swift */,
 				C1CE9A701F1E536600B9EE0D /* TextCardTableViewCell.xib */,
 				C117DE691F20DB0D00E3BCB7 /* UIView+addCardShadow.swift */,
+				C117DE6B1F20EB2E00E3BCB7 /* UIView+addBorderBottom.swift */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -309,6 +312,7 @@
 				C117DE6A1F20DB0D00E3BCB7 /* UIView+addCardShadow.swift in Sources */,
 				C178C4C01F1B70A10089BAFF /* UIColor+colorFromRGB.swift in Sources */,
 				C1D9D8A61F1B016400FBE298 /* FirstViewController.swift in Sources */,
+				C117DE6C1F20EB2E00E3BCB7 /* UIView+addBorderBottom.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

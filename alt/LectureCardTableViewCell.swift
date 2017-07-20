@@ -34,7 +34,7 @@ class LectureCardTableViewCell: UITableViewCell {
     }
  
     func setLectureCard(lectureName:Array<String>, lectureRoom:Array<String>, lectureStatus:Array<String>, lectureFlag:Array<Bool>){
-    //カードのコンテンツを入力（入力内容は下の方にextensionで書いてあるよ。）
+        //カードのコンテンツを入力（入力内容は下の方にextensionで書いてあるよ。）
         LectureContenairView.setLectureIndicatorColor(lectureStatus: lectureStatus, lectureFlag: lectureFlag)
         FirstLectureNameLabel.setLectureName(lectureName: lectureName, lectureFlag: lectureFlag, lectureNameCount: 1)
         SecondLectureNameLabel.setLectureName(lectureName: lectureName, lectureFlag: lectureFlag, lectureNameCount: 2)
@@ -47,6 +47,12 @@ class LectureCardTableViewCell: UITableViewCell {
         FourthLectureRoomLabel.setLectureRoom(lectureRoom: lectureRoom, lectureFlag: lectureFlag, lectureRoomCount: 4)
         FifthLectureRoomLabel.setLectureRoom(lectureRoom: lectureRoom, lectureFlag: lectureFlag, lectureRoomCount: 5)
 
+        //各行に仕切りの下線をつける
+        for i in 0...3{
+            self.LectureContenairView.viewWithTag(i+6)?.addBorderBottom(color: "EBEBEB")
+        }
+        
+        //カードの外見を設定
         self.backgroundColor = UIColor.clear
         self.LectureContenairView.backgroundColor = UIColor.white
         self.LectureContenairView.addCardShadow()
@@ -58,6 +64,8 @@ class LectureCardTableViewCell: UITableViewCell {
     }
 
 }
+
+//メモ：各インジゲーターに上から１〜５、時間割の行に上から６〜10のタグが打ってあるよ。
 
 extension UILabel{
     //休講かどうかを判断のち、授業名を設定
@@ -84,12 +92,12 @@ extension UILabel{
 extension UIView{
     //学部を識別するインジゲーターの色を設定
     func setLectureIndicatorColor(lectureStatus:Array<String>, lectureFlag:Array<Bool>){
-        //ほんとは学部登録で設定するけどとりあえずここで定義しておく。
+        //ほんとは自分の学部を学部登録で設定するけどとりあえずここで定義しておく。
         UserDefaults.standard.set("社会学部", forKey: "学部")
         for i in 0...4{
             if lectureStatus[i] == UserDefaults.standard.string(forKey: "学部"){
                 self.viewWithTag(i+1)?.backgroundColor = UIColor.colorFromRGB(rgb: "27CC70", alpha: 1.0)
-            }else if lectureFlag[i] || lectureStatus[i] == ""{
+            }else if lectureFlag[i] || lectureStatus[i] == "" {
                 self.viewWithTag(i+1)?.backgroundColor = UIColor.colorFromRGB(rgb: "CCCCCC", alpha: 1.0)
             }else{
                 self.viewWithTag(i+1)?.backgroundColor = UIColor.colorFromRGB(rgb: "068DC4", alpha: 1.0)
