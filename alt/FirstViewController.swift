@@ -58,6 +58,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         if indexPath.section == 0{
             let cell = tableView.dequeueReusableCell(withIdentifier: "LectureCardViewCellID", for: indexPath) as! LectureCardTableViewCell
             cell.setLectureCard(lectureName: lectureName, lectureRoom: lectureRoom, lectureStatus: lectureStatus, lectureFlag: lectureFlag)
+            cell.selectionStyle = UITableViewCellSelectionStyle.none
             return cell
         }else{
             let cell = tableView.dequeueReusableCell(withIdentifier: "TextCardTableViewCellID", for: indexPath) as! TextCardTableViewCell
