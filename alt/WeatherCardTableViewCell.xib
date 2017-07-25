@@ -88,6 +88,7 @@
                 <outlet property="highestTempLabel" destination="3J5-01-6eg" id="wXJ-bh-jGu"/>
                 <outlet property="lowestTempLabel" destination="VZh-FD-9yU" id="D65-61-PpO"/>
                 <outlet property="rainyPercentLabel" destination="90r-3m-ML3" id="elt-3a-BhW"/>
+                <outlet property="weatherCardContainerView" destination="Lx0-5V-ZyG" id="vaJ-T3-FD4"/>
                 <outlet property="weatherIconImageView" destination="siB-94-d61" id="AxM-hw-HDj"/>
                 <outlet property="weatherLabel" destination="F4D-R1-QE9" id="S1t-RH-naL"/>
             </connections>
