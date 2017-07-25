@@ -10,6 +10,7 @@
 		C117DE6A1F20DB0D00E3BCB7 /* UIView+addCardShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C117DE691F20DB0D00E3BCB7 /* UIView+addCardShadow.swift */; };
 		C117DE6C1F20EB2E00E3BCB7 /* UIView+addBorderBottom.swift in Sources */ = {isa = PBXBuildFile; fileRef = C117DE6B1F20EB2E00E3BCB7 /* UIView+addBorderBottom.swift */; };
 		C178C4C01F1B70A10089BAFF /* UIColor+colorFromRGB.swift in Sources */ = {isa = PBXBuildFile; fileRef = C178C4BF1F1B70A10089BAFF /* UIColor+colorFromRGB.swift */; };
+		C1C4F7121F271E08005A4E71 /* AltTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C4F7111F271E08005A4E71 /* AltTabBarController.swift */; };
 		C1CE9A711F1E536600B9EE0D /* TextCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1CE9A6F1F1E536600B9EE0D /* TextCardTableViewCell.swift */; };
 		C1CE9A721F1E536600B9EE0D /* TextCardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1CE9A701F1E536600B9EE0D /* TextCardTableViewCell.xib */; };
 		C1D9D8A41F1B016400FBE298 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D9D8A31F1B016400FBE298 /* AppDelegate.swift */; };
@@ -45,6 +46,7 @@
 		C117DE691F20DB0D00E3BCB7 /* UIView+addCardShadow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+addCardShadow.swift"; sourceTree = "<group>"; };
 		C117DE6B1F20EB2E00E3BCB7 /* UIView+addBorderBottom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+addBorderBottom.swift"; sourceTree = "<group>"; };
 		C178C4BF1F1B70A10089BAFF /* UIColor+colorFromRGB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+colorFromRGB.swift"; sourceTree = "<group>"; };
+		C1C4F7111F271E08005A4E71 /* AltTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AltTabBarController.swift; sourceTree = "<group>"; };
 		C1CE9A6F1F1E536600B9EE0D /* TextCardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextCardTableViewCell.swift; sourceTree = "<group>"; };
 		C1CE9A701F1E536600B9EE0D /* TextCardTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextCardTableViewCell.xib; sourceTree = "<group>"; };
 		C1D9D8A01F1B016400FBE298 /* alt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = alt.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -90,6 +92,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C1C4F7131F272194005A4E71 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C1D9D8A31F1B016400FBE298 /* AppDelegate.swift */,
+				C1D9D8A51F1B016400FBE298 /* FirstViewController.swift */,
+				C1D9D8A71F1B016400FBE298 /* SecondViewController.swift */,
+				C1C4F7111F271E08005A4E71 /* AltTabBarController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		C1C4F7141F2721B3005A4E71 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C1D9D8D51F1B053400FBE298 /* LectureCardTableViewCell.swift */,
+				C1D9D8D61F1B053400FBE298 /* LectureCardTableViewCell.xib */,
+				C1CE9A6F1F1E536600B9EE0D /* TextCardTableViewCell.swift */,
+				C1CE9A701F1E536600B9EE0D /* TextCardTableViewCell.xib */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		C1D9D8971F1B016400FBE298 = {
 			isa = PBXGroup;
 			children = (
@@ -142,14 +166,9 @@
 		C1D9D8D31F1B01CD00FBE298 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				C1D9D8A31F1B016400FBE298 /* AppDelegate.swift */,
-				C1D9D8A51F1B016400FBE298 /* FirstViewController.swift */,
-				C1D9D8A71F1B016400FBE298 /* SecondViewController.swift */,
+				C1C4F7131F272194005A4E71 /* Controllers */,
+				C1C4F7141F2721B3005A4E71 /* Views */,
 				C178C4BF1F1B70A10089BAFF /* UIColor+colorFromRGB.swift */,
-				C1D9D8D51F1B053400FBE298 /* LectureCardTableViewCell.swift */,
-				C1D9D8D61F1B053400FBE298 /* LectureCardTableViewCell.xib */,
-				C1CE9A6F1F1E536600B9EE0D /* TextCardTableViewCell.swift */,
-				C1CE9A701F1E536600B9EE0D /* TextCardTableViewCell.xib */,
 				C117DE691F20DB0D00E3BCB7 /* UIView+addCardShadow.swift */,
 				C117DE6B1F20EB2E00E3BCB7 /* UIView+addBorderBottom.swift */,
 			);
@@ -312,6 +331,7 @@
 				C117DE6A1F20DB0D00E3BCB7 /* UIView+addCardShadow.swift in Sources */,
 				C178C4C01F1B70A10089BAFF /* UIColor+colorFromRGB.swift in Sources */,
 				C1D9D8A61F1B016400FBE298 /* FirstViewController.swift in Sources */,
+				C1C4F7121F271E08005A4E71 /* AltTabBarController.swift in Sources */,
 				C117DE6C1F20EB2E00E3BCB7 /* UIView+addBorderBottom.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
