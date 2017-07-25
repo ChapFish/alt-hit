@@ -11,6 +11,8 @@
 		C117DE6C1F20EB2E00E3BCB7 /* UIView+addBorderBottom.swift in Sources */ = {isa = PBXBuildFile; fileRef = C117DE6B1F20EB2E00E3BCB7 /* UIView+addBorderBottom.swift */; };
 		C178C4C01F1B70A10089BAFF /* UIColor+colorFromRGB.swift in Sources */ = {isa = PBXBuildFile; fileRef = C178C4BF1F1B70A10089BAFF /* UIColor+colorFromRGB.swift */; };
 		C1C4F7121F271E08005A4E71 /* AltTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C4F7111F271E08005A4E71 /* AltTabBarController.swift */; };
+		C1C4F7171F272227005A4E71 /* WeatherCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C4F7151F272227005A4E71 /* WeatherCardTableViewCell.swift */; };
+		C1C4F7181F272227005A4E71 /* WeatherCardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1C4F7161F272227005A4E71 /* WeatherCardTableViewCell.xib */; };
 		C1CE9A711F1E536600B9EE0D /* TextCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1CE9A6F1F1E536600B9EE0D /* TextCardTableViewCell.swift */; };
 		C1CE9A721F1E536600B9EE0D /* TextCardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1CE9A701F1E536600B9EE0D /* TextCardTableViewCell.xib */; };
 		C1D9D8A41F1B016400FBE298 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D9D8A31F1B016400FBE298 /* AppDelegate.swift */; };
@@ -47,6 +49,8 @@
 		C117DE6B1F20EB2E00E3BCB7 /* UIView+addBorderBottom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+addBorderBottom.swift"; sourceTree = "<group>"; };
 		C178C4BF1F1B70A10089BAFF /* UIColor+colorFromRGB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+colorFromRGB.swift"; sourceTree = "<group>"; };
 		C1C4F7111F271E08005A4E71 /* AltTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AltTabBarController.swift; sourceTree = "<group>"; };
+		C1C4F7151F272227005A4E71 /* WeatherCardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherCardTableViewCell.swift; sourceTree = "<group>"; };
+		C1C4F7161F272227005A4E71 /* WeatherCardTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WeatherCardTableViewCell.xib; sourceTree = "<group>"; };
 		C1CE9A6F1F1E536600B9EE0D /* TextCardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextCardTableViewCell.swift; sourceTree = "<group>"; };
 		C1CE9A701F1E536600B9EE0D /* TextCardTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextCardTableViewCell.xib; sourceTree = "<group>"; };
 		C1D9D8A01F1B016400FBE298 /* alt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = alt.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -110,6 +114,8 @@
 				C1D9D8D61F1B053400FBE298 /* LectureCardTableViewCell.xib */,
 				C1CE9A6F1F1E536600B9EE0D /* TextCardTableViewCell.swift */,
 				C1CE9A701F1E536600B9EE0D /* TextCardTableViewCell.xib */,
+				C1C4F7151F272227005A4E71 /* WeatherCardTableViewCell.swift */,
+				C1C4F7161F272227005A4E71 /* WeatherCardTableViewCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -295,6 +301,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C1C4F7181F272227005A4E71 /* WeatherCardTableViewCell.xib in Resources */,
 				C1D9D8B01F1B016400FBE298 /* LaunchScreen.storyboard in Resources */,
 				C1CE9A721F1E536600B9EE0D /* TextCardTableViewCell.xib in Resources */,
 				C1D9D8AD1F1B016400FBE298 /* Assets.xcassets in Resources */,
@@ -330,6 +337,7 @@
 				C1CE9A711F1E536600B9EE0D /* TextCardTableViewCell.swift in Sources */,
 				C117DE6A1F20DB0D00E3BCB7 /* UIView+addCardShadow.swift in Sources */,
 				C178C4C01F1B70A10089BAFF /* UIColor+colorFromRGB.swift in Sources */,
+				C1C4F7171F272227005A4E71 /* WeatherCardTableViewCell.swift in Sources */,
 				C1D9D8A61F1B016400FBE298 /* FirstViewController.swift in Sources */,
 				C1C4F7121F271E08005A4E71 /* AltTabBarController.swift in Sources */,
 				C117DE6C1F20EB2E00E3BCB7 /* UIView+addBorderBottom.swift in Sources */,
