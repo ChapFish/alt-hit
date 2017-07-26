@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="111" id="KGk-i7-Jjw" customClass="LectureSettingTableViewCell" customModule="alt" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="240" height="50"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="240" height="50"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HRA-rz-YPv">
+                        <rect key="frame" x="0.0" y="0.0" width="240" height="39.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fXU-bd-0nU">
+                                <rect key="frame" x="20" y="10.5" width="37.5" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VOz-LC-cmh">
+                                <rect key="frame" x="182.5" y="10.5" width="37.5" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="fXU-bd-0nU" firstAttribute="centerY" secondItem="HRA-rz-YPv" secondAttribute="centerY" id="N71-Ys-kww"/>
+                            <constraint firstItem="VOz-LC-cmh" firstAttribute="centerY" secondItem="HRA-rz-YPv" secondAttribute="centerY" id="XEh-4p-8F7"/>
+                            <constraint firstAttribute="trailing" secondItem="VOz-LC-cmh" secondAttribute="trailing" constant="20" id="qxq-TQ-3mV"/>
+                            <constraint firstItem="fXU-bd-0nU" firstAttribute="leading" secondItem="HRA-rz-YPv" secondAttribute="leading" constant="20" id="wKe-6b-fL2"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="HRA-rz-YPv" secondAttribute="bottom" constant="10" id="LPZ-1q-GTZ"/>
+                    <constraint firstItem="HRA-rz-YPv" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="MJy-OF-k0t"/>
+                    <constraint firstAttribute="trailing" secondItem="HRA-rz-YPv" secondAttribute="trailing" id="Oev-85-ReV"/>
+                    <constraint firstItem="HRA-rz-YPv" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="UNx-CI-2Fq"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="lectureInfoLabel" destination="VOz-LC-cmh" id="miQ-3J-if5"/>
+                <outlet property="lectureNameLabel" destination="fXU-bd-0nU" id="gxa-sf-WYr"/>
+                <outlet property="lectureSettingContenairView" destination="HRA-rz-YPv" id="sdT-D0-YSh"/>
+            </connections>
+            <point key="canvasLocation" x="27" y="42"/>
+        </tableViewCell>
+    </objects>
+</document>

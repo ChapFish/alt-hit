@@ -10,6 +10,9 @@
 		35A8FCD5B7542B0B9F8020F3 /* Pods_altTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39644B0489CD74023164E9B7 /* Pods_altTests.framework */; };
 		703882007D9731A5794F5E47 /* Pods_altUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 279D56D1FB5811E43EC36C7D /* Pods_altUITests.framework */; };
 		98D8E632B3AFA2DB69E57FFF /* Pods_alt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1974AD05CB05EE7219F31E9F /* Pods_alt.framework */; };
+		C117468F1F28F33F00FCBBDA /* LectureSettingViewContoroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = C117468E1F28F33F00FCBBDA /* LectureSettingViewContoroller.swift */; };
+		C11746921F28F47200FCBBDA /* LectureSettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11746901F28F47200FCBBDA /* LectureSettingTableViewCell.swift */; };
+		C11746931F28F47200FCBBDA /* LectureSettingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C11746911F28F47200FCBBDA /* LectureSettingTableViewCell.xib */; };
 		C117DE6A1F20DB0D00E3BCB7 /* UIView+addCardShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C117DE691F20DB0D00E3BCB7 /* UIView+addCardShadow.swift */; };
 		C117DE6C1F20EB2E00E3BCB7 /* UIView+addBorderBottom.swift in Sources */ = {isa = PBXBuildFile; fileRef = C117DE6B1F20EB2E00E3BCB7 /* UIView+addBorderBottom.swift */; };
 		C178C4C01F1B70A10089BAFF /* UIColor+colorFromRGB.swift in Sources */ = {isa = PBXBuildFile; fileRef = C178C4BF1F1B70A10089BAFF /* UIColor+colorFromRGB.swift */; };
@@ -56,6 +59,9 @@
 		39644B0489CD74023164E9B7 /* Pods_altTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_altTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7323919BB78FB72A04F18642 /* Pods-altTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-altTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-altTests/Pods-altTests.release.xcconfig"; sourceTree = "<group>"; };
 		9E91396E4BFE6833F7B17992 /* Pods-altUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-altUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-altUITests/Pods-altUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		C117468E1F28F33F00FCBBDA /* LectureSettingViewContoroller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LectureSettingViewContoroller.swift; sourceTree = "<group>"; };
+		C11746901F28F47200FCBBDA /* LectureSettingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LectureSettingTableViewCell.swift; sourceTree = "<group>"; };
+		C11746911F28F47200FCBBDA /* LectureSettingTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LectureSettingTableViewCell.xib; sourceTree = "<group>"; };
 		C117DE691F20DB0D00E3BCB7 /* UIView+addCardShadow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+addCardShadow.swift"; sourceTree = "<group>"; };
 		C117DE6B1F20EB2E00E3BCB7 /* UIView+addBorderBottom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+addBorderBottom.swift"; sourceTree = "<group>"; };
 		C178C4BF1F1B70A10089BAFF /* UIColor+colorFromRGB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+colorFromRGB.swift"; sourceTree = "<group>"; };
@@ -145,6 +151,7 @@
 				C1D9D8A51F1B016400FBE298 /* FirstViewController.swift */,
 				C1D9D8A71F1B016400FBE298 /* SecondViewController.swift */,
 				C1C4F7111F271E08005A4E71 /* AltTabBarController.swift */,
+				C117468E1F28F33F00FCBBDA /* LectureSettingViewContoroller.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -158,6 +165,8 @@
 				C1CE9A701F1E536600B9EE0D /* TextCardTableViewCell.xib */,
 				C1C4F7151F272227005A4E71 /* WeatherCardTableViewCell.swift */,
 				C1C4F7161F272227005A4E71 /* WeatherCardTableViewCell.xib */,
+				C11746901F28F47200FCBBDA /* LectureSettingTableViewCell.swift */,
+				C11746911F28F47200FCBBDA /* LectureSettingTableViewCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -361,6 +370,7 @@
 				C1CE9A721F1E536600B9EE0D /* TextCardTableViewCell.xib in Resources */,
 				C1F7E1841F2736670069D32C /* altoLogo2AppIcon.jpg in Resources */,
 				C1D9D8AD1F1B016400FBE298 /* Assets.xcassets in Resources */,
+				C11746931F28F47200FCBBDA /* LectureSettingTableViewCell.xib in Resources */,
 				C1D9D8D81F1B053400FBE298 /* LectureCardTableViewCell.xib in Resources */,
 				C1D9D8AB1F1B016400FBE298 /* Main.storyboard in Resources */,
 			);
@@ -527,12 +537,14 @@
 			files = (
 				C1D9D8A81F1B016400FBE298 /* SecondViewController.swift in Sources */,
 				C1F7E1821F27276B0069D32C /* GetWeatherData.swift in Sources */,
+				C117468F1F28F33F00FCBBDA /* LectureSettingViewContoroller.swift in Sources */,
 				C1D9D8A41F1B016400FBE298 /* AppDelegate.swift in Sources */,
 				C1D9D8D71F1B053400FBE298 /* LectureCardTableViewCell.swift in Sources */,
 				C1CE9A711F1E536600B9EE0D /* TextCardTableViewCell.swift in Sources */,
 				C117DE6A1F20DB0D00E3BCB7 /* UIView+addCardShadow.swift in Sources */,
 				C178C4C01F1B70A10089BAFF /* UIColor+colorFromRGB.swift in Sources */,
 				C1C4F7171F272227005A4E71 /* WeatherCardTableViewCell.swift in Sources */,
+				C11746921F28F47200FCBBDA /* LectureSettingTableViewCell.swift in Sources */,
 				C1D9D8A61F1B016400FBE298 /* FirstViewController.swift in Sources */,
 				C1C4F7121F271E08005A4E71 /* AltTabBarController.swift in Sources */,
 				C117DE6C1F20EB2E00E3BCB7 /* UIView+addBorderBottom.swift in Sources */,

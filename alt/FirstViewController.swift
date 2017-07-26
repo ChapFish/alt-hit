@@ -90,7 +90,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
     }
     
-    //
+    //今日の天気を取得する関数。
     func getTodayWeatherData() {
         Alamofire.request("http://api.openweathermap.org/data/2.5/weather", parameters: ["q":"Kunitachi", "appid":"8754aa3f67b1bfd63319a928da5cc860"]).responseJSON{response in
             guard let object = response.result.value else{
