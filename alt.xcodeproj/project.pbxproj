@@ -15,6 +15,7 @@
 		C11746931F28F47200FCBBDA /* LectureSettingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C11746911F28F47200FCBBDA /* LectureSettingTableViewCell.xib */; };
 		C117DE6A1F20DB0D00E3BCB7 /* UIView+addCardShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C117DE691F20DB0D00E3BCB7 /* UIView+addCardShadow.swift */; };
 		C117DE6C1F20EB2E00E3BCB7 /* UIView+addBorderBottom.swift in Sources */ = {isa = PBXBuildFile; fileRef = C117DE6B1F20EB2E00E3BCB7 /* UIView+addBorderBottom.swift */; };
+		C15EFF6C1F29DAEC0029593E /* UIView+setGradientLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15EFF6B1F29DAEC0029593E /* UIView+setGradientLayer.swift */; };
 		C178C4C01F1B70A10089BAFF /* UIColor+colorFromRGB.swift in Sources */ = {isa = PBXBuildFile; fileRef = C178C4BF1F1B70A10089BAFF /* UIColor+colorFromRGB.swift */; };
 		C1C4F7121F271E08005A4E71 /* AltTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C4F7111F271E08005A4E71 /* AltTabBarController.swift */; };
 		C1C4F7171F272227005A4E71 /* WeatherCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C4F7151F272227005A4E71 /* WeatherCardTableViewCell.swift */; };
@@ -64,6 +65,7 @@
 		C11746911F28F47200FCBBDA /* LectureSettingTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LectureSettingTableViewCell.xib; sourceTree = "<group>"; };
 		C117DE691F20DB0D00E3BCB7 /* UIView+addCardShadow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+addCardShadow.swift"; sourceTree = "<group>"; };
 		C117DE6B1F20EB2E00E3BCB7 /* UIView+addBorderBottom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+addBorderBottom.swift"; sourceTree = "<group>"; };
+		C15EFF6B1F29DAEC0029593E /* UIView+setGradientLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+setGradientLayer.swift"; sourceTree = "<group>"; };
 		C178C4BF1F1B70A10089BAFF /* UIColor+colorFromRGB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+colorFromRGB.swift"; sourceTree = "<group>"; };
 		C1C4F7111F271E08005A4E71 /* AltTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AltTabBarController.swift; sourceTree = "<group>"; };
 		C1C4F7151F272227005A4E71 /* WeatherCardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherCardTableViewCell.swift; sourceTree = "<group>"; };
@@ -231,6 +233,7 @@
 				C117DE691F20DB0D00E3BCB7 /* UIView+addCardShadow.swift */,
 				C117DE6B1F20EB2E00E3BCB7 /* UIView+addBorderBottom.swift */,
 				C1F7E1811F27276B0069D32C /* GetWeatherData.swift */,
+				C15EFF6B1F29DAEC0029593E /* UIView+setGradientLayer.swift */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -540,6 +543,7 @@
 				C117468F1F28F33F00FCBBDA /* LectureSettingViewContoroller.swift in Sources */,
 				C1D9D8A41F1B016400FBE298 /* AppDelegate.swift in Sources */,
 				C1D9D8D71F1B053400FBE298 /* LectureCardTableViewCell.swift in Sources */,
+				C15EFF6C1F29DAEC0029593E /* UIView+setGradientLayer.swift in Sources */,
 				C1CE9A711F1E536600B9EE0D /* TextCardTableViewCell.swift in Sources */,
 				C117DE6A1F20DB0D00E3BCB7 /* UIView+addCardShadow.swift in Sources */,
 				C178C4C01F1B70A10089BAFF /* UIColor+colorFromRGB.swift in Sources */,

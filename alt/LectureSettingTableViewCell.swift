@@ -35,7 +35,7 @@ class LectureSettingTableViewCell: UITableViewCell {
             self.lectureSettingContenairView.backgroundColor = UIColor.colorFromRGB(rgb: "FFFFFF", alpha: 0.75)
 
         }else{
-            lectureNameLabel.text = aDayLecture[period][3]
+            lectureNameLabel.text = aDayLecture[period][0]
             lectureNameLabel.textColor = UIColor.colorFromRGB(rgb: "13A7A1", alpha: 1.0)
             lectureInfoLabel.text = aDayLecture[period][5]
             lectureInfoLabel.textColor = UIColor.colorFromRGB(rgb: "13A7A1", alpha: 1.0)
@@ -44,14 +44,11 @@ class LectureSettingTableViewCell: UITableViewCell {
         
         //外見を指定
         self.backgroundColor = UIColor.clear
-        self.lectureSettingContenairView.backgroundColor = UIColor.white
         self.lectureSettingContenairView.addCardShadow()
         self.layer.shadowPath = UIBezierPath(rect: self.bounds).cgPath
         self.layer.shouldRasterize = true
         self.layer.rasterizationScale = UIScreen.main.scale
         self.lectureSettingContenairView.layer.masksToBounds = false
-
-        
     }
     
 }
