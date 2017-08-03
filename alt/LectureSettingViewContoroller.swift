@@ -14,8 +14,8 @@ class LectureSettingViewContoroller: UIViewController, UITableViewDataSource, UI
     @IBOutlet weak var lectureSettingTableView: UITableView!
     
     var weekday = ["月曜日","火曜日","水曜日","木曜日","金曜日"]
-    var aDayLecture:[[String]] = [["恋愛学概論", "","","","","社会"],[],[],[],[]]
-    var aweekLecture:[[[String]]] = []
+    var aDayLecture:[[String]] = [["社会学概論","","","","","","社/基礎"],[],[],[],[]]
+    var aWeekLecture:[[[String]]] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +26,8 @@ class LectureSettingViewContoroller: UIViewController, UITableViewDataSource, UI
         //セルの高さを40に指定
         lectureSettingTableView.rowHeight = 50
         lectureSettingTableView.backgroundColor = UIColor.clear
-    
+        
+        //背景にグラデーションを作成
         lectureSettingContenairView.setGradientLayer(direction: "horizonal")
         
     }

@@ -15,6 +15,7 @@
 		C11746931F28F47200FCBBDA /* LectureSettingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C11746911F28F47200FCBBDA /* LectureSettingTableViewCell.xib */; };
 		C117DE6A1F20DB0D00E3BCB7 /* UIView+addCardShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C117DE691F20DB0D00E3BCB7 /* UIView+addCardShadow.swift */; };
 		C117DE6C1F20EB2E00E3BCB7 /* UIView+addBorderBottom.swift in Sources */ = {isa = PBXBuildFile; fileRef = C117DE6B1F20EB2E00E3BCB7 /* UIView+addBorderBottom.swift */; };
+		C11F36E91F32C384009503B6 /* RealmLectures.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11F36E81F32C384009503B6 /* RealmLectures.swift */; };
 		C15EFF6C1F29DAEC0029593E /* UIView+setGradientLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15EFF6B1F29DAEC0029593E /* UIView+setGradientLayer.swift */; };
 		C178C4C01F1B70A10089BAFF /* UIColor+colorFromRGB.swift in Sources */ = {isa = PBXBuildFile; fileRef = C178C4BF1F1B70A10089BAFF /* UIColor+colorFromRGB.swift */; };
 		C1C4F7121F271E08005A4E71 /* AltTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C4F7111F271E08005A4E71 /* AltTabBarController.swift */; };
@@ -65,6 +66,7 @@
 		C11746911F28F47200FCBBDA /* LectureSettingTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LectureSettingTableViewCell.xib; sourceTree = "<group>"; };
 		C117DE691F20DB0D00E3BCB7 /* UIView+addCardShadow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+addCardShadow.swift"; sourceTree = "<group>"; };
 		C117DE6B1F20EB2E00E3BCB7 /* UIView+addBorderBottom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+addBorderBottom.swift"; sourceTree = "<group>"; };
+		C11F36E81F32C384009503B6 /* RealmLectures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmLectures.swift; sourceTree = "<group>"; };
 		C15EFF6B1F29DAEC0029593E /* UIView+setGradientLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+setGradientLayer.swift"; sourceTree = "<group>"; };
 		C178C4BF1F1B70A10089BAFF /* UIColor+colorFromRGB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+colorFromRGB.swift"; sourceTree = "<group>"; };
 		C1C4F7111F271E08005A4E71 /* AltTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AltTabBarController.swift; sourceTree = "<group>"; };
@@ -144,6 +146,26 @@
 				279D56D1FB5811E43EC36C7D /* Pods_altUITests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C11F36E61F32C28B009503B6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C11F36E81F32C384009503B6 /* RealmLectures.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		C11F36E71F32C2BE009503B6 /* Commons */ = {
+			isa = PBXGroup;
+			children = (
+				C178C4BF1F1B70A10089BAFF /* UIColor+colorFromRGB.swift */,
+				C117DE691F20DB0D00E3BCB7 /* UIView+addCardShadow.swift */,
+				C117DE6B1F20EB2E00E3BCB7 /* UIView+addBorderBottom.swift */,
+				C1F7E1811F27276B0069D32C /* GetWeatherData.swift */,
+				C15EFF6B1F29DAEC0029593E /* UIView+setGradientLayer.swift */,
+			);
+			name = Commons;
 			sourceTree = "<group>";
 		};
 		C1C4F7131F272194005A4E71 /* Controllers */ = {
@@ -229,11 +251,8 @@
 			children = (
 				C1C4F7131F272194005A4E71 /* Controllers */,
 				C1C4F7141F2721B3005A4E71 /* Views */,
-				C178C4BF1F1B70A10089BAFF /* UIColor+colorFromRGB.swift */,
-				C117DE691F20DB0D00E3BCB7 /* UIView+addCardShadow.swift */,
-				C117DE6B1F20EB2E00E3BCB7 /* UIView+addBorderBottom.swift */,
-				C1F7E1811F27276B0069D32C /* GetWeatherData.swift */,
-				C15EFF6B1F29DAEC0029593E /* UIView+setGradientLayer.swift */,
+				C11F36E71F32C2BE009503B6 /* Commons */,
+				C11F36E61F32C28B009503B6 /* Models */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -547,6 +566,7 @@
 				C1CE9A711F1E536600B9EE0D /* TextCardTableViewCell.swift in Sources */,
 				C117DE6A1F20DB0D00E3BCB7 /* UIView+addCardShadow.swift in Sources */,
 				C178C4C01F1B70A10089BAFF /* UIColor+colorFromRGB.swift in Sources */,
+				C11F36E91F32C384009503B6 /* RealmLectures.swift in Sources */,
 				C1C4F7171F272227005A4E71 /* WeatherCardTableViewCell.swift in Sources */,
 				C11746921F28F47200FCBBDA /* LectureSettingTableViewCell.swift in Sources */,
 				C1D9D8A61F1B016400FBE298 /* FirstViewController.swift in Sources */,
