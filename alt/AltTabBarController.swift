@@ -16,6 +16,12 @@ class AltTabBarController: UITabBarController {
         // Do any additional setup after loading the view.
         UITabBar.appearance().barTintColor = UIColor.colorFromRGB(rgb: "068DC4", alpha: 1.0)
         UITabBar.appearance().tintColor = UIColor.white
+        
+        tabBar.items![0].image = UIImage(named: "home_icon_50px_50_@2x.png")!.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
+        tabBar.items![1].image = UIImage(named: "voice_icon_50px_50@2x.png")!.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
+        tabBar.items![0].selectedImage = UIImage(named: "home_icon_50px_100_@2x.png")!.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
+        tabBar.items![1].selectedImage = UIImage(named: "voice_icon_50px_100@2x.png")!.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
+
     }
 
     override func didReceiveMemoryWarning() {

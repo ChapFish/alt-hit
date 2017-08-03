@@ -10,12 +10,16 @@ import UIKit
 
 class LectureSettingViewContoroller: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    @IBOutlet weak var lectureSaveButton: UIView!
+    @IBOutlet weak var lectureSaveButtonLabel: UILabel!
     @IBOutlet weak var lectureSettingContenairView: UIView!
     @IBOutlet weak var lectureSettingTableView: UITableView!
     
     var weekday = ["月曜日","火曜日","水曜日","木曜日","金曜日"]
-    var aDayLecture:[[String]] = [["社会学概論","","","","","","社/基礎"],[],[],[],[]]
-    var aWeekLecture:[[[String]]] = []
+    var aDayLecture:[[String]] = [[],[],[],[],[]]
+    var aWeekLecture:[[[String]]] = [[],[],[],[],[]]
+    var count:Int = 0
+    // countは0から4までの整数値であり、今何曜日か示す。
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +33,12 @@ class LectureSettingViewContoroller: UIViewController, UITableViewDataSource, UI
         
         //背景にグラデーションを作成
         lectureSettingContenairView.setGradientLayer(direction: "horizonal")
+        
+        lectureSaveButtonLabel.text = "\(weekday[count+1])へ"
+        
+        let saveButtonTap = UITapGestureRecognizer(target:self, action: #selector(LectureSettingViewContoroller.tapSaveButton(sender: )))
+        saveButtonTap.numberOfTapsRequired = 1
+        self.lectureSaveButton.addGestureRecognizer(saveButtonTap)
         
     }
 
@@ -49,6 +59,30 @@ class LectureSettingViewContoroller: UIViewController, UITableViewDataSource, UI
         let cell = tableView.dequeueReusableCell(withIdentifier: "LectureSettingTableViewCellID", for: indexPath) as! LectureSettingTableViewCell
         cell.setLectureSettingCell(aDayLecture: aDayLecture, period: indexPath.row)
         return cell
+    }
+    
+    func tapSaveButton(sender: UITapGestureRecognizer){
+        if count < 4 {
+            UIView.animate(withDuration: 0.3, animations: {
+            //透明度の変わるアニメーション
+                self.lectureSaveButton.alpha = 0.5
+            }) {_ in
+                self.lectureSaveButton.alpha = 1.0
+            }
+            //配列に時間割を保存
+            aWeekLecture[count] = aDayLecture
+            aDayLecture = [[],[],[],[],[]]
+            //ボタンの表示を変更
+            count = count + 1
+            if count < 4{
+                self.lectureSaveButtonLabel.text = "\(weekday[count+1])へ"
+            }else{
+                self.lectureSaveButtonLabel.text = "保存"
+            }
+            self.lectureSettingTableView.reloadData()
+        }else{
+            //ここに保存の処理を書く。
+        }
     }
 
     /*

@@ -18,6 +18,10 @@
 		C11F36E91F32C384009503B6 /* RealmLectures.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11F36E81F32C384009503B6 /* RealmLectures.swift */; };
 		C15EFF6C1F29DAEC0029593E /* UIView+setGradientLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15EFF6B1F29DAEC0029593E /* UIView+setGradientLayer.swift */; };
 		C178C4C01F1B70A10089BAFF /* UIColor+colorFromRGB.swift in Sources */ = {isa = PBXBuildFile; fileRef = C178C4BF1F1B70A10089BAFF /* UIColor+colorFromRGB.swift */; };
+		C196F6E41F330BB80079929B /* voice_icon_50px_100@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C196F6E21F330BB80079929B /* voice_icon_50px_100@2x.png */; };
+		C196F6E81F330ECA0079929B /* voice_icon_50px_50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C196F6E71F330ECA0079929B /* voice_icon_50px_50@2x.png */; };
+		C196F6EB1F33105D0079929B /* home_icon_50px_50_@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C196F6E91F33105D0079929B /* home_icon_50px_50_@2x.png */; };
+		C196F6EC1F33105D0079929B /* home_icon_50px_100_@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C196F6EA1F33105D0079929B /* home_icon_50px_100_@2x.png */; };
 		C1C4F7121F271E08005A4E71 /* AltTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C4F7111F271E08005A4E71 /* AltTabBarController.swift */; };
 		C1C4F7171F272227005A4E71 /* WeatherCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C4F7151F272227005A4E71 /* WeatherCardTableViewCell.swift */; };
 		C1C4F7181F272227005A4E71 /* WeatherCardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1C4F7161F272227005A4E71 /* WeatherCardTableViewCell.xib */; };
@@ -69,6 +73,10 @@
 		C11F36E81F32C384009503B6 /* RealmLectures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmLectures.swift; sourceTree = "<group>"; };
 		C15EFF6B1F29DAEC0029593E /* UIView+setGradientLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+setGradientLayer.swift"; sourceTree = "<group>"; };
 		C178C4BF1F1B70A10089BAFF /* UIColor+colorFromRGB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+colorFromRGB.swift"; sourceTree = "<group>"; };
+		C196F6E21F330BB80079929B /* voice_icon_50px_100@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "voice_icon_50px_100@2x.png"; path = "../../../../Downloads/voice_icon_50px_100@2x.png"; sourceTree = "<group>"; };
+		C196F6E71F330ECA0079929B /* voice_icon_50px_50@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "voice_icon_50px_50@2x.png"; path = "../../../../Downloads/voice_icon_50px_50@2x.png"; sourceTree = "<group>"; };
+		C196F6E91F33105D0079929B /* home_icon_50px_50_@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "home_icon_50px_50_@2x.png"; path = "../../../../Downloads/home_icon_50px_50_@2x.png"; sourceTree = "<group>"; };
+		C196F6EA1F33105D0079929B /* home_icon_50px_100_@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "home_icon_50px_100_@2x.png"; path = "../../../../Downloads/home_icon_50px_100_@2x.png"; sourceTree = "<group>"; };
 		C1C4F7111F271E08005A4E71 /* AltTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AltTabBarController.swift; sourceTree = "<group>"; };
 		C1C4F7151F272227005A4E71 /* WeatherCardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherCardTableViewCell.swift; sourceTree = "<group>"; };
 		C1C4F7161F272227005A4E71 /* WeatherCardTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WeatherCardTableViewCell.xib; sourceTree = "<group>"; };
@@ -221,9 +229,9 @@
 			isa = PBXGroup;
 			children = (
 				C1D9D8D31F1B01CD00FBE298 /* Classes */,
-				C1D9D8D41F1B01EF00FBE298 /* Resources */,
 				C1D9D8A91F1B016400FBE298 /* Main.storyboard */,
 				C1D9D8AE1F1B016400FBE298 /* LaunchScreen.storyboard */,
+				C1D9D8D41F1B01EF00FBE298 /* Resources */,
 			);
 			path = alt;
 			sourceTree = "<group>";
@@ -260,6 +268,10 @@
 		C1D9D8D41F1B01EF00FBE298 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C196F6E91F33105D0079929B /* home_icon_50px_50_@2x.png */,
+				C196F6EA1F33105D0079929B /* home_icon_50px_100_@2x.png */,
+				C196F6E71F330ECA0079929B /* voice_icon_50px_50@2x.png */,
+				C196F6E21F330BB80079929B /* voice_icon_50px_100@2x.png */,
 				C1F7E1831F2736670069D32C /* altoLogo2AppIcon.jpg */,
 				C1D9D8AC1F1B016400FBE298 /* Assets.xcassets */,
 				C1D9D8B11F1B016400FBE298 /* Info.plist */,
@@ -389,12 +401,16 @@
 			files = (
 				C1C4F7181F272227005A4E71 /* WeatherCardTableViewCell.xib in Resources */,
 				C1D9D8B01F1B016400FBE298 /* LaunchScreen.storyboard in Resources */,
+				C196F6E41F330BB80079929B /* voice_icon_50px_100@2x.png in Resources */,
+				C196F6EC1F33105D0079929B /* home_icon_50px_100_@2x.png in Resources */,
+				C196F6EB1F33105D0079929B /* home_icon_50px_50_@2x.png in Resources */,
 				C1CE9A721F1E536600B9EE0D /* TextCardTableViewCell.xib in Resources */,
 				C1F7E1841F2736670069D32C /* altoLogo2AppIcon.jpg in Resources */,
 				C1D9D8AD1F1B016400FBE298 /* Assets.xcassets in Resources */,
 				C11746931F28F47200FCBBDA /* LectureSettingTableViewCell.xib in Resources */,
 				C1D9D8D81F1B053400FBE298 /* LectureCardTableViewCell.xib in Resources */,
 				C1D9D8AB1F1B016400FBE298 /* Main.storyboard in Resources */,
+				C196F6E81F330ECA0079929B /* voice_icon_50px_50@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

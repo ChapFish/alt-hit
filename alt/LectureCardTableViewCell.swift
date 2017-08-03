@@ -61,6 +61,9 @@ class LectureCardTableViewCell: UITableViewCell {
         self.layer.rasterizationScale = UIScreen.main.scale
         self.LectureContenairView.layer.masksToBounds = false
         
+        //選択時の色変化を解除
+        self.selectionStyle = UITableViewCellSelectionStyle.none
+        
     }
 
 }
