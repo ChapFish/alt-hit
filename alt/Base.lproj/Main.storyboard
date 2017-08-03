@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="6kA-Xy-vTw">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -61,16 +61,6 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5cj-RX-6nL">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="fO3-7K-3GF">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fO3-7K-3GF" id="Ftz-L2-eeJ">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="9pv-A4-QxB" id="uYx-ks-j3t"/>
                                     <outlet property="delegate" destination="9pv-A4-QxB" id="2qK-yX-0fz"/>
@@ -208,16 +198,6 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="82g-bo-LQC">
                                 <rect key="frame" x="0.0" y="93" width="375" height="525"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="gO0-AT-lDq">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gO0-AT-lDq" id="zxw-Qe-fgp">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -330,11 +310,91 @@
                         <outlet property="lectureSaveButtonLabel" destination="Epw-o9-fIf" id="sK0-ks-vbU"/>
                         <outlet property="lectureSettingContenairView" destination="hxF-H8-lgI" id="xPI-lK-THK"/>
                         <outlet property="lectureSettingTableView" destination="xiC-0a-HFe" id="UJW-ds-2Zh"/>
+                        <segue destination="doQ-dd-niY" kind="show" identifier="toNextView" id="Rrz-Gx-vkm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TuX-ce-Q0m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="749.60000000000002" y="1153.6731634182909"/>
+        </scene>
+        <!--Lecture Selecting View Controller-->
+        <scene sceneID="YjG-ob-3hQ">
+            <objects>
+                <viewController storyboardIdentifier="nextView" id="doQ-dd-niY" customClass="LectureSelectingViewController" customModule="alt" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5Nx-u3-oKa"/>
+                        <viewControllerLayoutGuide type="bottom" id="ikr-Xr-77D"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Uh8-cr-8bR">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="AIB-KO-IOm">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="APeriodLecturesCellID" id="eLB-HF-f0D">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eLB-HF-f0D" id="2ma-PT-ubl">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="doQ-dd-niY" id="WP3-Ef-mPc"/>
+                                    <outlet property="delegate" destination="doQ-dd-niY" id="hSP-8x-piX"/>
+                                </connections>
+                            </tableView>
+                            <searchBar contentMode="redraw" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="GqQ-F7-Ed9">
+                                <rect key="frame" x="60" y="20" width="315" height="44"/>
+                                <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NNH-Bj-ckC">
+                                <rect key="frame" x="0.0" y="20" width="60" height="44"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k12-de-zHs">
+                                        <rect key="frame" x="14.5" y="7" width="31" height="30"/>
+                                        <state key="normal" title="戻る"/>
+                                        <connections>
+                                            <action selector="cancelButton:" destination="doQ-dd-niY" eventType="touchUpInside" id="1Ag-ta-BrZ"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="k12-de-zHs" firstAttribute="centerY" secondItem="NNH-Bj-ckC" secondAttribute="centerY" id="aTP-rL-idd"/>
+                                    <constraint firstAttribute="height" constant="44" id="j2r-9U-VY2"/>
+                                    <constraint firstItem="k12-de-zHs" firstAttribute="centerX" secondItem="NNH-Bj-ckC" secondAttribute="centerX" id="wMl-s5-Dyh"/>
+                                    <constraint firstAttribute="width" constant="60" id="wVP-lc-hHz"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="NNH-Bj-ckC" firstAttribute="leading" secondItem="Uh8-cr-8bR" secondAttribute="leading" id="34p-6Y-7Sp"/>
+                            <constraint firstAttribute="trailing" secondItem="AIB-KO-IOm" secondAttribute="trailing" id="366-03-6U1"/>
+                            <constraint firstItem="ikr-Xr-77D" firstAttribute="top" secondItem="AIB-KO-IOm" secondAttribute="bottom" id="9db-au-pY4"/>
+                            <constraint firstItem="AIB-KO-IOm" firstAttribute="leading" secondItem="Uh8-cr-8bR" secondAttribute="leading" id="Abx-vg-UhH"/>
+                            <constraint firstItem="GqQ-F7-Ed9" firstAttribute="top" secondItem="Uh8-cr-8bR" secondAttribute="top" constant="20" id="Gsc-2i-ETd"/>
+                            <constraint firstItem="NNH-Bj-ckC" firstAttribute="top" secondItem="5Nx-u3-oKa" secondAttribute="bottom" id="aHA-RJ-RSG"/>
+                            <constraint firstItem="AIB-KO-IOm" firstAttribute="top" secondItem="GqQ-F7-Ed9" secondAttribute="bottom" id="ejO-mK-rum"/>
+                            <constraint firstAttribute="trailing" secondItem="GqQ-F7-Ed9" secondAttribute="trailing" id="jAr-7a-edJ"/>
+                            <constraint firstItem="GqQ-F7-Ed9" firstAttribute="leading" secondItem="NNH-Bj-ckC" secondAttribute="trailing" id="mmZ-oX-xHg"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="lectureSeachBar" destination="GqQ-F7-Ed9" id="wTX-M8-2Aa"/>
+                        <outlet property="lectureSelectingTableView" destination="AIB-KO-IOm" id="s1E-lu-MXD"/>
+                        <segue destination="7o7-jm-Eg6" kind="unwind" identifier="goBack" unwindAction="goBack:" id="fTt-S2-ONF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d7J-3S-Fy1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="7o7-jm-Eg6" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="749.60000000000002" y="1863.4182908545729"/>
         </scene>
         <!--Alt Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">

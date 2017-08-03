@@ -90,6 +90,10 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        CardTableView.deselectRow(at: indexPath, animated: true)
+    }
+    
     //今日の天気を取得する関数。
     func getTodayWeatherData() {
         Alamofire.request("http://api.openweathermap.org/data/2.5/weather", parameters: ["q":"Kunitachi", "appid":"8754aa3f67b1bfd63319a928da5cc860"]).responseJSON{response in

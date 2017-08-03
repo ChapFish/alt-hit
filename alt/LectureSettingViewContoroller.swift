@@ -15,6 +15,9 @@ class LectureSettingViewContoroller: UIViewController, UITableViewDataSource, UI
     @IBOutlet weak var lectureSettingContenairView: UIView!
     @IBOutlet weak var lectureSettingTableView: UITableView!
     
+    //戻ってくるようのアクション
+    @IBAction func goBack(_ segue:UIStoryboardSegue) {}
+    
     var weekday = ["月曜日","火曜日","水曜日","木曜日","金曜日"]
     var aDayLecture:[[String]] = [[],[],[],[],[]]
     var aWeekLecture:[[[String]]] = [[],[],[],[],[]]
@@ -41,14 +44,18 @@ class LectureSettingViewContoroller: UIViewController, UITableViewDataSource, UI
         self.lectureSaveButton.addGestureRecognizer(saveButtonTap)
         
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if let indexPathForSelectedRow = lectureSettingTableView.indexPathForSelectedRow {
+            lectureSettingTableView.deselectRow(at: indexPathForSelectedRow, animated: true)
+            print("Deselect")
+        }
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -59,6 +66,11 @@ class LectureSettingViewContoroller: UIViewController, UITableViewDataSource, UI
         let cell = tableView.dequeueReusableCell(withIdentifier: "LectureSettingTableViewCellID", for: indexPath) as! LectureSettingTableViewCell
         cell.setLectureSettingCell(aDayLecture: aDayLecture, period: indexPath.row)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("I'm selected")
+        performSegue(withIdentifier: "toNextView", sender: nil)
     }
     
     func tapSaveButton(sender: UITapGestureRecognizer){

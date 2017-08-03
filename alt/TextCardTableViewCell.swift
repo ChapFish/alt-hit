@@ -24,6 +24,11 @@ class TextCardTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+        if selected{
+            self.textCardContainerView.backgroundColor = UIColor.red
+        }else{
+            self.textCardContainerView.backgroundColor = UIColor.white
+        }
     }
  
     func setTextCard(cardNumber:Int, title:Array<String>, content:Array<String>){
