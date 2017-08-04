@@ -7,21 +7,28 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
 
 class LectureSelectingViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
 
-    //実験用定数
-    let names = ["社会学概論", "経済学入門", "法学入門", "金融フロンティア論", "社会倫理学", "経済史入門", "原価計算"]
-    let departments = ["社会学部", "経済学部" ,"一般教養科目", "商学部", "社会学部", "経済学部", "商学部"]
-    var departmentsDic:[String:String] = [:]
     //検索結果を入れる
     var searchResult:[String] = []
+    //パラメータ用の引数をLectureSettingViewControllerからもらい、設定中の授業を特定。
+    var period:Int = 0
+    var weekday:Int = 0
+    //fetchしてきたデータを入れる。
+    var names:[String] = []
+    //選択されたデータをまとめ、LectureSettingViewControllerに返す。
+    var senderLectureData:[String] = []
     
-    @IBAction func cancelButton(_ sender: Any) {
+    
+    @IBAction func selectCancelButton(_ sender: Any) {
         performSegue(withIdentifier: "goBack", sender: nil)
     }
     @IBOutlet weak var lectureSeachBar: UISearchBar!
     @IBOutlet weak var lectureSelectingTableView: UITableView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,15 +36,11 @@ class LectureSelectingViewController: UIViewController, UITableViewDataSource, U
         // Do any additional setup after loading the view.
         //サーチバーの初期設定
         lectureSeachBar.delegate = self
-        lectureSeachBar.enablesReturnKeyAutomatically = false
-        searchResult = names
+        lectureSeachBar.enablesReturnKeyAutomatically = false        //searchResult = Samplenames
         self.lectureSeachBar.layer.borderColor = UIColor.white.cgColor
         self.lectureSeachBar.layer.borderWidth = 1.0
         
-        /* こっから実験
-        for i in 0 ..< names.count {
-            departmentsDic[names[i]] = departments[i]
-        }*/
+        getLecturesData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -48,16 +51,17 @@ class LectureSelectingViewController: UIViewController, UITableViewDataSource, U
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return searchResult.count
     }
-
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "APeriodLecturesCellID", for: indexPath) as UITableViewCell
         cell.textLabel?.text = searchResult[indexPath.row]
         return cell
     }
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        senderLectureData.append(searchResult[indexPath.row])
         performSegue(withIdentifier: "goBack", sender: nil)
     }
+    
+    
     
     //以下、検索バーの設定用項目。
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -82,6 +86,33 @@ class LectureSelectingViewController: UIViewController, UITableViewDataSource, U
         //テーブルを再読み込みする。
         lectureSelectingTableView.reloadData()
     }
+    
+    //Segueの準備。
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goBack" {
+            let previousViewController = segue.destination as! LectureSettingViewContoroller
+            previousViewController.aPeriodLecture = senderLectureData
+        }
+    }
+    
+    //fetch
+    func getLecturesData() {
+        Alamofire.request("https://56e46b73.ngrok.io/api/lectures", parameters: ["week":"\(weekday+1)", "time":"\(period+1)"]).responseJSON{response in
+            guard let object = response.result.value else{
+                print("error")
+                return
+            }
+            let json = JSON(object)
+            json.forEach { (_, json) in
+                // ここに処理を書いていく
+                self.names.append(json["name"].stringValue)
+                
+            }
+            self.searchResult = self.names
+            self.lectureSelectingTableView.reloadData()
+        }
+    }
+
     
     /*
     // MARK: - Navigation

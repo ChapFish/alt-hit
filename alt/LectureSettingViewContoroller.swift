@@ -14,15 +14,18 @@ class LectureSettingViewContoroller: UIViewController, UITableViewDataSource, UI
     @IBOutlet weak var lectureSaveButtonLabel: UILabel!
     @IBOutlet weak var lectureSettingContenairView: UIView!
     @IBOutlet weak var lectureSettingTableView: UITableView!
+    @IBOutlet weak var lectureSettingMsgLabel: UILabel!
     
     //戻ってくるようのアクション
     @IBAction func goBack(_ segue:UIStoryboardSegue) {}
     
     var weekday = ["月曜日","火曜日","水曜日","木曜日","金曜日"]
+    var aPeriodLecture:[String] = []
     var aDayLecture:[[String]] = [[],[],[],[],[]]
     var aWeekLecture:[[[String]]] = [[],[],[],[],[]]
     var count:Int = 0
     // countは0から4までの整数値であり、今何曜日か示す。
+    var senderPeriod = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,21 +39,28 @@ class LectureSettingViewContoroller: UIViewController, UITableViewDataSource, UI
         
         //背景にグラデーションを作成
         lectureSettingContenairView.setGradientLayer(direction: "horizonal")
+        lectureSettingContenairView.alpha = 0.7
         
         lectureSaveButtonLabel.text = "\(weekday[count+1])へ"
+        lectureSettingMsgLabel.text = "\(weekday[count])の授業を教えてください。"
+        
         
         let saveButtonTap = UITapGestureRecognizer(target:self, action: #selector(LectureSettingViewContoroller.tapSaveButton(sender: )))
         saveButtonTap.numberOfTapsRequired = 1
         self.lectureSaveButton.addGestureRecognizer(saveButtonTap)
+        lectureSaveButton.addCardShadow()
         
     }
     
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if let indexPathForSelectedRow = lectureSettingTableView.indexPathForSelectedRow {
+            aDayLecture[indexPathForSelectedRow.row] = aPeriodLecture
             lectureSettingTableView.deselectRow(at: indexPathForSelectedRow, animated: true)
             print("Deselect")
         }
+        self.lectureSettingTableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -58,6 +68,7 @@ class LectureSettingViewContoroller: UIViewController, UITableViewDataSource, UI
         // Dispose of any resources that can be recreated.
     }
     
+    //tableViewに必要なプロトコル。
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 5
     }
@@ -69,8 +80,18 @@ class LectureSettingViewContoroller: UIViewController, UITableViewDataSource, UI
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("I'm selected")
+        senderPeriod = indexPath.row
         performSegue(withIdentifier: "toNextView", sender: nil)
+        print("I'm selected")
+    }
+    
+    //Segueの準備。
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toNextView" {
+            let secondViewController = segue.destination as! LectureSelectingViewController
+            secondViewController.period = senderPeriod
+            secondViewController.weekday = count
+        }
     }
     
     func tapSaveButton(sender: UITapGestureRecognizer){
@@ -84,8 +105,10 @@ class LectureSettingViewContoroller: UIViewController, UITableViewDataSource, UI
             //配列に時間割を保存
             aWeekLecture[count] = aDayLecture
             aDayLecture = [[],[],[],[],[]]
+            
             //ボタンの表示を変更
             count = count + 1
+            lectureSettingMsgLabel.text = "\(weekday[count])の授業を教えてください。"
             if count < 4{
                 self.lectureSaveButtonLabel.text = "\(weekday[count+1])へ"
             }else{

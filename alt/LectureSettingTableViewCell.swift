@@ -42,7 +42,7 @@ class LectureSettingTableViewCell: UITableViewCell {
         }else{
             lectureNameLabel.text = aDayLecture[period][0]
             lectureNameLabel.textColor = UIColor.colorFromRGB(rgb: "13A7A1", alpha: 1.0)
-            lectureInfoLabel.text = aDayLecture[period][5]
+            lectureInfoLabel.text = "準備中"//aDayLecture[period][5]
             lectureInfoLabel.textColor = UIColor.colorFromRGB(rgb: "13A7A1", alpha: 1.0)
             self.lectureSettingContenairView.backgroundColor = UIColor.colorFromRGB(rgb: "FFFFFF", alpha: 1.0)
         }

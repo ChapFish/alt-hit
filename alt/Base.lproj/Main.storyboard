@@ -272,7 +272,7 @@
                                     </tableView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="あなたの時間割を作成します。" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="msS-Xe-KW7">
                                         <rect key="frame" x="13" y="0.0" width="214.5" height="18"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -309,6 +309,7 @@
                         <outlet property="lectureSaveButton" destination="F1v-6Q-2Fa" id="qm6-DH-hMd"/>
                         <outlet property="lectureSaveButtonLabel" destination="Epw-o9-fIf" id="sK0-ks-vbU"/>
                         <outlet property="lectureSettingContenairView" destination="hxF-H8-lgI" id="xPI-lK-THK"/>
+                        <outlet property="lectureSettingMsgLabel" destination="po6-dq-l3R" id="UkN-90-PjP"/>
                         <outlet property="lectureSettingTableView" destination="xiC-0a-HFe" id="UJW-ds-2Zh"/>
                         <segue destination="doQ-dd-niY" kind="show" identifier="toNextView" id="Rrz-Gx-vkm"/>
                     </connections>
@@ -337,7 +338,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eLB-HF-f0D" id="2ma-PT-ubl">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -354,7 +355,7 @@
                                         <rect key="frame" x="12" y="7" width="31" height="30"/>
                                         <state key="normal" title="戻る"/>
                                         <connections>
-                                            <action selector="cancelButton:" destination="doQ-dd-niY" eventType="touchUpInside" id="1Ag-ta-BrZ"/>
+                                            <action selector="selectCancelButton:" destination="doQ-dd-niY" eventType="touchUpInside" id="wXL-3c-0Zt"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -390,7 +391,7 @@
                     <connections>
                         <outlet property="lectureSeachBar" destination="GqQ-F7-Ed9" id="wTX-M8-2Aa"/>
                         <outlet property="lectureSelectingTableView" destination="AIB-KO-IOm" id="s1E-lu-MXD"/>
-                        <segue destination="7o7-jm-Eg6" kind="unwind" identifier="goBack" unwindAction="goBack:" id="fTt-S2-ONF"/>
+                        <segue destination="7o7-jm-Eg6" kind="unwind" identifier="goBack" unwindAction="goBack:" id="56Q-Rt-6HR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d7J-3S-Fy1" userLabel="First Responder" sceneMemberID="firstResponder"/>
