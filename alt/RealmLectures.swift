@@ -9,7 +9,7 @@
 import Foundation
 import RealmSwift
 
-class RealmLectures:Object{
+class RealmLecture:Object{
     
     dynamic var id = Int()
     dynamic var name = String()
@@ -17,7 +17,8 @@ class RealmLectures:Object{
     dynamic var week = Int()
     dynamic var time = Int()
     dynamic var room = String()
-    dynamic var department = String()
+    dynamic var department = Int()
+    dynamic var season = Int()
     dynamic var cancelFlag = Bool()
 
 }

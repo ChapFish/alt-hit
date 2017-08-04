@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class LectureSettingViewContoroller: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
@@ -23,6 +24,9 @@ class LectureSettingViewContoroller: UIViewController, UITableViewDataSource, UI
     var aPeriodLecture:[String] = []
     var aDayLecture:[[String]] = [[],[],[],[],[]]
     var aWeekLecture:[[[String]]] = [[],[],[],[],[]]
+    /*var aPeriodLecture = (0, "", "", 0, 0, "", 0, 0, false)
+    var aDayLecture = ((),(),(),(),())
+    var aWeekLecture = ((),(),(),(),())*/
     var count:Int = 0
     // countは0から4までの整数値であり、今何曜日か示す。
     var senderPeriod = 0
@@ -58,7 +62,6 @@ class LectureSettingViewContoroller: UIViewController, UITableViewDataSource, UI
         if let indexPathForSelectedRow = lectureSettingTableView.indexPathForSelectedRow {
             aDayLecture[indexPathForSelectedRow.row] = aPeriodLecture
             lectureSettingTableView.deselectRow(at: indexPathForSelectedRow, animated: true)
-            print("Deselect")
         }
         self.lectureSettingTableView.reloadData()
     }
@@ -82,7 +85,6 @@ class LectureSettingViewContoroller: UIViewController, UITableViewDataSource, UI
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         senderPeriod = indexPath.row
         performSegue(withIdentifier: "toNextView", sender: nil)
-        print("I'm selected")
     }
     
     //Segueの準備。
@@ -117,6 +119,41 @@ class LectureSettingViewContoroller: UIViewController, UITableViewDataSource, UI
             self.lectureSettingTableView.reloadData()
         }else{
             //ここに保存の処理を書く。
+            aWeekLecture[count] = aDayLecture
+            print(aWeekLecture)
+            
+            let realm = try! Realm()
+            for dayIndex in 0...4{
+                aDayLecture = aWeekLecture[dayIndex]
+                for periodIndex in 0...4{
+                    aPeriodLecture = aDayLecture[periodIndex]
+                    if aPeriodLecture == []{
+                        // 授業がない場合は曜日と時限のみ入ったからのデータを保存する。
+                        let theLecture = RealmLecture(value: [0, "", "", dayIndex, periodIndex+1, "", 0, 0, false])
+                        //保存
+                        try! realm.write {
+                            realm.add(theLecture)
+                        }
+                    }else{
+                        //授業がある場合はしっかり型変換して入れるぞ！
+                        let theLecture = RealmLecture()
+                        theLecture.id = Int(aPeriodLecture[0])!
+                        theLecture.name = aPeriodLecture[1]
+                        theLecture.teacher = aPeriodLecture[2]
+                        theLecture.week = Int(aPeriodLecture[3])!
+                        theLecture.time = Int(aPeriodLecture[4])!
+                        theLecture.room = aPeriodLecture[5]
+                        theLecture.season = Int(aPeriodLecture[6])!
+                        theLecture.department = Int(aPeriodLecture[7])!
+                        theLecture.cancelFlag = Bool(aPeriodLecture[8])!
+                        //保存
+                        try! realm.write {
+                            realm.add(theLecture)
+                        }
+                    }
+                }
+            }
+            print(Realm.Configuration.defaultConfiguration.fileURL!)
         }
     }
 
