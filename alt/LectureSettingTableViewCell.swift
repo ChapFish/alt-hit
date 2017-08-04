@@ -22,6 +22,11 @@ class LectureSettingTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+        if selected {
+            lectureSettingContenairView.alpha = 0.8
+        }else{
+            lectureSettingContenairView.alpha = 1.0
+        }
     }
     
     func setLectureSettingCell(aDayLecture: [[String]], period: Int){

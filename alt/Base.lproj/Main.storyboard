@@ -337,7 +337,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eLB-HF-f0D" id="2ma-PT-ubl">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -347,16 +347,11 @@
                                     <outlet property="delegate" destination="doQ-dd-niY" id="hSP-8x-piX"/>
                                 </connections>
                             </tableView>
-                            <searchBar contentMode="redraw" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="GqQ-F7-Ed9">
-                                <rect key="frame" x="60" y="20" width="315" height="44"/>
-                                <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NNH-Bj-ckC">
-                                <rect key="frame" x="0.0" y="20" width="60" height="44"/>
+                                <rect key="frame" x="320" y="20" width="55" height="44"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k12-de-zHs">
-                                        <rect key="frame" x="14.5" y="7" width="31" height="30"/>
+                                        <rect key="frame" x="12" y="7" width="31" height="30"/>
                                         <state key="normal" title="戻る"/>
                                         <connections>
                                             <action selector="cancelButton:" destination="doQ-dd-niY" eventType="touchUpInside" id="1Ag-ta-BrZ"/>
@@ -368,21 +363,28 @@
                                     <constraint firstItem="k12-de-zHs" firstAttribute="centerY" secondItem="NNH-Bj-ckC" secondAttribute="centerY" id="aTP-rL-idd"/>
                                     <constraint firstAttribute="height" constant="44" id="j2r-9U-VY2"/>
                                     <constraint firstItem="k12-de-zHs" firstAttribute="centerX" secondItem="NNH-Bj-ckC" secondAttribute="centerX" id="wMl-s5-Dyh"/>
-                                    <constraint firstAttribute="width" constant="60" id="wVP-lc-hHz"/>
                                 </constraints>
                             </view>
+                            <searchBar contentMode="redraw" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="GqQ-F7-Ed9">
+                                <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="ArT-Ce-jHO"/>
+                                </constraints>
+                                <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="NNH-Bj-ckC" firstAttribute="leading" secondItem="Uh8-cr-8bR" secondAttribute="leading" id="34p-6Y-7Sp"/>
                             <constraint firstAttribute="trailing" secondItem="AIB-KO-IOm" secondAttribute="trailing" id="366-03-6U1"/>
                             <constraint firstItem="ikr-Xr-77D" firstAttribute="top" secondItem="AIB-KO-IOm" secondAttribute="bottom" id="9db-au-pY4"/>
                             <constraint firstItem="AIB-KO-IOm" firstAttribute="leading" secondItem="Uh8-cr-8bR" secondAttribute="leading" id="Abx-vg-UhH"/>
                             <constraint firstItem="GqQ-F7-Ed9" firstAttribute="top" secondItem="Uh8-cr-8bR" secondAttribute="top" constant="20" id="Gsc-2i-ETd"/>
+                            <constraint firstItem="NNH-Bj-ckC" firstAttribute="leading" secondItem="GqQ-F7-Ed9" secondAttribute="trailing" id="Ml6-za-7FA"/>
                             <constraint firstItem="NNH-Bj-ckC" firstAttribute="top" secondItem="5Nx-u3-oKa" secondAttribute="bottom" id="aHA-RJ-RSG"/>
                             <constraint firstItem="AIB-KO-IOm" firstAttribute="top" secondItem="GqQ-F7-Ed9" secondAttribute="bottom" id="ejO-mK-rum"/>
-                            <constraint firstAttribute="trailing" secondItem="GqQ-F7-Ed9" secondAttribute="trailing" id="jAr-7a-edJ"/>
-                            <constraint firstItem="GqQ-F7-Ed9" firstAttribute="leading" secondItem="NNH-Bj-ckC" secondAttribute="trailing" id="mmZ-oX-xHg"/>
+                            <constraint firstItem="GqQ-F7-Ed9" firstAttribute="leading" secondItem="Uh8-cr-8bR" secondAttribute="leading" id="fRX-4L-Hzc"/>
+                            <constraint firstAttribute="trailing" secondItem="NNH-Bj-ckC" secondAttribute="trailing" id="sli-0i-Asu"/>
                         </constraints>
                     </view>
                     <connections>
