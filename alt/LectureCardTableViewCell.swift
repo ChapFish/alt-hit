@@ -49,7 +49,7 @@ class LectureCardTableViewCell: UITableViewCell {
 
         //各行に仕切りの下線をつける
         for i in 0...3{
-            self.LectureContenairView.viewWithTag(i+6)?.addBorderBottom(color: "EBEBEB")
+            self.LectureContenairView.viewWithTag(i+6)?.addBorderBottom(color: "EBEBEB", margin: 60)
         }
         
         //カードの外見を設定

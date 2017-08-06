@@ -16,7 +16,14 @@
 		C117DE6A1F20DB0D00E3BCB7 /* UIView+addCardShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C117DE691F20DB0D00E3BCB7 /* UIView+addCardShadow.swift */; };
 		C117DE6C1F20EB2E00E3BCB7 /* UIView+addBorderBottom.swift in Sources */ = {isa = PBXBuildFile; fileRef = C117DE6B1F20EB2E00E3BCB7 /* UIView+addBorderBottom.swift */; };
 		C11F36E91F32C384009503B6 /* RealmLectures.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11F36E81F32C384009503B6 /* RealmLectures.swift */; };
+		C13742EF1F36DF710029208E /* SurveyQuestionCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13742ED1F36DF710029208E /* SurveyQuestionCardTableViewCell.swift */; };
+		C13742F01F36DF710029208E /* SurveyQuestionCardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C13742EE1F36DF710029208E /* SurveyQuestionCardTableViewCell.xib */; };
+		C13742F61F3706220029208E /* UIView+makeOptionsButton().swift in Sources */ = {isa = PBXBuildFile; fileRef = C13742F51F3706220029208E /* UIView+makeOptionsButton().swift */; };
 		C15EFF6C1F29DAEC0029593E /* UIView+setGradientLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15EFF6B1F29DAEC0029593E /* UIView+setGradientLayer.swift */; };
+		C17213CE1F355A6400AB786A /* QuestionWithAnswerCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17213CC1F355A6400AB786A /* QuestionWithAnswerCardTableViewCell.swift */; };
+		C17213CF1F355A6400AB786A /* QuestionWithAnswerCardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C17213CD1F355A6400AB786A /* QuestionWithAnswerCardTableViewCell.xib */; };
+		C17213D21F36C43400AB786A /* QuestionCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17213D01F36C43400AB786A /* QuestionCardTableViewCell.swift */; };
+		C17213D31F36C43400AB786A /* QuestionCardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C17213D11F36C43400AB786A /* QuestionCardTableViewCell.xib */; };
 		C178C4C01F1B70A10089BAFF /* UIColor+colorFromRGB.swift in Sources */ = {isa = PBXBuildFile; fileRef = C178C4BF1F1B70A10089BAFF /* UIColor+colorFromRGB.swift */; };
 		C196F6E41F330BB80079929B /* voice_icon_50px_100@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C196F6E21F330BB80079929B /* voice_icon_50px_100@2x.png */; };
 		C196F6E81F330ECA0079929B /* voice_icon_50px_50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C196F6E71F330ECA0079929B /* voice_icon_50px_50@2x.png */; };
@@ -72,7 +79,14 @@
 		C117DE691F20DB0D00E3BCB7 /* UIView+addCardShadow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+addCardShadow.swift"; sourceTree = "<group>"; };
 		C117DE6B1F20EB2E00E3BCB7 /* UIView+addBorderBottom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+addBorderBottom.swift"; sourceTree = "<group>"; };
 		C11F36E81F32C384009503B6 /* RealmLectures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmLectures.swift; sourceTree = "<group>"; };
+		C13742ED1F36DF710029208E /* SurveyQuestionCardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyQuestionCardTableViewCell.swift; sourceTree = "<group>"; };
+		C13742EE1F36DF710029208E /* SurveyQuestionCardTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SurveyQuestionCardTableViewCell.xib; sourceTree = "<group>"; };
+		C13742F51F3706220029208E /* UIView+makeOptionsButton().swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+makeOptionsButton().swift"; sourceTree = "<group>"; };
 		C15EFF6B1F29DAEC0029593E /* UIView+setGradientLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+setGradientLayer.swift"; sourceTree = "<group>"; };
+		C17213CC1F355A6400AB786A /* QuestionWithAnswerCardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionWithAnswerCardTableViewCell.swift; sourceTree = "<group>"; };
+		C17213CD1F355A6400AB786A /* QuestionWithAnswerCardTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuestionWithAnswerCardTableViewCell.xib; sourceTree = "<group>"; };
+		C17213D01F36C43400AB786A /* QuestionCardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionCardTableViewCell.swift; sourceTree = "<group>"; };
+		C17213D11F36C43400AB786A /* QuestionCardTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuestionCardTableViewCell.xib; sourceTree = "<group>"; };
 		C178C4BF1F1B70A10089BAFF /* UIColor+colorFromRGB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+colorFromRGB.swift"; sourceTree = "<group>"; };
 		C196F6E21F330BB80079929B /* voice_icon_50px_100@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "voice_icon_50px_100@2x.png"; path = "../../../../Downloads/voice_icon_50px_100@2x.png"; sourceTree = "<group>"; };
 		C196F6E71F330ECA0079929B /* voice_icon_50px_50@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "voice_icon_50px_50@2x.png"; path = "../../../../Downloads/voice_icon_50px_50@2x.png"; sourceTree = "<group>"; };
@@ -174,6 +188,7 @@
 				C117DE6B1F20EB2E00E3BCB7 /* UIView+addBorderBottom.swift */,
 				C1F7E1811F27276B0069D32C /* GetWeatherData.swift */,
 				C15EFF6B1F29DAEC0029593E /* UIView+setGradientLayer.swift */,
+				C13742F51F3706220029208E /* UIView+makeOptionsButton().swift */,
 			);
 			name = Commons;
 			sourceTree = "<group>";
@@ -202,6 +217,12 @@
 				C1C4F7161F272227005A4E71 /* WeatherCardTableViewCell.xib */,
 				C11746901F28F47200FCBBDA /* LectureSettingTableViewCell.swift */,
 				C11746911F28F47200FCBBDA /* LectureSettingTableViewCell.xib */,
+				C17213CC1F355A6400AB786A /* QuestionWithAnswerCardTableViewCell.swift */,
+				C17213CD1F355A6400AB786A /* QuestionWithAnswerCardTableViewCell.xib */,
+				C17213D01F36C43400AB786A /* QuestionCardTableViewCell.swift */,
+				C17213D11F36C43400AB786A /* QuestionCardTableViewCell.xib */,
+				C13742ED1F36DF710029208E /* SurveyQuestionCardTableViewCell.swift */,
+				C13742EE1F36DF710029208E /* SurveyQuestionCardTableViewCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -402,15 +423,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C13742F01F36DF710029208E /* SurveyQuestionCardTableViewCell.xib in Resources */,
 				C1C4F7181F272227005A4E71 /* WeatherCardTableViewCell.xib in Resources */,
 				C1D9D8B01F1B016400FBE298 /* LaunchScreen.storyboard in Resources */,
 				C196F6E41F330BB80079929B /* voice_icon_50px_100@2x.png in Resources */,
 				C196F6EC1F33105D0079929B /* home_icon_50px_100_@2x.png in Resources */,
 				C196F6EB1F33105D0079929B /* home_icon_50px_50_@2x.png in Resources */,
+				C17213D31F36C43400AB786A /* QuestionCardTableViewCell.xib in Resources */,
 				C1CE9A721F1E536600B9EE0D /* TextCardTableViewCell.xib in Resources */,
 				C1F7E1841F2736670069D32C /* altoLogo2AppIcon.jpg in Resources */,
 				C1D9D8AD1F1B016400FBE298 /* Assets.xcassets in Resources */,
 				C11746931F28F47200FCBBDA /* LectureSettingTableViewCell.xib in Resources */,
+				C17213CF1F355A6400AB786A /* QuestionWithAnswerCardTableViewCell.xib in Resources */,
 				C1D9D8D81F1B053400FBE298 /* LectureCardTableViewCell.xib in Resources */,
 				C1D9D8AB1F1B016400FBE298 /* Main.storyboard in Resources */,
 				C196F6E81F330ECA0079929B /* voice_icon_50px_50@2x.png in Resources */,
@@ -578,6 +602,7 @@
 			files = (
 				C196F6F01F3341480079929B /* LectureSelectingViewController.swift in Sources */,
 				C1D9D8A81F1B016400FBE298 /* SecondViewController.swift in Sources */,
+				C17213CE1F355A6400AB786A /* QuestionWithAnswerCardTableViewCell.swift in Sources */,
 				C1F7E1821F27276B0069D32C /* GetWeatherData.swift in Sources */,
 				C117468F1F28F33F00FCBBDA /* LectureSettingViewContoroller.swift in Sources */,
 				C1D9D8A41F1B016400FBE298 /* AppDelegate.swift in Sources */,
@@ -588,8 +613,11 @@
 				C178C4C01F1B70A10089BAFF /* UIColor+colorFromRGB.swift in Sources */,
 				C11F36E91F32C384009503B6 /* RealmLectures.swift in Sources */,
 				C1C4F7171F272227005A4E71 /* WeatherCardTableViewCell.swift in Sources */,
+				C13742EF1F36DF710029208E /* SurveyQuestionCardTableViewCell.swift in Sources */,
 				C11746921F28F47200FCBBDA /* LectureSettingTableViewCell.swift in Sources */,
 				C1D9D8A61F1B016400FBE298 /* FirstViewController.swift in Sources */,
+				C13742F61F3706220029208E /* UIView+makeOptionsButton().swift in Sources */,
+				C17213D21F36C43400AB786A /* QuestionCardTableViewCell.swift in Sources */,
 				C1C4F7121F271E08005A4E71 /* AltTabBarController.swift in Sources */,
 				C117DE6C1F20EB2E00E3BCB7 /* UIView+addBorderBottom.swift in Sources */,
 			);
