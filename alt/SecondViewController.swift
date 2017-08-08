@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
+class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, TapOptionDeligate {
 
     @IBOutlet weak var voiceSearchBar: UISearchBar!
     @IBOutlet weak var voiceTableView: UITableView!
@@ -30,7 +30,6 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         //SearchBarの初期設定
         self.voiceSearchBar.layer.borderColor = UIColor.white.cgColor
         self.voiceSearchBar.layer.borderWidth = 1.0
-
     }
 
     override func didReceiveMemoryWarning() {
@@ -60,6 +59,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
             let cell = tableView.dequeueReusableCell(withIdentifier: "SurveyQuestionCardTableViewCellID", for: indexPath) as! SurveyQuestionCardTableViewCell
             let options = [testQuestions[indexPath.row][2],testQuestions[indexPath.row][3],testQuestions[indexPath.row][4]]
             cell.setSurveyQuestionCell(question: testQuestions[indexPath.row][1], options: options)
+            cell.deligate = self
             return cell
             
         default:
@@ -68,5 +68,8 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
             return cell
         }
     }
+    
+    func getOptionID(optionID: Int) {
+        print(optionID)
+    }
 }
-

@@ -16,34 +16,43 @@ extension UIView{
 
         
         let optionButton1 = UIView(frame:CGRect(x:0,y:0,width:100,height:100))
+        optionButton1.tag = 1
         optionButton1.translatesAutoresizingMaskIntoConstraints = false
         
         let optionLabel1 = UILabel()
+        optionLabel1.tag = 10
         optionLabel1.translatesAutoresizingMaskIntoConstraints = false
         
         let optionButton2 = UIView(frame:CGRect(x:0,y:0,width:100,height:100))
+        optionButton1.tag = 2
         optionButton2.translatesAutoresizingMaskIntoConstraints = false
         
         let optionLabel2 = UILabel()
+        optionLabel2.tag = 20
         optionLabel2.translatesAutoresizingMaskIntoConstraints = false
         
         let optionButton3 = UIView(frame:CGRect(x:0,y:0,width:100,height:100))
+        optionButton1.tag = 3
         optionButton3.translatesAutoresizingMaskIntoConstraints = false
         
         let optionLabel3 = UILabel()
-        optionLabel3.font = UIFont.systemFont(ofSize: 15)
+        optionLabel3.tag = 30
         optionLabel3.translatesAutoresizingMaskIntoConstraints = false
         
         let optionButton4 = UIView(frame:CGRect(x:0,y:0,width:100,height:100))
+        optionButton1.tag = 4
         optionButton4.translatesAutoresizingMaskIntoConstraints = false
         
         let optionLabel4 = UILabel()
+        optionLabel4.tag = 40
         optionLabel4.translatesAutoresizingMaskIntoConstraints = false
         
         let optionButton5 = UIView(frame:CGRect(x:0,y:0,width:100,height:100))
+        optionButton1.tag = 5
         optionButton5.translatesAutoresizingMaskIntoConstraints = false
         
         let optionLabel5 = UILabel()
+        optionLabel5.tag = 50
         optionLabel5.translatesAutoresizingMaskIntoConstraints = false
         
 
@@ -93,6 +102,7 @@ extension UIView{
             optionButton.bottomAnchor.constraint(equalTo: optionLabel.bottomAnchor, constant: 10.0) .isActive = true
             
             self.addSubview(optionButton)
+            optionButton.tag = i + 1
             if i == 0{
                 optionButton.topAnchor.constraint(equalTo: self.topAnchor, constant: 15.0).isActive = true
             } else {
