@@ -21,10 +21,10 @@ extension UIView{
         if direction == "horizonal"{
             gradientLayer.startPoint = CGPoint(x: 1, y: 0.5)
             gradientLayer.endPoint = CGPoint(x:0, y: 0.5)
-            self.layer.addSublayer(gradientLayer)
         }else{
             gradientLayer.startPoint = CGPoint(x: 1, y: 0)
             gradientLayer.endPoint = CGPoint(x: 0, y: 1)
         }
+        self.layer.addSublayer(gradientLayer)
     }
 }
