@@ -108,7 +108,7 @@ class LectureSelectingViewController: UIViewController, UITableViewDataSource, U
     
     //fetch
     func getLecturesData() {
-        Alamofire.request("https://api.project-alt.tech/api/home/lectures", parameters: ["week":"\(weekday)", "time":"\(period+1)"]).responseJSON{response in
+        Alamofire.request("https://server.project-alt.tech/api/home/lectures", parameters: ["week":"\(weekday)", "time":"\(period+1)"]).responseJSON{response in
             guard let object = response.result.value else{
                 print("error")
                 return
