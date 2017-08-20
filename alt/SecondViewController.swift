@@ -24,7 +24,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var question:[String] = []
     var allQuestions:[[String]] = []
     var unansweredQuestions:[[String]] = []
-    let testQuestions:[[String]] = [["0","みなさん毎週どのくらいの時間をゼミの予習に使っていますか？"],["1","今年の一橋祭の参加申し込みはもうありましたか？","はい。夏学期の終わりにありました。これから参加したい場合は委員さんに相談するのをお勧めします。"],["2","ゼミ面接はスーツで行った方がよろしいでしょうか","カジュアルな私服で行った","綺麗めな服装で行った","スーツで行った"]]
+    let testQuestions:[[String]] = [["0","みなさん毎週どのくらいの時間をゼミの予習に使っていますか？"],["1","今年の一橋祭の参加申し込みはもうありましたか？","はい。夏学期の終わりにありました。これから参加したい場合は委員さんに相談するのをお勧めします。"],["2","ゼミ面接はスーツで行った方がよろしいでしょうか","カジュアルな私服で行った","綺麗めな服装で行った","スーツで行った"],["3","ゼミ面接はスーツで行った方がよろしいでしょうか","カジュアルな私服で行った","綺麗めな服装で行った","スーツで行った"]]
     
     var newPostMenuFlag = false
     
@@ -34,6 +34,8 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.voiceTableView.register(UINib(nibName: "QuestionWithAnswerCardTableViewCell", bundle:nil), forCellReuseIdentifier: "QuestionWithAnswerCardTableViewCellID")
         self.voiceTableView.register(UINib(nibName: "QuestionCardTableViewCell", bundle:nil), forCellReuseIdentifier: "QuestionCardTableViewCellID")
         self.voiceTableView.register(UINib(nibName: "SurveyQuestionCardTableViewCell", bundle:nil), forCellReuseIdentifier: "SurveyQuestionCardTableViewCellID")
+        self.voiceTableView.register(UINib(nibName: "SurveyResultCardTableViewCell", bundle:nil), forCellReuseIdentifier: "SurveyResultCardTableViewCellID")
+
         
         //TableViewの初期設定
         self.voiceTableView.estimatedRowHeight = 200
@@ -93,8 +95,15 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         case "2":
             let cell = tableView.dequeueReusableCell(withIdentifier: "SurveyQuestionCardTableViewCellID", for: indexPath) as! SurveyQuestionCardTableViewCell
             let options = [testQuestions[indexPath.row][2],testQuestions[indexPath.row][3],testQuestions[indexPath.row][4]]
-            cell.setSurveyQuestionCell(question: testQuestions[indexPath.row][1], options: options)
+            cell.setSurveyQuestionCell(question: testQuestions[indexPath.row][1], options: options, count: options.count)
             cell.deligate = self
+            return cell
+            
+        case "3":
+            let cell = tableView.dequeueReusableCell(withIdentifier: "SurveyResultCardTableViewCellID", for: indexPath) as! SurveyResultCardTableViewCell
+            let options = [testQuestions[indexPath.row][2],testQuestions[indexPath.row][3],testQuestions[indexPath.row][4]]
+            let results = [4,8,2]
+            cell.setSurveyResultCell(question: testQuestions[indexPath.row][1], options: options, results: results, count: options.count)
             return cell
             
         default:
@@ -161,6 +170,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
                         self.question.append(json["answers"][i].stringValue)
                     }
                 }else if questionStatus == 2{
+                    self.question.append(String(json["option_count"].intValue))
                     for i in 0 ..< json["option_count"].intValue{
                         self.question.append(json["enquete"][i]["option"].stringValue)
                     }

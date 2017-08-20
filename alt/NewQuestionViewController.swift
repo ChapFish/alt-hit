@@ -15,9 +15,8 @@ class NewQuestionViewController: UIViewController, UITextViewDelegate {
         guard let submitQuestionText = newQuestionTextView.text else{
             return
         }
-//        let parameters:Parameters = ["kind":"0","text":"\(submitQuestionText)","user_id":"12345"]
-        let parameters:Parameters = ["text":"大丈夫です！", "user_id":"12345", "question_id":"7"]
-        Alamofire.request("https://server.project-alt.tech/api/voice/answers", method: .post, parameters: parameters).responseJSON{ response in
+        let parameters:Parameters = ["kind":"0","text":"\(submitQuestionText)","user_id":"12345"]
+        Alamofire.request("https://server.project-alt.tech/api/voice/questions", method: .post, parameters: parameters).responseJSON{ response in
             if let json = response.result.value{
                 print(json)
             }else{

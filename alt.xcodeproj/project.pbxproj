@@ -19,8 +19,8 @@
 		C13742EF1F36DF710029208E /* SurveyQuestionCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13742ED1F36DF710029208E /* SurveyQuestionCardTableViewCell.swift */; };
 		C13742F01F36DF710029208E /* SurveyQuestionCardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C13742EE1F36DF710029208E /* SurveyQuestionCardTableViewCell.xib */; };
 		C13742F61F3706220029208E /* UIView+makeOptionsButton().swift in Sources */ = {isa = PBXBuildFile; fileRef = C13742F51F3706220029208E /* UIView+makeOptionsButton().swift */; };
-		C13F6B911F39CE4F00B9B17B /* SurveyResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13F6B8F1F39CE4F00B9B17B /* SurveyResultTableViewCell.swift */; };
-		C13F6B921F39CE4F00B9B17B /* SurveyResultTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C13F6B901F39CE4F00B9B17B /* SurveyResultTableViewCell.xib */; };
+		C13F6B911F39CE4F00B9B17B /* SurveyResultCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13F6B8F1F39CE4F00B9B17B /* SurveyResultCardTableViewCell.swift */; };
+		C13F6B921F39CE4F00B9B17B /* SurveyResultCardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C13F6B901F39CE4F00B9B17B /* SurveyResultCardTableViewCell.xib */; };
 		C15EFF6C1F29DAEC0029593E /* UIView+setGradientLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15EFF6B1F29DAEC0029593E /* UIView+setGradientLayer.swift */; };
 		C17213CE1F355A6400AB786A /* QuestionWithAnswerCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17213CC1F355A6400AB786A /* QuestionWithAnswerCardTableViewCell.swift */; };
 		C17213CF1F355A6400AB786A /* QuestionWithAnswerCardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C17213CD1F355A6400AB786A /* QuestionWithAnswerCardTableViewCell.xib */; };
@@ -86,8 +86,8 @@
 		C13742ED1F36DF710029208E /* SurveyQuestionCardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyQuestionCardTableViewCell.swift; sourceTree = "<group>"; };
 		C13742EE1F36DF710029208E /* SurveyQuestionCardTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SurveyQuestionCardTableViewCell.xib; sourceTree = "<group>"; };
 		C13742F51F3706220029208E /* UIView+makeOptionsButton().swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+makeOptionsButton().swift"; sourceTree = "<group>"; };
-		C13F6B8F1F39CE4F00B9B17B /* SurveyResultTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyResultTableViewCell.swift; sourceTree = "<group>"; };
-		C13F6B901F39CE4F00B9B17B /* SurveyResultTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SurveyResultTableViewCell.xib; sourceTree = "<group>"; };
+		C13F6B8F1F39CE4F00B9B17B /* SurveyResultCardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyResultCardTableViewCell.swift; sourceTree = "<group>"; };
+		C13F6B901F39CE4F00B9B17B /* SurveyResultCardTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SurveyResultCardTableViewCell.xib; sourceTree = "<group>"; };
 		C15EFF6B1F29DAEC0029593E /* UIView+setGradientLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+setGradientLayer.swift"; sourceTree = "<group>"; };
 		C17213CC1F355A6400AB786A /* QuestionWithAnswerCardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionWithAnswerCardTableViewCell.swift; sourceTree = "<group>"; };
 		C17213CD1F355A6400AB786A /* QuestionWithAnswerCardTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuestionWithAnswerCardTableViewCell.xib; sourceTree = "<group>"; };
@@ -224,8 +224,8 @@
 				C17213D11F36C43400AB786A /* QuestionCardTableViewCell.xib */,
 				C13742ED1F36DF710029208E /* SurveyQuestionCardTableViewCell.swift */,
 				C13742EE1F36DF710029208E /* SurveyQuestionCardTableViewCell.xib */,
-				C13F6B8F1F39CE4F00B9B17B /* SurveyResultTableViewCell.swift */,
-				C13F6B901F39CE4F00B9B17B /* SurveyResultTableViewCell.xib */,
+				C13F6B8F1F39CE4F00B9B17B /* SurveyResultCardTableViewCell.swift */,
+				C13F6B901F39CE4F00B9B17B /* SurveyResultCardTableViewCell.xib */,
 			);
 			name = voice;
 			sourceTree = "<group>";
@@ -465,7 +465,7 @@
 				C17213CF1F355A6400AB786A /* QuestionWithAnswerCardTableViewCell.xib in Resources */,
 				C1D9D8D81F1B053400FBE298 /* LectureCardTableViewCell.xib in Resources */,
 				C1D9D8AB1F1B016400FBE298 /* Main.storyboard in Resources */,
-				C13F6B921F39CE4F00B9B17B /* SurveyResultTableViewCell.xib in Resources */,
+				C13F6B921F39CE4F00B9B17B /* SurveyResultCardTableViewCell.xib in Resources */,
 				C196F6E81F330ECA0079929B /* voice_icon_50px_50@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -634,7 +634,7 @@
 				C1D9D8A81F1B016400FBE298 /* SecondViewController.swift in Sources */,
 				C17213CE1F355A6400AB786A /* QuestionWithAnswerCardTableViewCell.swift in Sources */,
 				C1F7E1821F27276B0069D32C /* GetWeatherData.swift in Sources */,
-				C13F6B911F39CE4F00B9B17B /* SurveyResultTableViewCell.swift in Sources */,
+				C13F6B911F39CE4F00B9B17B /* SurveyResultCardTableViewCell.swift in Sources */,
 				C117468F1F28F33F00FCBBDA /* LectureSettingViewContoroller.swift in Sources */,
 				C1D9D8A41F1B016400FBE298 /* AppDelegate.swift in Sources */,
 				C1D9D8D71F1B053400FBE298 /* LectureCardTableViewCell.swift in Sources */,

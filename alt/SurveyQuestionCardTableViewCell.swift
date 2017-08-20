@@ -28,7 +28,7 @@ class SurveyQuestionCardTableViewCell: UITableViewCell {
     }
     
     
-    func setSurveyQuestionCell(question: String, options:Array<String>){
+    func setSurveyQuestionCell(question: String, options:Array<String>, count:Int){
         self.backgroundColor = UIColor.clear
         self.surveyContainerView.backgroundColor = UIColor.white
         self.surveyContainerView.addCardShadow()
@@ -41,7 +41,7 @@ class SurveyQuestionCardTableViewCell: UITableViewCell {
         self.surveyContainerView.layer.masksToBounds = false
         
         questionTextLabel.text = question
-        self.optionsContainerView.makeOptionsButton(options: options, count: options.count)
+        self.optionsContainerView.makeOptionsButton(options: options, count: count)
         
         for i in 1...5 {
             if let _ = self.optionsContainerView.viewWithTag(i) {
