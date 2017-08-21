@@ -12,6 +12,8 @@ class QuestionCardTableViewCell: UITableViewCell {
     
     @IBOutlet weak var questionTextLabel: UILabel!
     @IBOutlet weak var questionContainerView: UIView!
+    @IBOutlet weak var answerIndicator: UIView!
+    @IBOutlet weak var answerMsgLabel: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -22,9 +24,14 @@ class QuestionCardTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+        if selected {
+            questionContainerView.alpha = 0.5
+        } else {
+            questionContainerView.alpha = 1.0
+        }
     }
     
-    func setQuestionCell(question:String){
+    func setQuestionCell(question:String, unanswered:Bool = true, msg:Bool = true){
         self.backgroundColor = UIColor.clear
         
         self.questionContainerView.backgroundColor = UIColor.white
@@ -36,6 +43,13 @@ class QuestionCardTableViewCell: UITableViewCell {
         self.questionContainerView.layer.masksToBounds = false
         
         questionTextLabel.text = question
+        
+
+        //これ三項演算子っていうらしいよ。
+        answerMsgLabel.text = msg ? "回答する" : " "
+        answerIndicator.backgroundColor = UIColor.colorFromRGB(rgb: unanswered ? "FFAA9F" : "94EFBC", alpha: 1.0)
+        
+        self.selectionStyle = UITableViewCellSelectionStyle.none
     }
     
 }

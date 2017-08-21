@@ -33,6 +33,7 @@
 		C196F6EB1F33105D0079929B /* home_icon_50px_50_@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C196F6E91F33105D0079929B /* home_icon_50px_50_@2x.png */; };
 		C196F6EC1F33105D0079929B /* home_icon_50px_100_@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C196F6EA1F33105D0079929B /* home_icon_50px_100_@2x.png */; };
 		C196F6F01F3341480079929B /* LectureSelectingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C196F6EF1F3341480079929B /* LectureSelectingViewController.swift */; };
+		C1AA89791F49E3A20093FF52 /* QuestionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1AA89781F49E3A20093FF52 /* QuestionDetailViewController.swift */; };
 		C1C4F7121F271E08005A4E71 /* AltTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C4F7111F271E08005A4E71 /* AltTabBarController.swift */; };
 		C1C4F7171F272227005A4E71 /* WeatherCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C4F7151F272227005A4E71 /* WeatherCardTableViewCell.swift */; };
 		C1C4F7181F272227005A4E71 /* WeatherCardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1C4F7161F272227005A4E71 /* WeatherCardTableViewCell.xib */; };
@@ -100,6 +101,7 @@
 		C196F6E91F33105D0079929B /* home_icon_50px_50_@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "home_icon_50px_50_@2x.png"; path = "../../../../Downloads/home_icon_50px_50_@2x.png"; sourceTree = "<group>"; };
 		C196F6EA1F33105D0079929B /* home_icon_50px_100_@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "home_icon_50px_100_@2x.png"; path = "../../../../Downloads/home_icon_50px_100_@2x.png"; sourceTree = "<group>"; };
 		C196F6EF1F3341480079929B /* LectureSelectingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LectureSelectingViewController.swift; sourceTree = "<group>"; };
+		C1AA89781F49E3A20093FF52 /* QuestionDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionDetailViewController.swift; sourceTree = "<group>"; };
 		C1C4F7111F271E08005A4E71 /* AltTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AltTabBarController.swift; sourceTree = "<group>"; };
 		C1C4F7151F272227005A4E71 /* WeatherCardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherCardTableViewCell.swift; sourceTree = "<group>"; };
 		C1C4F7161F272227005A4E71 /* WeatherCardTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WeatherCardTableViewCell.xib; sourceTree = "<group>"; };
@@ -240,6 +242,7 @@
 				C117468E1F28F33F00FCBBDA /* LectureSettingViewContoroller.swift */,
 				C196F6EF1F3341480079929B /* LectureSelectingViewController.swift */,
 				C1CEB2FD1F4189930020FC78 /* NewQuestionViewController.swift */,
+				C1AA89781F49E3A20093FF52 /* QuestionDetailViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -632,6 +635,7 @@
 				C196F6F01F3341480079929B /* LectureSelectingViewController.swift in Sources */,
 				C1CEB2FE1F4189930020FC78 /* NewQuestionViewController.swift in Sources */,
 				C1D9D8A81F1B016400FBE298 /* SecondViewController.swift in Sources */,
+				C1AA89791F49E3A20093FF52 /* QuestionDetailViewController.swift in Sources */,
 				C17213CE1F355A6400AB786A /* QuestionWithAnswerCardTableViewCell.swift in Sources */,
 				C1F7E1821F27276B0069D32C /* GetWeatherData.swift in Sources */,
 				C13F6B911F39CE4F00B9B17B /* SurveyResultCardTableViewCell.swift in Sources */,

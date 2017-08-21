@@ -68,6 +68,14 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         getAllVoiceData()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if let indexPathForSelectedRow = voiceTableView.indexPathForSelectedRow {
+            voiceTableView.deselectRow(at: indexPathForSelectedRow, animated: true)
+        }
+
+    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -111,6 +119,22 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
             cell.setQuestionCell(question: testQuestions[indexPath.row][1])
             return cell
         }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if testQuestions[indexPath.row][0] == "0"{
+            performSegue(withIdentifier: "toQuestionDetail", sender: nil)
+        }else if testQuestions[indexPath.row][0] == "1"{
+            performSegue(withIdentifier: "toQuestionDetail", sender: nil)
+        }
+    }
+    
+    //tableViewの一番上に余白を空けるために、セクションヘッダーを追加。
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return UIView()
+    }
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 10.0
     }
     
     //アンケート機能の選択肢タップ時の動作。
