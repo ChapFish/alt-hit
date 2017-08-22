@@ -12,19 +12,25 @@ import SwiftyJSON
 
 class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, TapOptionDeligate {
 
+    
+
     @IBOutlet weak var voiceSearchBar: UISearchBar!
     @IBOutlet weak var voiceTableView: UITableView!
     @IBOutlet weak var newSurbeyButton: UIView!
     @IBOutlet weak var newQuestionButton: UIView!
     @IBOutlet weak var newPostMenu: UIView!
+    @IBOutlet weak var allQuestionButton: UIButton!
+    @IBOutlet weak var unansweredQuestionButton: UIButton!
+    @IBOutlet weak var myQuestionButton: UIButton!
+    @IBOutlet weak var pageIndicator: UIView!
     
     @IBAction func goBack(_ segue:UIStoryboardSegue) {}
-
     
     var question:[String] = []
+    
     var allQuestions:[[String]] = []
     var unansweredQuestions:[[String]] = []
-    let testQuestions:[[String]] = [["0","みなさん毎週どのくらいの時間をゼミの予習に使っていますか？"],["1","今年の一橋祭の参加申し込みはもうありましたか？","はい。夏学期の終わりにありました。これから参加したい場合は委員さんに相談するのをお勧めします。"],["2","ゼミ面接はスーツで行った方がよろしいでしょうか","カジュアルな私服で行った","綺麗めな服装で行った","スーツで行った"],["3","ゼミ面接はスーツで行った方がよろしいでしょうか","カジュアルな私服で行った","綺麗めな服装で行った","スーツで行った"]]
+    var searchResult:[[String]] = []
     
     var newPostMenuFlag = false
     
@@ -70,6 +76,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        //選択されたセルの解除
         if let indexPathForSelectedRow = voiceTableView.indexPathForSelectedRow {
             voiceTableView.deselectRow(at: indexPathForSelectedRow, animated: true)
         }
@@ -83,48 +90,65 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return testQuestions.count
+            return searchResult.count
     }
     
+    //tableViewDeligateの必須プロトコル。
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        switch testQuestions[indexPath.row][0] {
+        switch searchResult[indexPath.row][1] {
         case "0":
+            //[id,status,question]
             let cell = tableView.dequeueReusableCell(withIdentifier: "QuestionCardTableViewCellID", for: indexPath) as! QuestionCardTableViewCell
-            cell.setQuestionCell(question: testQuestions[indexPath.row][1])
+            cell.setQuestionCell(question: searchResult[indexPath.row][2])
             return cell
             
         case "1":
+            //[id,status,question,answer1,answer2...]
             let cell = tableView.dequeueReusableCell(withIdentifier: "QuestionWithAnswerCardTableViewCellID", for: indexPath) as! QuestionWithAnswerCardTableViewCell
-            cell.setQuestionWithAnswerCell(question: testQuestions[indexPath.row][1], answer: testQuestions[indexPath.row][2])
+            cell.setQuestionWithAnswerCell(question: searchResult[indexPath.row][2], answer: searchResult[indexPath.row][3])
             return cell
 
             
         case "2":
+            //[id,status,question,optionCount,option1,option2...]
             let cell = tableView.dequeueReusableCell(withIdentifier: "SurveyQuestionCardTableViewCellID", for: indexPath) as! SurveyQuestionCardTableViewCell
-            let options = [testQuestions[indexPath.row][2],testQuestions[indexPath.row][3],testQuestions[indexPath.row][4]]
-            cell.setSurveyQuestionCell(question: testQuestions[indexPath.row][1], options: options, count: options.count)
+            var options: Array<String> = []
+            if let optionCount = Int(searchResult[indexPath.row][3]){
+                for i in 4 ..< optionCount{
+                    options.append(searchResult[indexPath.row][i])
+                }
+            }
+            cell.setSurveyQuestionCell(question: searchResult[indexPath.row][2], options: options, count: options.count)
             cell.deligate = self
             return cell
             
         case "3":
+            //[id,status,question,optionCount,option1,option2...,answer1,answer2...]
             let cell = tableView.dequeueReusableCell(withIdentifier: "SurveyResultCardTableViewCellID", for: indexPath) as! SurveyResultCardTableViewCell
-            let options = [testQuestions[indexPath.row][2],testQuestions[indexPath.row][3],testQuestions[indexPath.row][4]]
-            let results = [4,8,2]
-            cell.setSurveyResultCell(question: testQuestions[indexPath.row][1], options: options, results: results, count: options.count)
+            var options: Array<String> = []
+            var results: Array<Int> = []
+            if let optionCount = Int(searchResult[indexPath.row][3]){
+                for i in 4 ..< optionCount{
+                    options.append(searchResult[indexPath.row][i])
+                    results.append(Int(searchResult[indexPath.row][i + optionCount])!)
+                }
+            }
+            cell.setSurveyResultCell(question: searchResult[indexPath.row][2], options: options, results: results, count: options.count)
             return cell
-            
+        
+        //書かないわけにはいかないからとりあえず未回答のもので。
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "QuestionCardTableViewCellID", for: indexPath) as! QuestionCardTableViewCell
-            cell.setQuestionCell(question: testQuestions[indexPath.row][1])
+            cell.setQuestionCell(question: searchResult[indexPath.row][2])
             return cell
         }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if testQuestions[indexPath.row][0] == "0"{
+        if searchResult[indexPath.row][1] == "0"{
             performSegue(withIdentifier: "toQuestionDetail", sender: nil)
-        }else if testQuestions[indexPath.row][0] == "1"{
+        }else if searchResult[indexPath.row][2] == "1"{
             performSegue(withIdentifier: "toQuestionDetail", sender: nil)
         }
     }
@@ -142,6 +166,38 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         print(optionID)
     }
     
+    //上部切り替え部分のタップの処理。
+    @IBAction func tapAllQuestionButton(_ sender: Any) {
+        self.allQuestionButton.setTitleColor(UIColor.colorFromRGB(rgb: "13A7A1", alpha: 1.0), for: .normal)
+        self.unansweredQuestionButton.setTitleColor(UIColor.colorFromRGB(rgb: "95989A", alpha: 1.0), for: .normal)
+        self.myQuestionButton.setTitleColor(UIColor.colorFromRGB(rgb: "95989A", alpha: 1.0), for: .normal)
+        UIView.animate(withDuration: 0.3, animations: {
+            self.pageIndicator.center.x = UIScreen.main.bounds.size.width / 6
+        }){_ in
+            self.pageIndicator.center.x = UIScreen.main.bounds.size.width / 6
+        }
+    }
+    @IBAction func tapUnansweredQuestionButton(_ sender: Any) {
+        self.allQuestionButton.setTitleColor(UIColor.colorFromRGB(rgb: "95989A", alpha: 1.0), for: .normal)
+        self.unansweredQuestionButton.setTitleColor(UIColor.colorFromRGB(rgb: "13A7A1", alpha: 1.0), for: .normal)
+        self.myQuestionButton.setTitleColor(UIColor.colorFromRGB(rgb: "95989A", alpha: 1.0), for: .normal)
+        UIView.animate(withDuration: 0.3, animations: {
+            self.pageIndicator.center.x = UIScreen.main.bounds.size.width / 2
+        }){_ in
+            self.pageIndicator.center.x = UIScreen.main.bounds.size.width / 2
+        }
+    }
+    @IBAction func tapMyQuestionButton(_ sender: Any) {
+        self.allQuestionButton.setTitleColor(UIColor.colorFromRGB(rgb: "95989A", alpha: 1.0), for: .normal)
+        self.unansweredQuestionButton.setTitleColor(UIColor.colorFromRGB(rgb: "95989A", alpha: 1.0), for: .normal)
+        self.myQuestionButton.setTitleColor(UIColor.colorFromRGB(rgb: "13A7A1", alpha: 1.0), for: .normal)
+        UIView.animate(withDuration: 0.3, animations: {
+            self.pageIndicator.center.x = UIScreen.main.bounds.size.width * 5 / 6
+        }){_ in
+            self.pageIndicator.center.x = UIScreen.main.bounds.size.width * 5 / 6
+        }
+    }
+
     //右下部のボタン押下処理。
     func tapNewPostMenu(sender: UITapGestureRecognizer){
         if newPostMenuFlag {
@@ -169,7 +225,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     //fechの処理。
     func getAllVoiceData(){
-        Alamofire.request("https://54ca5c07.ngrok.io/voice/voices"/*, parameters: ["":""]*/).responseJSON{response in
+        Alamofire.request("https://server.project-alt.tech/api/voice", parameters: ["":""]).responseJSON{response in
             guard let object = response.result.value else{
                 print("error")
                 return
@@ -206,8 +262,10 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 
                 self.allQuestions.append(self.question)
             }
-            //self.voiceTableView.reloadData()
             print(self.allQuestions)
+
+            self.searchResult = self.allQuestions
+            self.voiceTableView.reloadData()
         }
     }
     

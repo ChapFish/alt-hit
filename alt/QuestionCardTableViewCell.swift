@@ -25,7 +25,7 @@ class QuestionCardTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
         if selected {
-            questionContainerView.alpha = 0.5
+            questionContainerView.alpha = 0.8
         } else {
             questionContainerView.alpha = 1.0
         }

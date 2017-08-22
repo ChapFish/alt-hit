@@ -14,7 +14,7 @@ class QuestionDetailViewController: UIViewController, UITextFieldDelegate, UITab
     @IBOutlet weak var inputContainerView: UIView!
     @IBOutlet weak var inputContainerViewBottom: NSLayoutConstraint!
     
-    var questionAndAnswers:Array<String> = ["123", "0", "ゼミ面接はスーツで行ったほうがいいんでしょうか。"]
+    var questionAndAnswers:Array<String> = ["123", "0", "ゼミ面接はスーツで行ったほうがいいんでしょうか。","そのほうがいいと思います（商学部）","私は私服で行きましたが問題ありませんでしたよ！先生も、スーツで来られるとかたい雰囲気になるからむしろ私服で来て欲しいとおっしゃっていました！"]
     //[id,status,question,answer1,answer2...]
     var question:String = ""
     var answers:Array<String> = []
@@ -25,6 +25,7 @@ class QuestionDetailViewController: UIViewController, UITextFieldDelegate, UITab
 
         // Do any additional setup after loading the view.
         self.questionDetailTableView.register(UINib(nibName: "QuestionCardTableViewCell", bundle:nil), forCellReuseIdentifier: "QuestionCardTableViewCellID")
+        self.questionDetailTableView.register(UINib(nibName: "AnswerCardTableViewCell", bundle:nil), forCellReuseIdentifier: "AnswerCardTableViewCellID")
         
         // キーボードが開いたことを伝えてadjustForKeyboardを起動。
         NotificationCenter.default.addObserver(self, selector: #selector(adjustForKeyboard), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
@@ -57,9 +58,16 @@ class QuestionDetailViewController: UIViewController, UITextFieldDelegate, UITab
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "QuestionCardTableViewCellID", for: indexPath) as! QuestionCardTableViewCell
-        cell.setQuestionCell(question: question, unanswered: unanswered, msg: false)
-        return cell
+        
+        if indexPath.row == 0{
+            let cell = tableView.dequeueReusableCell(withIdentifier: "QuestionCardTableViewCellID", for: indexPath) as! QuestionCardTableViewCell
+            cell.setQuestionCell(question: question, unanswered: unanswered, msg: false)
+            return cell
+        }else{
+            let cell = tableView.dequeueReusableCell(withIdentifier: "AnswerCardTableViewCellID", for: indexPath) as! AnswerCardTableViewCell
+            cell.setAnswerCell(answer: answers[indexPath.row - 1])
+            return cell
+        }
     }
     
     //tableViewの一番上に余白を空けるために、セクションヘッダーを追加。
