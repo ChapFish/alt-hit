@@ -39,9 +39,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         // Do any additional setup after loading the view, typically from a nib.
         self.voiceTableView.register(UINib(nibName: "QuestionWithAnswerCardTableViewCell", bundle:nil), forCellReuseIdentifier: "QuestionWithAnswerCardTableViewCellID")
         self.voiceTableView.register(UINib(nibName: "QuestionCardTableViewCell", bundle:nil), forCellReuseIdentifier: "QuestionCardTableViewCellID")
-        self.voiceTableView.register(UINib(nibName: "SurveyQuestionCardTableViewCell", bundle:nil), forCellReuseIdentifier: "SurveyQuestionCardTableViewCellID")
-        self.voiceTableView.register(UINib(nibName: "SurveyResultCardTableViewCell", bundle:nil), forCellReuseIdentifier: "SurveyResultCardTableViewCellID")
-
+        self.voiceTableView.register(UINib(nibName: "TwoOptionCardTableViewCell", bundle:nil), forCellReuseIdentifier: "TwoOptionCardTableViewCellID")
         
         //TableViewの初期設定
         self.voiceTableView.estimatedRowHeight = 200
@@ -112,15 +110,14 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
             
         case "2":
             //[id,status,question,optionCount,option1,option2...]
-            let cell = tableView.dequeueReusableCell(withIdentifier: "SurveyQuestionCardTableViewCellID", for: indexPath) as! SurveyQuestionCardTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "TwoOptionCardTableViewCellID", for: indexPath) as! TwoOptionCardTableViewCell
             var options: Array<String> = []
             if let optionCount = Int(searchResult[indexPath.row][3]){
-                for i in 4 ..< optionCount{
+                for i in 4 ..< 4 + optionCount{
                     options.append(searchResult[indexPath.row][i])
                 }
             }
-            cell.setSurveyQuestionCell(question: searchResult[indexPath.row][2], options: options, count: options.count)
-            cell.deligate = self
+            cell.setTwoOptionCell(question: "ゼミ面接", options: ["スーツ","私服"], results: [5,8], userAnswered: false)
             return cell
             
         case "3":
@@ -129,7 +126,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
             var options: Array<String> = []
             var results: Array<Int> = []
             if let optionCount = Int(searchResult[indexPath.row][3]){
-                for i in 4 ..< optionCount{
+                for i in 4 ..< 4 + optionCount{
                     options.append(searchResult[indexPath.row][i])
                     results.append(Int(searchResult[indexPath.row][i + optionCount])!)
                 }
@@ -148,7 +145,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if searchResult[indexPath.row][1] == "0"{
             performSegue(withIdentifier: "toQuestionDetail", sender: nil)
-        }else if searchResult[indexPath.row][2] == "1"{
+        }else if searchResult[indexPath.row][1] == "1"{
             performSegue(withIdentifier: "toQuestionDetail", sender: nil)
         }
     }
@@ -181,6 +178,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.allQuestionButton.setTitleColor(UIColor.colorFromRGB(rgb: "95989A", alpha: 1.0), for: .normal)
         self.unansweredQuestionButton.setTitleColor(UIColor.colorFromRGB(rgb: "13A7A1", alpha: 1.0), for: .normal)
         self.myQuestionButton.setTitleColor(UIColor.colorFromRGB(rgb: "95989A", alpha: 1.0), for: .normal)
+        getUnansweredData()
         UIView.animate(withDuration: 0.3, animations: {
             self.pageIndicator.center.x = UIScreen.main.bounds.size.width / 2
         }){_ in
@@ -225,7 +223,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     //fechの処理。
     func getAllVoiceData(){
-        Alamofire.request("https://server.project-alt.tech/api/voice", parameters: ["":""]).responseJSON{response in
+        Alamofire.request("https://server.project-alt.tech/api/voice/voices", parameters: ["tab":"0"]).responseJSON{response in
             guard let object = response.result.value else{
                 print("error")
                 return
@@ -270,7 +268,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func getUnansweredData(){
-        Alamofire.request("URL", parameters: ["":""]).responseJSON{response in
+        Alamofire.request("https://server.project-alt.tech/api/voice/voices", parameters: ["tab":"1"]).responseJSON{response in
             guard let object = response.result.value else{
                 print("error")
                 return
@@ -283,7 +281,10 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 self.question.append(json["text"].stringValue)
                 self.unansweredQuestions.append(self.question)
             }
+            self.searchResult = self.unansweredQuestions
+            self.voiceTableView.reloadData()
         }
+        
     }
     
 }
