@@ -50,6 +50,7 @@
 		C1D9D8C61F1B016500FBE298 /* altUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D9D8C51F1B016500FBE298 /* altUITests.swift */; };
 		C1D9D8D71F1B053400FBE298 /* LectureCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D9D8D51F1B053400FBE298 /* LectureCardTableViewCell.swift */; };
 		C1D9D8D81F1B053400FBE298 /* LectureCardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1D9D8D61F1B053400FBE298 /* LectureCardTableViewCell.xib */; };
+		C1EDA0721F52928400748316 /* NewSurveyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1EDA0711F52928400748316 /* NewSurveyViewController.swift */; };
 		C1F7E1821F27276B0069D32C /* GetWeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F7E1811F27276B0069D32C /* GetWeatherData.swift */; };
 		C1F7E1841F2736670069D32C /* altoLogo2AppIcon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C1F7E1831F2736670069D32C /* altoLogo2AppIcon.jpg */; };
 /* End PBXBuildFile section */
@@ -124,6 +125,7 @@
 		C1D9D8C71F1B016500FBE298 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C1D9D8D51F1B053400FBE298 /* LectureCardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LectureCardTableViewCell.swift; sourceTree = "<group>"; };
 		C1D9D8D61F1B053400FBE298 /* LectureCardTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LectureCardTableViewCell.xib; sourceTree = "<group>"; };
+		C1EDA0711F52928400748316 /* NewSurveyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewSurveyViewController.swift; sourceTree = "<group>"; };
 		C1F7E1811F27276B0069D32C /* GetWeatherData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetWeatherData.swift; sourceTree = "<group>"; };
 		C1F7E1831F2736670069D32C /* altoLogo2AppIcon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = altoLogo2AppIcon.jpg; path = ../../00_logo/altoLogo2AppIcon.jpg; sourceTree = "<group>"; };
 		E7F2372B74D8786B17055A6B /* Pods-altUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-altUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-altUITests/Pods-altUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -242,6 +244,7 @@
 				C117468E1F28F33F00FCBBDA /* LectureSettingViewContoroller.swift */,
 				C196F6EF1F3341480079929B /* LectureSelectingViewController.swift */,
 				C1CEB2FD1F4189930020FC78 /* NewQuestionViewController.swift */,
+				C1EDA0711F52928400748316 /* NewSurveyViewController.swift */,
 				C1AA89781F49E3A20093FF52 /* QuestionDetailViewController.swift */,
 			);
 			name = Controllers;
@@ -640,6 +643,7 @@
 				C1F7E1821F27276B0069D32C /* GetWeatherData.swift in Sources */,
 				C117468F1F28F33F00FCBBDA /* LectureSettingViewContoroller.swift in Sources */,
 				C1D9D8A41F1B016400FBE298 /* AppDelegate.swift in Sources */,
+				C1EDA0721F52928400748316 /* NewSurveyViewController.swift in Sources */,
 				C1D9D8D71F1B053400FBE298 /* LectureCardTableViewCell.swift in Sources */,
 				C126B4811F4B25D70080ADF6 /* AnswerCardTableViewCell.swift in Sources */,
 				C15EFF6C1F29DAEC0029593E /* UIView+setGradientLayer.swift in Sources */,

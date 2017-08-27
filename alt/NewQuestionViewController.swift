@@ -15,7 +15,7 @@ class NewQuestionViewController: UIViewController, UITextViewDelegate {
         guard let submitQuestionText = newQuestionTextView.text else{
             return
         }
-        let parameters:Parameters = ["kind":"0","text":"\(submitQuestionText)","user_id":"12345"]
+        let parameters:Parameters = ["kind":"0","text":submitQuestionText,"user_id":"12345"]
         Alamofire.request("https://server.project-alt.tech/api/voice/questions", method: .post, parameters: parameters).responseJSON{ response in
             if let json = response.result.value{
                 print(json)
@@ -25,12 +25,14 @@ class NewQuestionViewController: UIViewController, UITextViewDelegate {
         }
         performSegue(withIdentifier: "goBackVoice", sender: nil)
     }
+    
     @IBAction func tapCancelButton(_ sender: Any) {
         performSegue(withIdentifier: "goBackVoice", sender: nil)
     }
     
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var newQuestionTextView: UITextView!
+    @IBOutlet weak var newQuestionContainerView: UIView!
     @IBOutlet weak var textCountLabel: UILabel!
     
     var textCount:Int = 0
@@ -40,6 +42,12 @@ class NewQuestionViewController: UIViewController, UITextViewDelegate {
 
         // Do any additional setup after loading the view.
         submitButton.isEnabled = false
+        
+        self.newQuestionContainerView.addCardShadow()
+        self.newQuestionContainerView.layer.shadowPath = UIBezierPath(rect: self.newQuestionContainerView.bounds).cgPath
+        self.newQuestionContainerView.layer.shouldRasterize = true
+        self.newQuestionContainerView.layer.rasterizationScale = UIScreen.main.scale
+        self.newQuestionContainerView.layer.masksToBounds = false
     }
 
     override func didReceiveMemoryWarning() {

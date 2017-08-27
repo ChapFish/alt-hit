@@ -70,6 +70,10 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         newQuestionButtonTap.numberOfTapsRequired = 1
         self.newQuestionButton.addGestureRecognizer(newQuestionButtonTap)
         
+        let newSurveyButtonTap = UITapGestureRecognizer(target: self, action: #selector(SecondViewController.tapNewSueveyButton(sender:)))
+        newSurveyButtonTap.numberOfTapsRequired = 1
+        self.newSurbeyButton.addGestureRecognizer(newSurveyButtonTap)
+        
         getAllVoiceData()
     }
     
@@ -122,7 +126,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
             
         case "3":
             //[id,status,question,optionCount,option1,option2...,answer1,answer2...]
-            let cell = tableView.dequeueReusableCell(withIdentifier: "SurveyResultCardTableViewCellID", for: indexPath) as! SurveyResultCardTableViewCell
+           let cell = tableView.dequeueReusableCell(withIdentifier: "TwoOptionCardTableViewCellID", for: indexPath) as! TwoOptionCardTableViewCell
             var options: Array<String> = []
             var results: Array<Int> = []
             if let optionCount = Int(searchResult[indexPath.row][3]){
@@ -131,8 +135,8 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
                     results.append(Int(searchResult[indexPath.row][i + optionCount])!)
                 }
             }
-            cell.setSurveyResultCell(question: searchResult[indexPath.row][2], options: options, results: results, count: options.count)
-            return cell
+           cell.setTwoOptionCell(question: "ゼミ面接", options: ["スーツ","私服"], results: [5,8], userAnswered: true)
+           return cell
         
         //書かないわけにはいかないからとりあえず未回答のもので。
         default:
@@ -219,6 +223,10 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tapNewQuestionButton(sender: UITapGestureRecognizer){
         self.performSegue(withIdentifier: "toNewQuestion", sender: nil)
+    }
+    
+    func tapNewSueveyButton(sender: UITapGestureRecognizer){
+        self.performSegue(withIdentifier: "toNewSurvey", sender: nil)
     }
     
     //fechの処理。
