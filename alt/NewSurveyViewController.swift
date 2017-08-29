@@ -26,10 +26,14 @@ class NewSurveyViewController: UIViewController, UITextViewDelegate, UITextField
             submitOptions.append(bSubmitOption)
         }
         if let cSubmitOption = cOption.text{
-            submitOptions.append(cSubmitOption)
+            if cSubmitOption != ""{
+                submitOptions.append(cSubmitOption)
+            }
         }
         if let dSubmitOption = dOption.text{
-            submitOptions.append(dSubmitOption)
+            if dSubmitOption != ""{
+                submitOptions.append(dSubmitOption)
+            }
         }
         
         let parameters:Parameters = ["kind":"1","text":submitQuestionText,"user_id":"12345","options":submitOptions]

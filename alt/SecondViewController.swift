@@ -40,6 +40,9 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.voiceTableView.register(UINib(nibName: "QuestionWithAnswerCardTableViewCell", bundle:nil), forCellReuseIdentifier: "QuestionWithAnswerCardTableViewCellID")
         self.voiceTableView.register(UINib(nibName: "QuestionCardTableViewCell", bundle:nil), forCellReuseIdentifier: "QuestionCardTableViewCellID")
         self.voiceTableView.register(UINib(nibName: "TwoOptionCardTableViewCell", bundle:nil), forCellReuseIdentifier: "TwoOptionCardTableViewCellID")
+        self.voiceTableView.register(UINib(nibName: "ThreeOptionCardTableViewCell", bundle:nil), forCellReuseIdentifier: "ThreeOptionCardTableViewCellID")
+        self.voiceTableView.register(UINib(nibName: "FourOptionCardTableViewCell", bundle:nil), forCellReuseIdentifier: "FourOptionCardTableViewCellID")
+
         
         //TableViewの初期設定
         self.voiceTableView.estimatedRowHeight = 200
@@ -113,31 +116,40 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
             
         case "2":
-            //[id,status,question,optionCount,option1,option2...]
-            let cell = tableView.dequeueReusableCell(withIdentifier: "TwoOptionCardTableViewCellID", for: indexPath) as! TwoOptionCardTableViewCell
+            //[id,status,question,optionCount,user_answered_flag,option1,option2...]
+            //選択肢と回答を使える状態に整形。
             var options: Array<String> = []
+            var results:Array<Int> = []
             if let optionCount = Int(searchResult[indexPath.row][3]){
-                for i in 4 ..< 4 + optionCount{
-                    options.append(searchResult[indexPath.row][i])
-                }
-            }
-            cell.setTwoOptionCell(question: "ゼミ面接", options: ["スーツ","私服"], results: [5,8], userAnswered: false)
-            return cell
-            
-        case "3":
-            //[id,status,question,optionCount,option1,option2...,answer1,answer2...]
-           let cell = tableView.dequeueReusableCell(withIdentifier: "TwoOptionCardTableViewCellID", for: indexPath) as! TwoOptionCardTableViewCell
-            var options: Array<String> = []
-            var results: Array<Int> = []
-            if let optionCount = Int(searchResult[indexPath.row][3]){
-                for i in 4 ..< 4 + optionCount{
+                for i in 5 ..< 5 + optionCount{
                     options.append(searchResult[indexPath.row][i])
                     results.append(Int(searchResult[indexPath.row][i + optionCount])!)
                 }
             }
-           cell.setTwoOptionCell(question: "ゼミ面接", options: ["スーツ","私服"], results: [5,8], userAnswered: true)
-           return cell
-        
+            
+            switch searchResult[indexPath.row][3] {
+            
+            case "2":
+                let cell = tableView.dequeueReusableCell(withIdentifier: "TwoOptionCardTableViewCellID", for: indexPath) as! TwoOptionCardTableViewCell
+                cell.setTwoOptionCell(question: searchResult[indexPath.row][2], options: options, results: results, userAnswered: Bool(searchResult[indexPath.row][4])!)
+                return cell
+
+            case "3":
+                let cell = tableView.dequeueReusableCell(withIdentifier: "ThreeOptionCardTableViewCellID", for: indexPath) as! ThreeOptionCardTableViewCell
+                cell.setThreeOptionCell(question: searchResult[indexPath.row][2], options: options, results: results, userAnswered: Bool(searchResult[indexPath.row][4])!)
+                return cell
+
+            case "4":
+                let cell = tableView.dequeueReusableCell(withIdentifier: "FourOptionCardTableViewCellID", for: indexPath) as! FourOptionCardTableViewCell
+                cell.setFourOptionCell(question: searchResult[indexPath.row][2], options: options, results: results, userAnswered: Bool(searchResult[indexPath.row][4])!)
+                return cell
+                
+            default:
+                let cell = tableView.dequeueReusableCell(withIdentifier: "TwoOptionCardTableViewCellID", for: indexPath) as! TwoOptionCardTableViewCell
+                cell.setTwoOptionCell(question: searchResult[indexPath.row][2], options: options, results: results, userAnswered: Bool(searchResult[indexPath.row][4])!)
+                return cell
+            }
+            
         //書かないわけにはいかないからとりあえず未回答のもので。
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "QuestionCardTableViewCellID", for: indexPath) as! QuestionCardTableViewCell
@@ -257,6 +269,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
                     }
                 }else if questionStatus == 2{
                     self.question.append(String(json["option_count"].intValue))
+                    self.question.append(String(json["user_answered_flag"].boolValue))
                     for i in 0 ..< json["option_count"].intValue{
                         self.question.append(json["enquete"][i]["option"].stringValue)
                     }
