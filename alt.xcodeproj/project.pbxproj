@@ -26,6 +26,10 @@
 		C17213CF1F355A6400AB786A /* QuestionWithAnswerCardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C17213CD1F355A6400AB786A /* QuestionWithAnswerCardTableViewCell.xib */; };
 		C17213D21F36C43400AB786A /* QuestionCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17213D01F36C43400AB786A /* QuestionCardTableViewCell.swift */; };
 		C17213D31F36C43400AB786A /* QuestionCardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C17213D11F36C43400AB786A /* QuestionCardTableViewCell.xib */; };
+		C174511F1F556E4100C0B0B6 /* ThreeOptionCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C174511D1F556E4100C0B0B6 /* ThreeOptionCardTableViewCell.swift */; };
+		C17451201F556E4100C0B0B6 /* ThreeOptionCardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C174511E1F556E4100C0B0B6 /* ThreeOptionCardTableViewCell.xib */; };
+		C17451231F5573CA00C0B0B6 /* FourOptionCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17451211F5573CA00C0B0B6 /* FourOptionCardTableViewCell.swift */; };
+		C17451241F5573CA00C0B0B6 /* FourOptionCardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C17451221F5573CA00C0B0B6 /* FourOptionCardTableViewCell.xib */; };
 		C178C4C01F1B70A10089BAFF /* UIColor+colorFromRGB.swift in Sources */ = {isa = PBXBuildFile; fileRef = C178C4BF1F1B70A10089BAFF /* UIColor+colorFromRGB.swift */; };
 		C17E96281F39B4C9000C8DFF /* TabOptionDeligateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17E96271F39B4C9000C8DFF /* TabOptionDeligateProtocol.swift */; };
 		C196F6E41F330BB80079929B /* voice_icon_50px_100@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C196F6E21F330BB80079929B /* voice_icon_50px_100@2x.png */; };
@@ -95,6 +99,10 @@
 		C17213CD1F355A6400AB786A /* QuestionWithAnswerCardTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuestionWithAnswerCardTableViewCell.xib; sourceTree = "<group>"; };
 		C17213D01F36C43400AB786A /* QuestionCardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionCardTableViewCell.swift; sourceTree = "<group>"; };
 		C17213D11F36C43400AB786A /* QuestionCardTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuestionCardTableViewCell.xib; sourceTree = "<group>"; };
+		C174511D1F556E4100C0B0B6 /* ThreeOptionCardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThreeOptionCardTableViewCell.swift; sourceTree = "<group>"; };
+		C174511E1F556E4100C0B0B6 /* ThreeOptionCardTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThreeOptionCardTableViewCell.xib; sourceTree = "<group>"; };
+		C17451211F5573CA00C0B0B6 /* FourOptionCardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FourOptionCardTableViewCell.swift; sourceTree = "<group>"; };
+		C17451221F5573CA00C0B0B6 /* FourOptionCardTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FourOptionCardTableViewCell.xib; sourceTree = "<group>"; };
 		C178C4BF1F1B70A10089BAFF /* UIColor+colorFromRGB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+colorFromRGB.swift"; sourceTree = "<group>"; };
 		C17E96271F39B4C9000C8DFF /* TabOptionDeligateProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabOptionDeligateProtocol.swift; sourceTree = "<group>"; };
 		C196F6E21F330BB80079929B /* voice_icon_50px_100@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "voice_icon_50px_100@2x.png"; path = "../../../../Downloads/voice_icon_50px_100@2x.png"; sourceTree = "<group>"; };
@@ -230,6 +238,10 @@
 				C126B4801F4B25D70080ADF6 /* AnswerCardTableViewCell.xib */,
 				C11F519E1F4D62E5005D70E3 /* TwoOptionCardTableViewCell.swift */,
 				C11F519F1F4D62E5005D70E3 /* TwoOptionCardTableViewCell.xib */,
+				C174511D1F556E4100C0B0B6 /* ThreeOptionCardTableViewCell.swift */,
+				C174511E1F556E4100C0B0B6 /* ThreeOptionCardTableViewCell.xib */,
+				C17451211F5573CA00C0B0B6 /* FourOptionCardTableViewCell.swift */,
+				C17451221F5573CA00C0B0B6 /* FourOptionCardTableViewCell.xib */,
 			);
 			name = voice;
 			sourceTree = "<group>";
@@ -457,8 +469,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C17451241F5573CA00C0B0B6 /* FourOptionCardTableViewCell.xib in Resources */,
 				C1C4F7181F272227005A4E71 /* WeatherCardTableViewCell.xib in Resources */,
 				C1D9D8B01F1B016400FBE298 /* LaunchScreen.storyboard in Resources */,
+				C17451201F556E4100C0B0B6 /* ThreeOptionCardTableViewCell.xib in Resources */,
 				C196F6E41F330BB80079929B /* voice_icon_50px_100@2x.png in Resources */,
 				C196F6EC1F33105D0079929B /* home_icon_50px_100_@2x.png in Resources */,
 				C196F6EB1F33105D0079929B /* home_icon_50px_50_@2x.png in Resources */,
@@ -636,6 +650,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C196F6F01F3341480079929B /* LectureSelectingViewController.swift in Sources */,
+				C174511F1F556E4100C0B0B6 /* ThreeOptionCardTableViewCell.swift in Sources */,
 				C1CEB2FE1F4189930020FC78 /* NewQuestionViewController.swift in Sources */,
 				C1D9D8A81F1B016400FBE298 /* SecondViewController.swift in Sources */,
 				C1AA89791F49E3A20093FF52 /* QuestionDetailViewController.swift in Sources */,
@@ -646,6 +661,7 @@
 				C1EDA0721F52928400748316 /* NewSurveyViewController.swift in Sources */,
 				C1D9D8D71F1B053400FBE298 /* LectureCardTableViewCell.swift in Sources */,
 				C126B4811F4B25D70080ADF6 /* AnswerCardTableViewCell.swift in Sources */,
+				C17451231F5573CA00C0B0B6 /* FourOptionCardTableViewCell.swift in Sources */,
 				C15EFF6C1F29DAEC0029593E /* UIView+setGradientLayer.swift in Sources */,
 				C1CE9A711F1E536600B9EE0D /* TextCardTableViewCell.swift in Sources */,
 				C117DE6A1F20DB0D00E3BCB7 /* UIView+addCardShadow.swift in Sources */,
