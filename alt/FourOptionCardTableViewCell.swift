@@ -11,7 +11,9 @@ import UIKit
 class FourOptionCardTableViewCell: UITableViewCell {
 
     var deligate: TapOptionDeligate?
-
+    var questionID: Int = 0
+    var indexAtTable: Int = 0
+    
     @IBOutlet weak var surveyContainerView: UIView!
     @IBOutlet weak var answerIndicator: UIView!
     @IBOutlet weak var questionContainerView: UIView!
@@ -62,10 +64,10 @@ class FourOptionCardTableViewCell: UITableViewCell {
         bOptionLabel.text = options[1]
         cOptionLabel.text = options[2]
         dOptionLabel.text = options[3]
-        aOptionValue.text = "\(Int(round(Double(results[0])/Double(resultSum)*100)))%"
-        bOptionValue.text = "\(Int(round(Double(results[1])/Double(resultSum)*100)))%"
-        cOptionValue.text = "\(Int(round(Double(results[2])/Double(resultSum)*100)))%"
-        dOptionValue.text = "\(Int(round(Double(results[3])/Double(resultSum)*100)))%"
+        aOptionValue.text = "\(resultSum == 0 ? 0 : Int(round(Double(results[0])/Double(resultSum)*100)))%"
+        bOptionValue.text = "\(resultSum == 0 ? 0 : Int(round(Double(results[1])/Double(resultSum)*100)))%"
+        cOptionValue.text = "\(resultSum == 0 ? 0 : Int(round(Double(results[2])/Double(resultSum)*100)))%"
+        dOptionValue.text = "\(resultSum == 0 ? 0 : Int(round(Double(results[3])/Double(resultSum)*100)))%"
         
         if userAnswered {
             for i in 0...3{
@@ -118,7 +120,7 @@ class FourOptionCardTableViewCell: UITableViewCell {
         UIView.animate(withDuration: 0.2, animations: {
             sender.view?.alpha = 0.5
         })
-        self.deligate?.getOptionID(optionID: (sender.view?.tag)!)
+        self.deligate?.getOptionID(optionIndex: (sender.view?.tag)!, questionID: questionID, indexAtTable: indexAtTable)
     }
     
 }

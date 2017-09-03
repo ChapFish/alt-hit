@@ -9,5 +9,5 @@
 import Foundation
 
 protocol TapOptionDeligate {
-    func getOptionID(optionID: Int) -> Void
+    func getOptionID(optionIndex: Int, questionID:Int, indexAtTable:Int) -> Void
 }

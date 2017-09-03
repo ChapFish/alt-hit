@@ -11,6 +11,8 @@ import UIKit
 class TwoOptionCardTableViewCell: UITableViewCell {
     
     var deligate: TapOptionDeligate?
+    var questionID: Int = 0
+    var indexAtTable: Int = 0
 
     @IBOutlet weak var surveyContainerView: UIView!
     @IBOutlet weak var answerIndicator: UIView!
@@ -56,8 +58,8 @@ class TwoOptionCardTableViewCell: UITableViewCell {
         
         aOptionLabel.text = options[0]
         bOptionLabel.text = options[1]
-        aOptionValue.text = "\(Int(round(Double(results[0])/Double(resultSum)*100)))%"
-        bOptionValue.text = "\(Int(round(Double(results[1])/Double(resultSum)*100)))%"
+        aOptionValue.text = "\(resultSum == 0 ? 0 : Int(round(Double(results[0])/Double(resultSum)*100)))%"
+        bOptionValue.text = "\(resultSum == 0 ? 0 : Int(round(Double(results[1])/Double(resultSum)*100)))%"
 
         if userAnswered {
             for i in 0...1{
@@ -102,7 +104,7 @@ class TwoOptionCardTableViewCell: UITableViewCell {
         UIView.animate(withDuration: 0.2, animations: {
             sender.view?.alpha = 0.5
         })
-        self.deligate?.getOptionID(optionID: (sender.view?.tag)!)
+        self.deligate?.getOptionID(optionIndex: (sender.view?.tag)!, questionID: questionID, indexAtTable: indexAtTable)
     }
 
 }

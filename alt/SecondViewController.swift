@@ -6,14 +6,15 @@
 //  Copyright © 2017年 Kota Okada. All rights reserved.
 //
 
+
 import UIKit
 import Alamofire
 import SwiftyJSON
 
 class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, TapOptionDeligate {
 
+    let userdefaults = UserDefaults.standard
     
-
     @IBOutlet weak var voiceSearchBar: UISearchBar!
     @IBOutlet weak var voiceTableView: UITableView!
     @IBOutlet weak var newSurbeyButton: UIView!
@@ -27,12 +28,18 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBAction func goBack(_ segue:UIStoryboardSegue) {}
     
     var question:[String] = []
+    var questionValue:[Int] = []
     
     var allQuestions:[[String]] = []
+    var allQuestionsValue:[[Int]] = []
     var unansweredQuestions:[[String]] = []
+    var unansweredQuestionsValue:[[Int]] = []
+    
     var searchResult:[[String]] = []
+    var searchResultValue:[[Int]] = []
     
     var newPostMenuFlag = false
+    var tabStatus = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -98,7 +105,6 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
             return searchResult.count
     }
     
-    //tableViewDeligateの必須プロトコル。
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         switch searchResult[indexPath.row][1] {
@@ -117,36 +123,50 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
             
         case "2":
             //[id,status,question,optionCount,user_answered_flag,option1,option2...]
+            //[value1, value2...]
             //選択肢と回答を使える状態に整形。
             var options: Array<String> = []
             var results:Array<Int> = []
             if let optionCount = Int(searchResult[indexPath.row][3]){
                 for i in 5 ..< 5 + optionCount{
                     options.append(searchResult[indexPath.row][i])
-                    results.append(Int(searchResult[indexPath.row][i + optionCount])!)
                 }
             }
-            
+            results = searchResultValue[indexPath.row]
+
             switch searchResult[indexPath.row][3] {
             
             case "2":
                 let cell = tableView.dequeueReusableCell(withIdentifier: "TwoOptionCardTableViewCellID", for: indexPath) as! TwoOptionCardTableViewCell
                 cell.setTwoOptionCell(question: searchResult[indexPath.row][2], options: options, results: results, userAnswered: Bool(searchResult[indexPath.row][4])!)
+                cell.questionID = Int(searchResult[indexPath.row][0])!
+                cell.indexAtTable = indexPath.row
+                cell.deligate = self
                 return cell
 
             case "3":
                 let cell = tableView.dequeueReusableCell(withIdentifier: "ThreeOptionCardTableViewCellID", for: indexPath) as! ThreeOptionCardTableViewCell
                 cell.setThreeOptionCell(question: searchResult[indexPath.row][2], options: options, results: results, userAnswered: Bool(searchResult[indexPath.row][4])!)
+                cell.questionID = Int(searchResult[indexPath.row][0])!
+                cell.indexAtTable = indexPath.row
+                cell.deligate = self
                 return cell
 
             case "4":
                 let cell = tableView.dequeueReusableCell(withIdentifier: "FourOptionCardTableViewCellID", for: indexPath) as! FourOptionCardTableViewCell
                 cell.setFourOptionCell(question: searchResult[indexPath.row][2], options: options, results: results, userAnswered: Bool(searchResult[indexPath.row][4])!)
+                cell.questionID = Int(searchResult[indexPath.row][0])!
+                cell.indexAtTable = indexPath.row
+                cell.deligate = self
                 return cell
                 
             default:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "TwoOptionCardTableViewCellID", for: indexPath) as! TwoOptionCardTableViewCell
                 cell.setTwoOptionCell(question: searchResult[indexPath.row][2], options: options, results: results, userAnswered: Bool(searchResult[indexPath.row][4])!)
+                cell.questionID = Int(searchResult[indexPath.row][0])!
+                cell.indexAtTable = indexPath.row
+                cell.deligate = self
+
                 return cell
             }
             
@@ -175,33 +195,55 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     //アンケート機能の選択肢タップ時の動作。
-    func getOptionID(optionID: Int) {
-        print(optionID)
+    func getOptionID(optionIndex: Int, questionID: Int, indexAtTable:Int) {
+        answerSurvey(userID: 12345, questionID: questionID, optionIndex: optionIndex)
+        searchResult[indexAtTable][4] = "true"
+        searchResultValue[indexAtTable][optionIndex - 1] += 1
+        let row = [IndexPath(row: indexAtTable, section: 0)]
+        voiceTableView.reloadRows(at: row, with: UITableViewRowAnimation.fade)
+        print(optionIndex, questionID, indexAtTable)
     }
     
     //上部切り替え部分のタップの処理。
+    //全質問表示のボタン
     @IBAction func tapAllQuestionButton(_ sender: Any) {
+        tabStatus = 0
         self.allQuestionButton.setTitleColor(UIColor.colorFromRGB(rgb: "13A7A1", alpha: 1.0), for: .normal)
         self.unansweredQuestionButton.setTitleColor(UIColor.colorFromRGB(rgb: "95989A", alpha: 1.0), for: .normal)
         self.myQuestionButton.setTitleColor(UIColor.colorFromRGB(rgb: "95989A", alpha: 1.0), for: .normal)
+        if allQuestions.isEmpty {
+            getAllVoiceData()
+        }else{
+            searchResult = allQuestions
+            voiceTableView.reloadData()
+        }
         UIView.animate(withDuration: 0.3, animations: {
             self.pageIndicator.center.x = UIScreen.main.bounds.size.width / 6
         }){_ in
             self.pageIndicator.center.x = UIScreen.main.bounds.size.width / 6
         }
     }
+    //未回答質問表示のボタン
     @IBAction func tapUnansweredQuestionButton(_ sender: Any) {
+        tabStatus = 1
         self.allQuestionButton.setTitleColor(UIColor.colorFromRGB(rgb: "95989A", alpha: 1.0), for: .normal)
         self.unansweredQuestionButton.setTitleColor(UIColor.colorFromRGB(rgb: "13A7A1", alpha: 1.0), for: .normal)
         self.myQuestionButton.setTitleColor(UIColor.colorFromRGB(rgb: "95989A", alpha: 1.0), for: .normal)
-        getUnansweredData()
+        if unansweredQuestions.isEmpty {
+            getUnansweredData()
+        }else{
+            searchResult = unansweredQuestions
+            voiceTableView.reloadData()
+        }
         UIView.animate(withDuration: 0.3, animations: {
             self.pageIndicator.center.x = UIScreen.main.bounds.size.width / 2
         }){_ in
             self.pageIndicator.center.x = UIScreen.main.bounds.size.width / 2
         }
     }
+    //私の質問表示のボタン
     @IBAction func tapMyQuestionButton(_ sender: Any) {
+        tabStatus = 2
         self.allQuestionButton.setTitleColor(UIColor.colorFromRGB(rgb: "95989A", alpha: 1.0), for: .normal)
         self.unansweredQuestionButton.setTitleColor(UIColor.colorFromRGB(rgb: "95989A", alpha: 1.0), for: .normal)
         self.myQuestionButton.setTitleColor(UIColor.colorFromRGB(rgb: "13A7A1", alpha: 1.0), for: .normal)
@@ -251,39 +293,12 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
             let json = JSON(object)
             print(json)
             json.forEach { (_, json) in
-                // ここに処理を書いていく
-                self.question.removeAll()
-                self.question.append(String(json["id"].intValue))
-                
-                var questionStatus = 0
-                if json["kind"].intValue == 1{
-                    questionStatus = 2
-                } else if json["answered_flag"].boolValue {
-                    questionStatus = 1
-                }
-                self.question.append(String(questionStatus))
-                self.question.append(json["text"].stringValue)
-                if questionStatus == 1{
-                    for i in 0 ..< json["answers"].arrayValue.count{
-                        self.question.append(json["answers"][i].stringValue)
-                    }
-                }else if questionStatus == 2{
-                    self.question.append(String(json["option_count"].intValue))
-                    self.question.append(String(json["user_answered_flag"].boolValue))
-                    for i in 0 ..< json["option_count"].intValue{
-                        self.question.append(json["enquete"][i]["option"].stringValue)
-                    }
-                    for i in 0 ..< json["option_count"].intValue{
-                        self.question.append(json["enquete"][i]["answer"].stringValue)
-                    }
-                }
-                // もし自分が回答済みの場合は、questionStatusを3にすること！
-                
+                self.fetchQuestions(json: json)
                 self.allQuestions.append(self.question)
+                self.allQuestionsValue.append(self.questionValue)
             }
-            print(self.allQuestions)
-
             self.searchResult = self.allQuestions
+            self.searchResultValue = self.allQuestionsValue
             self.voiceTableView.reloadData()
         }
     }
@@ -296,16 +311,60 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
             }
             let json = JSON(object)
             json.forEach { (_, json) in
-                self.question.removeAll()
-                self.question.append(String(json["id"].intValue))
-                self.question.append("0")
-                self.question.append(json["text"].stringValue)
-                self.unansweredQuestions.append(self.question)
+                self.fetchQuestions(json: json)
+                self.unansweredQuestions = self.allQuestions
             }
+            print(self.unansweredQuestions)
             self.searchResult = self.unansweredQuestions
+            print(self.searchResult)
             self.voiceTableView.reloadData()
         }
         
     }
     
+    //fetchの処理の中身
+    func fetchQuestions(json:JSON){
+        
+        self.question.removeAll()
+        self.questionValue.removeAll()
+        self.question.append(String(json["id"].intValue))
+        
+        var questionStatus = 0
+        if json["kind"].intValue == 1{
+            questionStatus = 2
+        } else if json["answered_flag"].boolValue {
+            questionStatus = 1
+        }
+        self.question.append(String(questionStatus))
+        self.question.append(json["text"].stringValue)
+        if questionStatus == 1{
+            for i in 0 ..< json["answers"].arrayValue.count{
+                self.question.append(json["answers"][i].stringValue)
+            }
+            self.questionValue = [0]
+        }else if questionStatus == 2{
+            self.question.append(String(json["option_count"].intValue))
+            self.question.append(String(json["user_answered_flag"].boolValue))
+            for i in 0 ..< json["option_count"].intValue{
+                self.question.append(json["enquete"][i]["option"].stringValue)
+            }
+            for i in 0 ..< json["option_count"].intValue{
+                self.questionValue.append(json["enquete"][i]["answer"].intValue)
+            }
+        }else{
+            self.questionValue = [0]
+        }
+    }
+    
+    //アンケートに回答する
+    func answerSurvey(userID:Int, questionID:Int, optionIndex:Int){
+        let parameters:Parameters = ["user_id":userID, "question_id":questionID, "option_index":optionIndex - 1]
+        Alamofire.request("https://server.project-alt.tech/api/voice/enq_answers", method: .get, parameters: parameters).responseJSON{response in
+            if let json = response.result.value{
+                print(json)
+            }else{
+                print("error")
+            }
+        }
+    }
 }
