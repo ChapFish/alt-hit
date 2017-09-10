@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+//これはうまくいかなかったから使ってない。
 extension UIView{
     //選択肢のボタンを表示する。
     func makeOptionsButton(options:Array<String>, count:Int){

@@ -83,9 +83,9 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
             return cell
             
         default:
-            //書かないわけには行かないから、とりあえずテキストカードのもので書いておく。
-            let cell = tableView.dequeueReusableCell(withIdentifier: "TextCardTableViewCellID", for: indexPath) as! TextCardTableViewCell
-            cell.setTextCard(cardNumber: indexPath.row, title: textCardTitles, content: textCardContents)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "LectureCardViewCellID", for: indexPath) as! LectureCardTableViewCell
+            cell.setLectureCard(lectureName: lectureName, lectureRoom: lectureRoom, lectureStatus: lectureStatus, lectureFlag: lectureFlag)
+            cell.selectionStyle = UITableViewCellSelectionStyle.none
             return cell
         }
     }

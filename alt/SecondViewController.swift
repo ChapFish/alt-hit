@@ -12,8 +12,6 @@ import Alamofire
 import SwiftyJSON
 
 class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, TapOptionDeligate {
-
-    let userdefaults = UserDefaults.standard
     
     @IBOutlet weak var voiceSearchBar: UISearchBar!
     @IBOutlet weak var voiceTableView: UITableView!
@@ -27,19 +25,20 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     @IBAction func goBack(_ segue:UIStoryboardSegue) {}
     
-    var question:[String] = []
-    var questionValue:[Int] = []
+    let env = ProcessInfo.processInfo.environment
     
-    var allQuestions:[[String]] = []
-    var allQuestionsValue:[[Int]] = []
-    var unansweredQuestions:[[String]] = []
-    var unansweredQuestionsValue:[[Int]] = []
+    var question = Question()
     
-    var searchResult:[[String]] = []
-    var searchResultValue:[[Int]] = []
+    var allQuestions:[Question] = []
+    var unansweredQuestions:[Question] = []
+
+    var searchedQuestions:[Question] = []
+    var searchResult:[Question] = []
     
     var newPostMenuFlag = false
     var tabStatus = 0
+    
+    var senderQuestion = Question()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -107,81 +106,72 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        switch searchResult[indexPath.row][1] {
-        case "0":
-            //[id,status,question]
+        switch searchResult[indexPath.row].questionStatus {
+        case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "QuestionCardTableViewCellID", for: indexPath) as! QuestionCardTableViewCell
-            cell.setQuestionCell(question: searchResult[indexPath.row][2])
+            cell.setQuestionCell(question: searchResult[indexPath.row].text)
             return cell
             
-        case "1":
-            //[id,status,question,answer1,answer2...]
+        case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "QuestionWithAnswerCardTableViewCellID", for: indexPath) as! QuestionWithAnswerCardTableViewCell
-            cell.setQuestionWithAnswerCell(question: searchResult[indexPath.row][2], answer: searchResult[indexPath.row][3])
+            cell.setQuestionWithAnswerCell(question: searchResult[indexPath.row].text, answer: searchResult[indexPath.row].answers[0])
             return cell
 
             
-        case "2":
-            //[id,status,question,optionCount,user_answered_flag,option1,option2...]
-            //[value1, value2...]
-            //選択肢と回答を使える状態に整形。
-            var options: Array<String> = []
-            var results:Array<Int> = []
-            if let optionCount = Int(searchResult[indexPath.row][3]){
-                for i in 5 ..< 5 + optionCount{
-                    options.append(searchResult[indexPath.row][i])
-                }
-            }
-            results = searchResultValue[indexPath.row]
-
-            switch searchResult[indexPath.row][3] {
+        case 2:
+            //選択肢の数ごとに使うセルを分ける
+            switch searchResult[indexPath.row].optionCount {
             
-            case "2":
+            case 2:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "TwoOptionCardTableViewCellID", for: indexPath) as! TwoOptionCardTableViewCell
-                cell.setTwoOptionCell(question: searchResult[indexPath.row][2], options: options, results: results, userAnswered: Bool(searchResult[indexPath.row][4])!)
-                cell.questionID = Int(searchResult[indexPath.row][0])!
+                cell.setTwoOptionCell(question: searchResult[indexPath.row].text, options: searchResult[indexPath.row].options, results: searchResult[indexPath.row].optionValues, userAnswered: searchResult[indexPath.row].userAnsweredFlag)
+                cell.questionID = searchResult[indexPath.row].id
                 cell.indexAtTable = indexPath.row
                 cell.deligate = self
                 return cell
 
-            case "3":
+            case 3:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "ThreeOptionCardTableViewCellID", for: indexPath) as! ThreeOptionCardTableViewCell
-                cell.setThreeOptionCell(question: searchResult[indexPath.row][2], options: options, results: results, userAnswered: Bool(searchResult[indexPath.row][4])!)
-                cell.questionID = Int(searchResult[indexPath.row][0])!
+                cell.setThreeOptionCell(question: searchResult[indexPath.row].text, options: searchResult[indexPath.row].options, results: searchResult[indexPath.row].optionValues, userAnswered: searchResult[indexPath.row].userAnsweredFlag)
+                cell.questionID = searchResult[indexPath.row].id
                 cell.indexAtTable = indexPath.row
                 cell.deligate = self
                 return cell
 
-            case "4":
+            case 4:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "FourOptionCardTableViewCellID", for: indexPath) as! FourOptionCardTableViewCell
-                cell.setFourOptionCell(question: searchResult[indexPath.row][2], options: options, results: results, userAnswered: Bool(searchResult[indexPath.row][4])!)
-                cell.questionID = Int(searchResult[indexPath.row][0])!
+                cell.setFourOptionCell(question: searchResult[indexPath.row].text, options: searchResult[indexPath.row].options, results: searchResult[indexPath.row].optionValues, userAnswered: searchResult[indexPath.row].userAnsweredFlag)
+                cell.questionID = searchResult[indexPath.row].id
                 cell.indexAtTable = indexPath.row
                 cell.deligate = self
                 return cell
                 
             default:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "TwoOptionCardTableViewCellID", for: indexPath) as! TwoOptionCardTableViewCell
-                cell.setTwoOptionCell(question: searchResult[indexPath.row][2], options: options, results: results, userAnswered: Bool(searchResult[indexPath.row][4])!)
-                cell.questionID = Int(searchResult[indexPath.row][0])!
+                cell.setTwoOptionCell(question: searchResult[indexPath.row].text, options: searchResult[indexPath.row].options, results: searchResult[indexPath.row].optionValues, userAnswered: searchResult[indexPath.row].userAnsweredFlag)
+                cell.questionID = searchResult[indexPath.row].id
                 cell.indexAtTable = indexPath.row
                 cell.deligate = self
-
                 return cell
             }
             
         //書かないわけにはいかないからとりあえず未回答のもので。
         default:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "QuestionCardTableViewCellID", for: indexPath) as! QuestionCardTableViewCell
-            cell.setQuestionCell(question: searchResult[indexPath.row][2])
+            let cell = tableView.dequeueReusableCell(withIdentifier: "TwoOptionCardTableViewCellID", for: indexPath) as! TwoOptionCardTableViewCell
+            cell.setTwoOptionCell(question: searchResult[indexPath.row].text, options: searchResult[indexPath.row].options, results: searchResult[indexPath.row].optionValues, userAnswered: searchResult[indexPath.row].userAnsweredFlag)
+            cell.questionID = searchResult[indexPath.row].id
+            cell.indexAtTable = indexPath.row
+            cell.deligate = self
             return cell
         }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if searchResult[indexPath.row][1] == "0"{
+        if searchResult[indexPath.row].questionStatus == 0{
+            senderQuestion = searchResult[indexPath.row]
             performSegue(withIdentifier: "toQuestionDetail", sender: nil)
-        }else if searchResult[indexPath.row][1] == "1"{
+        }else if searchResult[indexPath.row].questionStatus == 1{
+            senderQuestion = searchResult[indexPath.row]
             performSegue(withIdentifier: "toQuestionDetail", sender: nil)
         }
     }
@@ -194,14 +184,19 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return 10.0
     }
     
+    //searchbarの検索処理。
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        getSearchedData(searchText: searchBar.text!)
+        searchBar.endEditing(true)
+    }
+    
     //アンケート機能の選択肢タップ時の動作。
     func getOptionID(optionIndex: Int, questionID: Int, indexAtTable:Int) {
         answerSurvey(userID: 12345, questionID: questionID, optionIndex: optionIndex)
-        searchResult[indexAtTable][4] = "true"
-        searchResultValue[indexAtTable][optionIndex - 1] += 1
+        searchResult[indexAtTable].userAnsweredFlag = true
+        searchResult[indexAtTable].optionValues[optionIndex - 1] += 1
         let row = [IndexPath(row: indexAtTable, section: 0)]
         voiceTableView.reloadRows(at: row, with: UITableViewRowAnimation.fade)
-        print(optionIndex, questionID, indexAtTable)
     }
     
     //上部切り替え部分のタップの処理。
@@ -275,6 +270,13 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toQuestionDetail" {
+            let secondViewController = segue.destination as! QuestionDetailViewController
+            secondViewController.questionAndAnswers = senderQuestion
+        }
+    }
+    
     func tapNewQuestionButton(sender: UITapGestureRecognizer){
         self.performSegue(withIdentifier: "toNewQuestion", sender: nil)
     }
@@ -283,6 +285,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.performSegue(withIdentifier: "toNewSurvey", sender: nil)
     }
     
+    //ここからサーバーサイドとの連携関連
     //fechの処理。
     func getAllVoiceData(){
         Alamofire.request("https://server.project-alt.tech/api/voice/voices", parameters: ["tab":"0"]).responseJSON{response in
@@ -293,12 +296,10 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
             let json = JSON(object)
             print(json)
             json.forEach { (_, json) in
-                self.fetchQuestions(json: json)
+                self.perseQuestions(json: json)
                 self.allQuestions.append(self.question)
-                self.allQuestionsValue.append(self.questionValue)
             }
             self.searchResult = self.allQuestions
-            self.searchResultValue = self.allQuestionsValue
             self.voiceTableView.reloadData()
         }
     }
@@ -311,23 +312,37 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
             }
             let json = JSON(object)
             json.forEach { (_, json) in
-                self.fetchQuestions(json: json)
-                self.unansweredQuestions = self.allQuestions
+                self.perseQuestions(json: json)
+                self.unansweredQuestions.append(self.question)
             }
-            print(self.unansweredQuestions)
             self.searchResult = self.unansweredQuestions
-            print(self.searchResult)
             self.voiceTableView.reloadData()
         }
         
     }
     
-    //fetchの処理の中身
-    func fetchQuestions(json:JSON){
+    func getSearchedData(searchText:String){
+        searchedQuestions.removeAll()
+        Alamofire.request("https://server.project-alt.tech/api/voice/voices", parameters: ["tab":"\(tabStatus)","search":searchText]).responseJSON{response in
+            guard let object = response.result.value else{
+                print("error")
+                return
+            }
+            let json = JSON(object)
+            json.forEach { (_, json) in
+                self.perseQuestions(json: json)
+                self.searchedQuestions.append(self.question)
+            }
+            self.searchResult = self.searchedQuestions
+            self.voiceTableView.reloadData()
+        }
+    }
+    
+    //fetchの処理の中身。
+    func perseQuestions(json:JSON){
         
-        self.question.removeAll()
-        self.questionValue.removeAll()
-        self.question.append(String(json["id"].intValue))
+        question.resetQuestion()
+        self.question.id = json["id"].intValue
         
         var questionStatus = 0
         if json["kind"].intValue == 1{
@@ -335,35 +350,34 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         } else if json["answered_flag"].boolValue {
             questionStatus = 1
         }
-        self.question.append(String(questionStatus))
-        self.question.append(json["text"].stringValue)
+        self.question.questionStatus = questionStatus
+        self.question.text = json["text"].stringValue
         if questionStatus == 1{
             for i in 0 ..< json["answers"].arrayValue.count{
-                self.question.append(json["answers"][i].stringValue)
+                self.question.answers.append(json["answers"][i].stringValue)
             }
-            self.questionValue = [0]
         }else if questionStatus == 2{
-            self.question.append(String(json["option_count"].intValue))
-            self.question.append(String(json["user_answered_flag"].boolValue))
+            self.question.optionCount = json["option_count"].intValue
+            self.question.userAnsweredFlag = json["user_answered_flag"].boolValue
             for i in 0 ..< json["option_count"].intValue{
-                self.question.append(json["enquete"][i]["option"].stringValue)
+                self.question.options.append(json["enquete"][i]["option"].stringValue)
             }
             for i in 0 ..< json["option_count"].intValue{
-                self.questionValue.append(json["enquete"][i]["answer"].intValue)
+                self.question.optionValues.append(json["enquete"][i]["answer"].intValue)
             }
-        }else{
-            self.questionValue = [0]
         }
     }
     
     //アンケートに回答する
     func answerSurvey(userID:Int, questionID:Int, optionIndex:Int){
-        let parameters:Parameters = ["user_id":userID, "question_id":questionID, "option_index":optionIndex - 1]
-        Alamofire.request("https://server.project-alt.tech/api/voice/enq_answers", method: .get, parameters: parameters).responseJSON{response in
-            if let json = response.result.value{
-                print(json)
-            }else{
-                print("error")
+        if let APIPostKey = env["APIPostKey"]{
+            let parameters:Parameters = ["user_id":userID, "question_id":questionID, "option_index":optionIndex - 1, "api_key":APIPostKey]
+            Alamofire.request("https://server.project-alt.tech/api/voice/enq_answers", method: .post, parameters: parameters).responseJSON{response in
+                if let json = response.result.value{
+                    print(json)
+                }else{
+                    print("error")
+                }
             }
         }
     }

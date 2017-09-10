@@ -81,6 +81,13 @@
             ReferencedContainer = "container:alt.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
+      <EnvironmentVariables>
+         <EnvironmentVariable
+            key = "APIPostKey"
+            value = "r0TQfVlILrviuOukF8lENoeH"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+      </EnvironmentVariables>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>

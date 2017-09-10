@@ -11,16 +11,20 @@ import Alamofire
 
 class NewQuestionViewController: UIViewController, UITextViewDelegate {
 
+    let env = ProcessInfo.processInfo.environment
+
     @IBAction func tapSubmitButton(_ sender: Any) {
         guard let submitQuestionText = newQuestionTextView.text else{
             return
         }
-        let parameters:Parameters = ["kind":"0","text":submitQuestionText,"user_id":"12345"]
-        Alamofire.request("https://server.project-alt.tech/api/voice/questions", method: .post, parameters: parameters).responseJSON{ response in
-            if let json = response.result.value{
-                print(json)
-            }else{
-                print("error")
+        if let APIPostKey = env["APIPostKey"]{
+            let parameters:Parameters = ["kind":"0", "text":submitQuestionText, "user_id":"12345", "api_key":APIPostKey]
+            Alamofire.request("https://server.project-alt.tech/api/voice/questions", method: .post, parameters: parameters).responseJSON{ response in
+                if let json = response.result.value{
+                    print(json)
+                }else{
+                    print("error")
+                }
             }
         }
         performSegue(withIdentifier: "goBackVoice", sender: nil)
@@ -63,7 +67,6 @@ class NewQuestionViewController: UIViewController, UITextViewDelegate {
         }else{
             submitButton.isEnabled = false
         }
-        
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {

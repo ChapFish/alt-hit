@@ -21,6 +21,7 @@
 		C126B4811F4B25D70080ADF6 /* AnswerCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C126B47F1F4B25D70080ADF6 /* AnswerCardTableViewCell.swift */; };
 		C126B4821F4B25D80080ADF6 /* AnswerCardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C126B4801F4B25D70080ADF6 /* AnswerCardTableViewCell.xib */; };
 		C13742F61F3706220029208E /* UIView+makeOptionsButton().swift in Sources */ = {isa = PBXBuildFile; fileRef = C13742F51F3706220029208E /* UIView+makeOptionsButton().swift */; };
+		C144E5971F612DB200C6C86F /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = C144E5961F612DB200C6C86F /* Question.swift */; };
 		C15EFF6C1F29DAEC0029593E /* UIView+setGradientLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15EFF6B1F29DAEC0029593E /* UIView+setGradientLayer.swift */; };
 		C17213CE1F355A6400AB786A /* QuestionWithAnswerCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17213CC1F355A6400AB786A /* QuestionWithAnswerCardTableViewCell.swift */; };
 		C17213CF1F355A6400AB786A /* QuestionWithAnswerCardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C17213CD1F355A6400AB786A /* QuestionWithAnswerCardTableViewCell.xib */; };
@@ -37,6 +38,7 @@
 		C196F6EB1F33105D0079929B /* home_icon_50px_50_@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C196F6E91F33105D0079929B /* home_icon_50px_50_@2x.png */; };
 		C196F6EC1F33105D0079929B /* home_icon_50px_100_@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C196F6EA1F33105D0079929B /* home_icon_50px_100_@2x.png */; };
 		C196F6F01F3341480079929B /* LectureSelectingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C196F6EF1F3341480079929B /* LectureSelectingViewController.swift */; };
+		C19D21EE1F6503C2000E7ECC /* GradeSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19D21ED1F6503C2000E7ECC /* GradeSettingViewController.swift */; };
 		C1AA89791F49E3A20093FF52 /* QuestionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1AA89781F49E3A20093FF52 /* QuestionDetailViewController.swift */; };
 		C1C4F7121F271E08005A4E71 /* AltTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C4F7111F271E08005A4E71 /* AltTabBarController.swift */; };
 		C1C4F7171F272227005A4E71 /* WeatherCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C4F7151F272227005A4E71 /* WeatherCardTableViewCell.swift */; };
@@ -94,6 +96,7 @@
 		C126B47F1F4B25D70080ADF6 /* AnswerCardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswerCardTableViewCell.swift; sourceTree = "<group>"; };
 		C126B4801F4B25D70080ADF6 /* AnswerCardTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AnswerCardTableViewCell.xib; sourceTree = "<group>"; };
 		C13742F51F3706220029208E /* UIView+makeOptionsButton().swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+makeOptionsButton().swift"; sourceTree = "<group>"; };
+		C144E5961F612DB200C6C86F /* Question.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		C15EFF6B1F29DAEC0029593E /* UIView+setGradientLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+setGradientLayer.swift"; sourceTree = "<group>"; };
 		C17213CC1F355A6400AB786A /* QuestionWithAnswerCardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionWithAnswerCardTableViewCell.swift; sourceTree = "<group>"; };
 		C17213CD1F355A6400AB786A /* QuestionWithAnswerCardTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuestionWithAnswerCardTableViewCell.xib; sourceTree = "<group>"; };
@@ -110,6 +113,7 @@
 		C196F6E91F33105D0079929B /* home_icon_50px_50_@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "home_icon_50px_50_@2x.png"; path = "../../../../Downloads/home_icon_50px_50_@2x.png"; sourceTree = "<group>"; };
 		C196F6EA1F33105D0079929B /* home_icon_50px_100_@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "home_icon_50px_100_@2x.png"; path = "../../../../Downloads/home_icon_50px_100_@2x.png"; sourceTree = "<group>"; };
 		C196F6EF1F3341480079929B /* LectureSelectingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LectureSelectingViewController.swift; sourceTree = "<group>"; };
+		C19D21ED1F6503C2000E7ECC /* GradeSettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradeSettingViewController.swift; sourceTree = "<group>"; };
 		C1AA89781F49E3A20093FF52 /* QuestionDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionDetailViewController.swift; sourceTree = "<group>"; };
 		C1C4F7111F271E08005A4E71 /* AltTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AltTabBarController.swift; sourceTree = "<group>"; };
 		C1C4F7151F272227005A4E71 /* WeatherCardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherCardTableViewCell.swift; sourceTree = "<group>"; };
@@ -195,12 +199,13 @@
 		C11F36E61F32C28B009503B6 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				C144E5961F612DB200C6C86F /* Question.swift */,
 				C11F36E81F32C384009503B6 /* RealmLectures.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
 		};
-		C11F36E71F32C2BE009503B6 /* Commons */ = {
+		C11F36E71F32C2BE009503B6 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
 				C178C4BF1F1B70A10089BAFF /* UIColor+colorFromRGB.swift */,
@@ -211,7 +216,7 @@
 				C13742F51F3706220029208E /* UIView+makeOptionsButton().swift */,
 				C17E96271F39B4C9000C8DFF /* TabOptionDeligateProtocol.swift */,
 			);
-			name = Commons;
+			name = Utils;
 			sourceTree = "<group>";
 		};
 		C13F6B8D1F39CDB800B9B17B /* home */ = {
@@ -249,15 +254,15 @@
 		C1C4F7131F272194005A4E71 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				C1D9D8A31F1B016400FBE298 /* AppDelegate.swift */,
+				C1C4F7111F271E08005A4E71 /* AltTabBarController.swift */,
 				C1D9D8A51F1B016400FBE298 /* FirstViewController.swift */,
 				C1D9D8A71F1B016400FBE298 /* SecondViewController.swift */,
-				C1C4F7111F271E08005A4E71 /* AltTabBarController.swift */,
 				C117468E1F28F33F00FCBBDA /* LectureSettingViewContoroller.swift */,
 				C196F6EF1F3341480079929B /* LectureSelectingViewController.swift */,
 				C1CEB2FD1F4189930020FC78 /* NewQuestionViewController.swift */,
 				C1EDA0711F52928400748316 /* NewSurveyViewController.swift */,
 				C1AA89781F49E3A20093FF52 /* QuestionDetailViewController.swift */,
+				C19D21ED1F6503C2000E7ECC /* GradeSettingViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -327,9 +332,10 @@
 			children = (
 				C1D9D8A91F1B016400FBE298 /* Main.storyboard */,
 				C1D9D8AE1F1B016400FBE298 /* LaunchScreen.storyboard */,
+				C1D9D8A31F1B016400FBE298 /* AppDelegate.swift */,
 				C1C4F7131F272194005A4E71 /* Controllers */,
 				C1C4F7141F2721B3005A4E71 /* Views */,
-				C11F36E71F32C2BE009503B6 /* Commons */,
+				C11F36E71F32C2BE009503B6 /* Utils */,
 				C11F36E61F32C28B009503B6 /* Models */,
 			);
 			name = Classes;
@@ -652,8 +658,10 @@
 				C196F6F01F3341480079929B /* LectureSelectingViewController.swift in Sources */,
 				C174511F1F556E4100C0B0B6 /* ThreeOptionCardTableViewCell.swift in Sources */,
 				C1CEB2FE1F4189930020FC78 /* NewQuestionViewController.swift in Sources */,
+				C19D21EE1F6503C2000E7ECC /* GradeSettingViewController.swift in Sources */,
 				C1D9D8A81F1B016400FBE298 /* SecondViewController.swift in Sources */,
 				C1AA89791F49E3A20093FF52 /* QuestionDetailViewController.swift in Sources */,
+				C144E5971F612DB200C6C86F /* Question.swift in Sources */,
 				C17213CE1F355A6400AB786A /* QuestionWithAnswerCardTableViewCell.swift in Sources */,
 				C1F7E1821F27276B0069D32C /* GetWeatherData.swift in Sources */,
 				C117468F1F28F33F00FCBBDA /* LectureSettingViewContoroller.swift in Sources */,

@@ -20,5 +20,5 @@ class RealmLecture:Object{
     dynamic var department = Int()
     dynamic var season = Int()
     dynamic var cancelFlag = Bool()
-
+    
 }

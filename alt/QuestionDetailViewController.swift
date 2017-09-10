@@ -7,17 +7,21 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
 
 class QuestionDetailViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var questionDetailTableView: UITableView!
     @IBOutlet weak var inputContainerView: UIView!
     @IBOutlet weak var inputContainerViewBottom: NSLayoutConstraint!
+    @IBOutlet weak var answerTextField: UITextField!
+    @IBOutlet weak var submitButton: UIButton!
     
-    var questionAndAnswers:Array<String> = ["123", "0", "ゼミ面接はスーツで行ったほうがいいんでしょうか。","そのほうがいいと思います（商学部）","私は私服で行きましたが問題ありませんでしたよ！先生も、スーツで来られるとかたい雰囲気になるからむしろ私服で来て欲しいとおっしゃっていました！"]
-    //[id,status,question,answer1,answer2...]
-    var question:String = ""
-    var answers:Array<String> = []
+    
+    let env = ProcessInfo.processInfo.environment
+    
+    var questionAndAnswers = Question()
     var unanswered:Bool = true
     
     override func viewDidLoad() {
@@ -36,16 +40,16 @@ class QuestionDetailViewController: UIViewController, UITextFieldDelegate, UITab
         self.questionDetailTableView.rowHeight = UITableViewAutomaticDimension
         self.questionDetailTableView.backgroundColor = UIColor.colorFromRGB(rgb: "EBEBEB", alpha: 1.0)
         
-        //必要な形にデータを整形。
-        question = questionAndAnswers[2]
-        for i in 3 ..< questionAndAnswers.count{
-            answers.append(questionAndAnswers[i])
-        }
-        if questionAndAnswers[1] == "0"{
+        //質問に回答済みかどうかを判断
+        if questionAndAnswers.questionStatus == 0{
             unanswered = true
         }else{
             unanswered = false
         }
+        
+        submitButton.isEnabled = false
+        answerTextField.addTarget(self, action: #selector(textFieldEditingChanged), for: .editingChanged)
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -54,18 +58,18 @@ class QuestionDetailViewController: UIViewController, UITextFieldDelegate, UITab
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1 + answers.count
+        return 1 + questionAndAnswers.answers.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if indexPath.row == 0{
             let cell = tableView.dequeueReusableCell(withIdentifier: "QuestionCardTableViewCellID", for: indexPath) as! QuestionCardTableViewCell
-            cell.setQuestionCell(question: question, unanswered: unanswered, msg: false)
+            cell.setQuestionCell(question: questionAndAnswers.text, unanswered: unanswered, msg: false)
             return cell
         }else{
             let cell = tableView.dequeueReusableCell(withIdentifier: "AnswerCardTableViewCellID", for: indexPath) as! AnswerCardTableViewCell
-            cell.setAnswerCell(answer: answers[indexPath.row - 1])
+            cell.setAnswerCell(answer: questionAndAnswers.answers[indexPath.row - 1])
             return cell
         }
     }
@@ -86,11 +90,45 @@ class QuestionDetailViewController: UIViewController, UITextFieldDelegate, UITab
             self.inputContainerViewBottom.constant = newHeight
         }
     }
-
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
+    
+    func textFieldEditingChanged(){
+        if answerTextField.text == ""{
+            submitButton.isEnabled = false
+        }else{
+            submitButton.isEnabled = true
+        }
     }
+    
+    @IBAction func tapSubmitButton(_ sender: Any) {
+        answerTextField.resignFirstResponder()
+
+        if let APIPostKey = env["APIPostKey"]{
+            let parameters:Parameters = ["question_id":questionAndAnswers.id, "text":answerTextField.text!, "user_id":"12345", "api_key":APIPostKey]
+            Alamofire.request("https://server.project-alt.tech/api/voice/answers", method: .post, parameters: parameters).responseJSON{ response in
+                if let json = response.result.value{
+                    print(json)
+                }else{
+                    print("error1")
+                }
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    Alamofire.request("https://server.project-alt.tech/api/voice/voices/\(self.questionAndAnswers.id)").responseJSON{response in
+                        guard let object = response.result.value else{
+                            print("error2")
+                            return
+                        }
+                        let json = JSON(object)
+                        self.questionAndAnswers.questionStatus = 1
+                        self.questionAndAnswers.answers.removeAll()
+                        for i in 0 ..< json["answers"].arrayValue.count{
+                            self.questionAndAnswers.answers.append(json["answers"][i].stringValue)
+                        }
+                        self.questionDetailTableView.reloadData()
+                    }
+                }
+            }
+        }
+    }
+
     /*
     // MARK: - Navigation
 
