@@ -21,12 +21,12 @@ class LectureSettingViewContoroller: UIViewController, UITableViewDataSource, UI
     @IBAction func goBack(_ segue:UIStoryboardSegue) {}
     
     var weekday = ["月曜日","火曜日","水曜日","木曜日","金曜日"]
-    var aPeriodLecture:[String] = []
+    /*var aPeriodLecture:[String] = []
     var aDayLecture:[[String]] = [[],[],[],[],[]]
-    var aWeekLecture:[[[String]]] = [[],[],[],[],[]]
-    /*var aPeriodLecture = (0, "", "", 0, 0, "", 0, 0, false)
-    var aDayLecture = ((),(),(),(),())
-    var aWeekLecture = ((),(),(),(),())*/
+    var aWeekLecture:[[[String]]] = [[],[],[],[],[]]*/
+    var aPeriodLecture = Lecture()
+    var aDayLecture:[Lecture] = [Lecture(), Lecture(), Lecture(), Lecture(), Lecture()]
+    var aWeekLecture:[[Lecture]] = [[],[],[],[],[]]
     var count:Int = 0
     // countは0から4までの整数値であり、今何曜日か示す。
     var senderPeriod = 0
@@ -106,7 +106,7 @@ class LectureSettingViewContoroller: UIViewController, UITableViewDataSource, UI
             }
             //配列に時間割を保存
             aWeekLecture[count] = aDayLecture
-            aDayLecture = [[],[],[],[],[]]
+            aDayLecture = [Lecture(), Lecture(), Lecture(), Lecture(), Lecture()]
             
             //ボタンの表示を変更
             count = count + 1
@@ -127,7 +127,7 @@ class LectureSettingViewContoroller: UIViewController, UITableViewDataSource, UI
                 aDayLecture = aWeekLecture[dayIndex]
                 for periodIndex in 0...4{
                     aPeriodLecture = aDayLecture[periodIndex]
-                    if aPeriodLecture == []{
+                    if aPeriodLecture.id == 0{
                         // 授業がない場合は曜日と時限のみ入ったからのデータを保存する。
                         let theLecture = RealmLecture(value: [0, "", "", dayIndex, periodIndex+1, "", 0, 0, false])
                         //保存
@@ -135,17 +135,17 @@ class LectureSettingViewContoroller: UIViewController, UITableViewDataSource, UI
                             realm.add(theLecture)
                         }
                     }else{
-                        //授業がある場合はしっかり型変換して入れるぞ！
+                        //授業がある場合はそれぞれ対応するデータを入力。
                         let theLecture = RealmLecture()
-                        theLecture.id = Int(aPeriodLecture[0])!
-                        theLecture.name = aPeriodLecture[1]
-                        theLecture.teacher = aPeriodLecture[2]
-                        theLecture.week = Int(aPeriodLecture[3])!
-                        theLecture.time = Int(aPeriodLecture[4])!
-                        theLecture.room = aPeriodLecture[5]
-                        theLecture.season = Int(aPeriodLecture[6])!
-                        theLecture.department = Int(aPeriodLecture[7])!
-                        theLecture.cancelFlag = Bool(aPeriodLecture[8])!
+                        theLecture.id = aPeriodLecture.id
+                        theLecture.name = aPeriodLecture.name
+                        theLecture.teacher = aPeriodLecture.teacher
+                        theLecture.week = aPeriodLecture.week
+                        theLecture.time = aPeriodLecture.time
+                        theLecture.room = aPeriodLecture.room
+                        theLecture.season = aPeriodLecture.season
+                        theLecture.department = aPeriodLecture.department
+                        theLecture.cancelFlag = aPeriodLecture.cancelFlag
                         //保存
                         try! realm.write {
                             realm.add(theLecture)
@@ -153,7 +153,6 @@ class LectureSettingViewContoroller: UIViewController, UITableViewDataSource, UI
                     }
                 }
             }
-            print(Realm.Configuration.defaultConfiguration.fileURL!)
         }
     }
 

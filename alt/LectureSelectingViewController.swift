@@ -18,18 +18,18 @@ class LectureSelectingViewController: UIViewController, UITableViewDataSource, U
     var period:Int = 0
     var weekday:Int = 0
     //fetchしてきたデータを入れる。
-    var ids:[String] = []
+    var ids:[Int] = []
     var names:[String] = []
     var teachers:[String] = []
-    var weeks:[String] = []
-    var times:[String] = []
+    var weeks:[Int] = []
+    var times:[Int] = []
     var rooms:[String] = []
-    var departments:[String] = []
-    var seasons:[String] = []
-    var cancelFlags:[String] = []
+    var departments:[Int] = []
+    var seasons:[Int] = []
+    var cancelFlags:[Bool] = []
     
     //選択されたデータをまとめ、LectureSettingViewControllerに返す。
-    var senderLectureData:[String] = []
+    var senderLectureData = Lecture()
     
     
     @IBAction func selectCancelButton(_ sender: Any) {
@@ -68,11 +68,9 @@ class LectureSelectingViewController: UIViewController, UITableViewDataSource, U
     //セルをタップした時の動作
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let index:Int = names.index(of: "\(searchResult[indexPath.row])")!
-        senderLectureData.append(contentsOf: [ids[index],names[index],teachers[index],weeks[index],times[index],rooms[index],departments[index],seasons[index],cancelFlags[index]])
+        senderLectureData = Lecture(id: ids[index], name: names[index], teacher: teachers[index], week: weeks[index], time: times[index], room: rooms[index], department: departments[index], season: seasons[index], cancelFlag: cancelFlags[index])
         performSegue(withIdentifier: "goBack", sender: nil)
     }
-    
-    
     
     //以下、検索バーの設定用項目。
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -116,15 +114,15 @@ class LectureSelectingViewController: UIViewController, UITableViewDataSource, U
             let json = JSON(object)
             json.forEach { (_, json) in
                 // ここに処理を書いていく
-                self.ids.append(String(json["id"].intValue))
+                self.ids.append(json["id"].intValue)
                 self.names.append(json["name"].stringValue)
                 self.teachers.append(json["teacher"].stringValue)
-                self.weeks.append(String(json["week"].intValue))
-                self.times.append(String(json["time"].intValue))
+                self.weeks.append(json["week"].intValue)
+                self.times.append(json["time"].intValue)
                 self.rooms.append(json["room"].stringValue)
-                self.seasons.append(String(json["period"].intValue))
-                self.departments.append(String(json["department"].intValue))
-                self.cancelFlags.append(String(json["cancel_flag"].boolValue))
+                self.seasons.append(json["period"].intValue)
+                self.departments.append(json["department"].intValue)
+                self.cancelFlags.append(json["cancel_flag"].boolValue)
             }
             self.searchResult = self.names
             self.lectureSelectingTableView.reloadData()

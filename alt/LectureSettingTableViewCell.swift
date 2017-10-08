@@ -29,10 +29,10 @@ class LectureSettingTableViewCell: UITableViewCell {
         }
     }
     
-    func setLectureSettingCell(aDayLecture: [[String]], period: Int){
+    func setLectureSettingCell(aDayLecture: [Lecture], period: Int){
         //内容を書き込む
         //periodはindexPath.rowからそのセルの表す時限を示し、0-4の整数値となる。
-        if aDayLecture[period] == [] {
+        if aDayLecture[period].id == 0 {
             lectureNameLabel.text = "\(period+1)限の授業を探す"
             lectureNameLabel.textColor = UIColor.colorFromRGB(rgb: "13A7A1", alpha: 0.75)
             lectureInfoLabel.text = ""
@@ -40,9 +40,9 @@ class LectureSettingTableViewCell: UITableViewCell {
             self.lectureSettingContenairView.backgroundColor = UIColor.colorFromRGB(rgb: "FFFFFF", alpha: 0.75)
 
         }else{
-            lectureNameLabel.text = aDayLecture[period][1]
+            lectureNameLabel.text = aDayLecture[period].name
             lectureNameLabel.textColor = UIColor.colorFromRGB(rgb: "13A7A1", alpha: 1.0)
-            lectureInfoLabel.text = aDayLecture[period][2]
+            lectureInfoLabel.text = aDayLecture[period].teacher
             lectureInfoLabel.textColor = UIColor.colorFromRGB(rgb: "13A7A1", alpha: 1.0)
             self.lectureSettingContenairView.backgroundColor = UIColor.colorFromRGB(rgb: "FFFFFF", alpha: 1.0)
         }

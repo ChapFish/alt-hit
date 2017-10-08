@@ -22,6 +22,7 @@
 		C126B4821F4B25D80080ADF6 /* AnswerCardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C126B4801F4B25D70080ADF6 /* AnswerCardTableViewCell.xib */; };
 		C13742F61F3706220029208E /* UIView+makeOptionsButton().swift in Sources */ = {isa = PBXBuildFile; fileRef = C13742F51F3706220029208E /* UIView+makeOptionsButton().swift */; };
 		C144E5971F612DB200C6C86F /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = C144E5961F612DB200C6C86F /* Question.swift */; };
+		C14713221F8603D6001C5A7F /* Lecture.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14713211F8603D6001C5A7F /* Lecture.swift */; };
 		C15EFF6C1F29DAEC0029593E /* UIView+setGradientLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15EFF6B1F29DAEC0029593E /* UIView+setGradientLayer.swift */; };
 		C17213CE1F355A6400AB786A /* QuestionWithAnswerCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17213CC1F355A6400AB786A /* QuestionWithAnswerCardTableViewCell.swift */; };
 		C17213CF1F355A6400AB786A /* QuestionWithAnswerCardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C17213CD1F355A6400AB786A /* QuestionWithAnswerCardTableViewCell.xib */; };
@@ -97,6 +98,7 @@
 		C126B4801F4B25D70080ADF6 /* AnswerCardTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AnswerCardTableViewCell.xib; sourceTree = "<group>"; };
 		C13742F51F3706220029208E /* UIView+makeOptionsButton().swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+makeOptionsButton().swift"; sourceTree = "<group>"; };
 		C144E5961F612DB200C6C86F /* Question.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		C14713211F8603D6001C5A7F /* Lecture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lecture.swift; sourceTree = "<group>"; };
 		C15EFF6B1F29DAEC0029593E /* UIView+setGradientLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+setGradientLayer.swift"; sourceTree = "<group>"; };
 		C17213CC1F355A6400AB786A /* QuestionWithAnswerCardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionWithAnswerCardTableViewCell.swift; sourceTree = "<group>"; };
 		C17213CD1F355A6400AB786A /* QuestionWithAnswerCardTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuestionWithAnswerCardTableViewCell.xib; sourceTree = "<group>"; };
@@ -201,6 +203,7 @@
 			children = (
 				C144E5961F612DB200C6C86F /* Question.swift */,
 				C11F36E81F32C384009503B6 /* RealmLectures.swift */,
+				C14713211F8603D6001C5A7F /* Lecture.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -431,7 +434,7 @@
 					2,
 				);
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "Kota Okada";
 				TargetAttributes = {
 					C1D9D89F1F1B016400FBE298 = {
@@ -679,6 +682,7 @@
 				C11746921F28F47200FCBBDA /* LectureSettingTableViewCell.swift in Sources */,
 				C1D9D8A61F1B016400FBE298 /* FirstViewController.swift in Sources */,
 				C13742F61F3706220029208E /* UIView+makeOptionsButton().swift in Sources */,
+				C14713221F8603D6001C5A7F /* Lecture.swift in Sources */,
 				C17213D21F36C43400AB786A /* QuestionCardTableViewCell.swift in Sources */,
 				C11F51A01F4D62E5005D70E3 /* TwoOptionCardTableViewCell.swift in Sources */,
 				C1C4F7121F271E08005A4E71 /* AltTabBarController.swift in Sources */,
@@ -748,7 +752,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -756,7 +762,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -798,7 +808,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -806,7 +818,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
