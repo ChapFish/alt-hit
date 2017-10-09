@@ -118,41 +118,34 @@ class LectureSettingViewContoroller: UIViewController, UITableViewDataSource, UI
             }
             self.lectureSettingTableView.reloadData()
         }else{
+            self.navigationController?.dismiss(animated: true, completion: nil)
             //ここに保存の処理を書く。
-            aWeekLecture[count] = aDayLecture
-            print(aWeekLecture)
-            
+/*            aWeekLecture[count] = aDayLecture
             let realm = try! Realm()
+            let currentLecture = realm.objects(RealmLecture.self)
+            try! realm.write{
+                realm.delete(currentLecture)
+            }
             for dayIndex in 0...4{
                 aDayLecture = aWeekLecture[dayIndex]
                 for periodIndex in 0...4{
                     aPeriodLecture = aDayLecture[periodIndex]
                     if aPeriodLecture.id == 0{
                         // 授業がない場合は曜日と時限のみ入ったからのデータを保存する。
-                        let theLecture = RealmLecture(value: [0, "", "", dayIndex, periodIndex+1, "", 0, 0, false])
-                        //保存
+                        let theLecture = RealmLecture(value: [0, "", "", dayIndex, periodIndex+1, "", 99, 99, false])
                         try! realm.write {
                             realm.add(theLecture)
                         }
                     }else{
                         //授業がある場合はそれぞれ対応するデータを入力。
-                        let theLecture = RealmLecture()
-                        theLecture.id = aPeriodLecture.id
-                        theLecture.name = aPeriodLecture.name
-                        theLecture.teacher = aPeriodLecture.teacher
-                        theLecture.week = aPeriodLecture.week
-                        theLecture.time = aPeriodLecture.time
-                        theLecture.room = aPeriodLecture.room
-                        theLecture.season = aPeriodLecture.season
-                        theLecture.department = aPeriodLecture.department
-                        theLecture.cancelFlag = aPeriodLecture.cancelFlag
-                        //保存
+                        let theLecture = RealmLecture(value: [aPeriodLecture.id, aPeriodLecture.name, aPeriodLecture.teacher, aPeriodLecture.week, aPeriodLecture.time, aPeriodLecture.room, aPeriodLecture.season, aPeriodLecture.department, aPeriodLecture.cancelFlag])
                         try! realm.write {
                             realm.add(theLecture)
                         }
                     }
                 }
             }
+ */
         }
     }
 

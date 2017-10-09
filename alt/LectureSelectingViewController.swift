@@ -43,6 +43,7 @@ class LectureSelectingViewController: UIViewController, UITableViewDataSource, U
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.navigationController?.navigationBar.isHidden = true
         //サーチバーの初期設定
         lectureSeachBar.delegate = self
         lectureSeachBar.enablesReturnKeyAutomatically = false        //searchResult = Samplenames

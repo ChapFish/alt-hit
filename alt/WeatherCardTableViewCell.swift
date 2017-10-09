@@ -35,7 +35,7 @@ class WeatherCardTableViewCell: UITableViewCell {
         highestTempLabel.text = todayWeatherData[0]
         lowestTempLabel.text = " / \(todayWeatherData[1])"
         weatherLabel.text = todayWeatherData[2]
-        rainyPercentLabel.text = "湿度：\(todayWeatherData[3])"
+        rainyPercentLabel.text = "湿度：\(todayWeatherData[3])%"
         weatherIconImageView.image = UIImage(named:"altoLogo2AppIcon.jpg")
         
         //カードの外見を設定

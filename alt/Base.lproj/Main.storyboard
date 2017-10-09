@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="6kA-Xy-vTw">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -92,6 +92,7 @@
                     <tabBarItem key="tabBarItem" title="First" image="first" id="acW-dT-cKf"/>
                     <connections>
                         <outlet property="CardTableView" destination="5cj-RX-6nL" id="XhC-0d-rKq"/>
+                        <segue destination="KHs-WG-OIs" kind="presentation" identifier="toStartTour" id="0ck-Rx-r49"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
@@ -388,7 +389,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="25D-NX-usQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="5bw-fb-MmS" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2750" y="-778"/>
+            <point key="canvasLocation" x="2316" y="-910"/>
         </scene>
         <!--New Question View Controller-->
         <scene sceneID="VQI-Nz-foU">
@@ -514,7 +515,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GuH-Zd-oZF" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="kts-xp-XA4" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2751" y="-28"/>
+            <point key="canvasLocation" x="2316" y="93"/>
         </scene>
         <!--New Survey View Controller-->
         <scene sceneID="yUO-4N-Ds3">
@@ -735,12 +736,12 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cl8-Mh-upg" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="GIk-Id-S3X" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3680.8000000000002" y="-421.43928035982015"/>
+            <point key="canvasLocation" x="3377" y="-421"/>
         </scene>
-        <!--LectureSetting-->
+        <!--Lecture Setting View Contoroller-->
         <scene sceneID="uq4-qP-UBH">
             <objects>
-                <viewController title="LectureSetting" id="6kA-Xy-vTw" customClass="LectureSettingViewContoroller" customModule="alt" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="6kA-Xy-vTw" customClass="LectureSettingViewContoroller" customModule="alt" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="zCQ-Zo-Mxo"/>
                         <viewControllerLayoutGuide type="bottom" id="HsM-tU-WKc"/>
@@ -836,7 +837,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TuX-ce-Q0m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="881" y="1221"/>
+            <point key="canvasLocation" x="4178" y="1218"/>
         </scene>
         <!--Lecture Selecting View Controller-->
         <scene sceneID="YjG-ob-3hQ">
@@ -869,7 +870,7 @@
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NNH-Bj-ckC">
-                                <rect key="frame" x="320" y="20" width="55" height="44"/>
+                                <rect key="frame" x="320" y="64" width="55" height="44"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k12-de-zHs">
                                         <rect key="frame" x="12" y="7" width="31" height="30"/>
@@ -917,7 +918,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d7J-3S-Fy1" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="7o7-jm-Eg6" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="881" y="1997"/>
+            <point key="canvasLocation" x="4177" y="2049"/>
         </scene>
         <!--Alt Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -937,12 +938,12 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="0.0" y="0.0"/>
+            <point key="canvasLocation" x="-298" y="0.0"/>
         </scene>
-        <!--View Controller-->
+        <!--Department Setting View Controller-->
         <scene sceneID="Cwy-l1-ifZ">
             <objects>
-                <viewController id="y7E-wQ-JHj" sceneMemberID="viewController">
+                <viewController id="y7E-wQ-JHj" customClass="DepartmentSettingViewController" customModule="alt" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="v1p-mm-vVm"/>
                         <viewControllerLayoutGuide type="bottom" id="PiH-Bg-Dam"/>
@@ -967,7 +968,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
-                                                <color key="backgroundColor" red="1" green="0.66666666669999997" blue="0.62352941179999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="9W6-d8-1Ke" secondAttribute="trailing" constant="20" symbolic="YES" id="EiP-b5-107"/>
                                                     <constraint firstAttribute="height" constant="40" id="R1E-d3-0Yq"/>
@@ -985,7 +986,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
-                                                <color key="backgroundColor" red="1" green="0.66666666669999997" blue="0.62352941179999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstItem="aXr-kM-RYI" firstAttribute="centerY" secondItem="4t8-iY-l2t" secondAttribute="centerY" id="6uV-oO-fwO"/>
                                                     <constraint firstAttribute="height" constant="40" id="RvA-Vu-egd"/>
@@ -1003,7 +1004,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
-                                                <color key="backgroundColor" red="1" green="0.66666666669999997" blue="0.62352941179999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="Id5-Mz-1sF"/>
                                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="3bj-BX-yVt" secondAttribute="trailing" constant="20" symbolic="YES" id="MB4-Kd-gXr"/>
@@ -1027,7 +1028,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
-                                                <color key="backgroundColor" red="1" green="0.66666666669999997" blue="0.62352941179999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="5hX-2x-WAv"/>
                                                     <constraint firstItem="RDo-XD-bIn" firstAttribute="leading" secondItem="xQN-CR-RSG" secondAttribute="leading" constant="15" id="AYg-PH-lyD"/>
@@ -1054,7 +1055,6 @@
                                                 </constraints>
                                             </view>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="O94-Tz-K5a" firstAttribute="top" secondItem="PtU-cS-bNe" secondAttribute="top" id="4bx-Dy-fWt"/>
                                             <constraint firstItem="JCp-jE-5rD" firstAttribute="top" secondItem="xQN-CR-RSG" secondAttribute="bottom" constant="20" id="6W0-ZL-2lz"/>
@@ -1092,10 +1092,16 @@
                             <constraint firstAttribute="trailing" secondItem="x6N-WD-Mgl" secondAttribute="trailing" id="lK8-1I-TtK"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="Twr-5G-kQ7"/>
+                    <connections>
+                        <outlet property="departmentSaveButton" destination="JCp-jE-5rD" id="G0v-lr-XVR"/>
+                        <outlet property="departmentSettingContainerView" destination="x6N-WD-Mgl" id="sPO-EU-B6i"/>
+                        <segue destination="Ocq-C8-Ilf" kind="show" identifier="toGradeSetting" id="gpx-vj-ZV5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EZP-4E-Db2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-703" y="1220"/>
+            <point key="canvasLocation" x="2036" y="1218"/>
         </scene>
         <!--Grade Setting View Controller-->
         <scene sceneID="AgM-kh-1cM">
@@ -1251,11 +1257,30 @@
                     <connections>
                         <outlet property="gradeSaveButton" destination="8aP-Mh-MWU" id="nRV-Ly-1xv"/>
                         <outlet property="gradeSettingContainerView" destination="rcG-X2-egK" id="gOp-Vj-bAi"/>
+                        <segue destination="6kA-Xy-vTw" kind="show" identifier="toLectureSetting" id="12O-E2-5GW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WQi-l8-gEO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="101.59999999999999" y="1218.440779610195"/>
+            <point key="canvasLocation" x="3119" y="1218"/>
+        </scene>
+        <!--Start Tour Navigation Controller-->
+        <scene sceneID="Pxb-90-t5P">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KHs-WG-OIs" customClass="StartTourNavigationController" customModule="alt" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="zWY-Kb-0g4">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="y7E-wQ-JHj" kind="relationship" relationship="rootViewController" id="6ru-pe-YgH"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oYn-Ie-seS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="881" y="1218"/>
         </scene>
     </scenes>
     <resources>

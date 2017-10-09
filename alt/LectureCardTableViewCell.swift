@@ -33,7 +33,7 @@ class LectureCardTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
  
-    func setLectureCard(lectureName:Array<String>, lectureRoom:Array<String>, lectureStatus:Array<String>, lectureFlag:Array<Bool>){
+    func setLectureCard(lectureName:Array<String>, lectureRoom:Array<String>, lectureStatus:Array<Int>, lectureFlag:Array<Bool>){
         //カードのコンテンツを入力（入力内容は下の方にextensionで書いてあるよ。）
         LectureContenairView.setLectureIndicatorColor(lectureStatus: lectureStatus, lectureFlag: lectureFlag)
         FirstLectureNameLabel.setLectureName(lectureName: lectureName, lectureFlag: lectureFlag, lectureNameCount: 1)
@@ -94,14 +94,16 @@ extension UILabel{
 
 extension UIView{
     //学部を識別するインジゲーターの色を設定
-    func setLectureIndicatorColor(lectureStatus:Array<String>, lectureFlag:Array<Bool>){
+    func setLectureIndicatorColor(lectureStatus:Array<Int>, lectureFlag:Array<Bool>){
         //ほんとは自分の学部を学部登録で設定するけどとりあえずここで定義しておく。
-        UserDefaults.standard.set("社会学部", forKey: "学部")
+        UserDefaults.standard.set(1, forKey: "学部")
         for i in 0...4{
-            if lectureStatus[i] == UserDefaults.standard.string(forKey: "学部"){
-                self.viewWithTag(i+1)?.backgroundColor = UIColor.colorFromRGB(rgb: "27CC70", alpha: 1.0)
-            }else if lectureFlag[i] || lectureStatus[i] == "" {
+            if lectureFlag[i]{
+                self.viewWithTag(i+1)?.backgroundColor = UIColor.colorFromRGB(rgb: "FFAA94", alpha: 1.0)
+            }else if lectureStatus[i] == 99{
                 self.viewWithTag(i+1)?.backgroundColor = UIColor.colorFromRGB(rgb: "CCCCCC", alpha: 1.0)
+            }else if lectureStatus[i] == UserDefaults.standard.integer(forKey: "学部"){
+                self.viewWithTag(i+1)?.backgroundColor = UIColor.colorFromRGB(rgb: "27CC70", alpha: 1.0)
             }else{
                 self.viewWithTag(i+1)?.backgroundColor = UIColor.colorFromRGB(rgb: "068DC4", alpha: 1.0)
             }

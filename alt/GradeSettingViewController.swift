@@ -74,6 +74,7 @@ class GradeSettingViewController: UIViewController {
         }else{
             userDefaults.register(defaults: ["userGrade":userGrade])
         }
+        performSegue(withIdentifier: "toLectureSetting", sender: nil)
     }
     
     func tapGradeButton(sender: UITapGestureRecognizer){
