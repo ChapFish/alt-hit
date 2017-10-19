@@ -96,13 +96,12 @@ extension UIView{
     //学部を識別するインジゲーターの色を設定
     func setLectureIndicatorColor(lectureStatus:Array<Int>, lectureFlag:Array<Bool>){
         //ほんとは自分の学部を学部登録で設定するけどとりあえずここで定義しておく。
-        UserDefaults.standard.set(1, forKey: "学部")
         for i in 0...4{
             if lectureFlag[i]{
                 self.viewWithTag(i+1)?.backgroundColor = UIColor.colorFromRGB(rgb: "FFAA94", alpha: 1.0)
             }else if lectureStatus[i] == 99{
                 self.viewWithTag(i+1)?.backgroundColor = UIColor.colorFromRGB(rgb: "CCCCCC", alpha: 1.0)
-            }else if lectureStatus[i] == UserDefaults.standard.integer(forKey: "学部"){
+            }else if lectureStatus[i] == UserDefaults.standard.integer(forKey: "userDepartment"){
                 self.viewWithTag(i+1)?.backgroundColor = UIColor.colorFromRGB(rgb: "27CC70", alpha: 1.0)
             }else{
                 self.viewWithTag(i+1)?.backgroundColor = UIColor.colorFromRGB(rgb: "068DC4", alpha: 1.0)

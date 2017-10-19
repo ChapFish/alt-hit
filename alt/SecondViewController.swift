@@ -48,7 +48,6 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.voiceTableView.register(UINib(nibName: "TwoOptionCardTableViewCell", bundle:nil), forCellReuseIdentifier: "TwoOptionCardTableViewCellID")
         self.voiceTableView.register(UINib(nibName: "ThreeOptionCardTableViewCell", bundle:nil), forCellReuseIdentifier: "ThreeOptionCardTableViewCellID")
         self.voiceTableView.register(UINib(nibName: "FourOptionCardTableViewCell", bundle:nil), forCellReuseIdentifier: "FourOptionCardTableViewCellID")
-
         
         //TableViewの初期設定
         self.voiceTableView.estimatedRowHeight = 200
@@ -91,7 +90,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         if let indexPathForSelectedRow = voiceTableView.indexPathForSelectedRow {
             voiceTableView.deselectRow(at: indexPathForSelectedRow, animated: true)
         }
-
+        newPostMenuFlag = false
     }
     
 

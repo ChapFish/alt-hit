@@ -31,6 +31,8 @@ class LectureSettingViewContoroller: UIViewController, UITableViewDataSource, UI
     // countは0から4までの整数値であり、今何曜日か示す。
     var senderPeriod = 0
     
+    let userDefaults = UserDefaults.standard
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -120,7 +122,7 @@ class LectureSettingViewContoroller: UIViewController, UITableViewDataSource, UI
         }else{
             self.navigationController?.dismiss(animated: true, completion: nil)
             //ここに保存の処理を書く。
-/*            aWeekLecture[count] = aDayLecture
+            aWeekLecture[count] = aDayLecture
             let realm = try! Realm()
             let currentLecture = realm.objects(RealmLecture.self)
             try! realm.write{
@@ -138,14 +140,14 @@ class LectureSettingViewContoroller: UIViewController, UITableViewDataSource, UI
                         }
                     }else{
                         //授業がある場合はそれぞれ対応するデータを入力。
-                        let theLecture = RealmLecture(value: [aPeriodLecture.id, aPeriodLecture.name, aPeriodLecture.teacher, aPeriodLecture.week, aPeriodLecture.time, aPeriodLecture.room, aPeriodLecture.season, aPeriodLecture.department, aPeriodLecture.cancelFlag])
+                        let theLecture = RealmLecture(value: [aPeriodLecture.id, aPeriodLecture.name, aPeriodLecture.teacher, aPeriodLecture.week, aPeriodLecture.time, aPeriodLecture.room, aPeriodLecture.department, aPeriodLecture.season, aPeriodLecture.cancelFlag])
                         try! realm.write {
                             realm.add(theLecture)
                         }
                     }
                 }
             }
- */
+            userDefaults.set(false, forKey: "firstLaunch")
         }
     }
 

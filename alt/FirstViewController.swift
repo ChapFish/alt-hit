@@ -14,21 +14,23 @@ import SwiftyJSON
 
 class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    let realm = try! Realm()
-    var todayLectures: Results<RealmLecture>!
+    let userDefaults = UserDefaults.standard
     
     var lectureName:[String] = []
     var lectureRoom:[String] = []
     var lectureDepartment:[Int] = []
     var lectureFlag:[Bool] = []
     var toDayWeatherData = ["loading","loading","loading","loading"]
-    
-    //var lectureName:[String] = []
     var postTitles:[String] = []
     var postContents:[String] = []
     
-    @IBOutlet weak var CardTableView: UITableView!
+    var today:String = ""
+    var weekday:Int = 0
     
+    @IBOutlet weak var CardTableView: UITableView!
+    @IBOutlet weak var headerView: UIView!
+    @IBOutlet weak var headerLabel: UILabel!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -36,20 +38,27 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         self.CardTableView.register(UINib(nibName: "WeatherCardTableViewCell", bundle:nil), forCellReuseIdentifier:"WeatherCardTableViewCellID")
         self.CardTableView.register(UINib(nibName: "TextCardTableViewCell", bundle:nil), forCellReuseIdentifier: "TextCardTableViewCellID")
 
-        //セルの高さを自動設定
-        self.CardTableView.estimatedRowHeight = 200
-        self.CardTableView.rowHeight = UITableViewAutomaticDimension
-        
-        //カードテーブルの背景色を指定
-        self.CardTableView.backgroundColor = UIColor.colorFromRGB(rgb: "EBEBEB", alpha: 1.0)
-        
+        getToday()
         getPostData()
         getTodayWeatherData()
         getTodayLecture()
+        
+        self.CardTableView.estimatedRowHeight = 200
+        self.CardTableView.rowHeight = UITableViewAutomaticDimension
+        self.CardTableView.backgroundColor = UIColor.colorFromRGB(rgb: "EBEBEB", alpha: 1.0)
+        self.headerView.addCardShadow()
+        self.headerLabel.text = today
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
-        performSegue(withIdentifier: "toStartTour", sender: nil)
+        super.viewDidAppear(animated)
+        if  userDefaults.bool(forKey: "firstLaunch") {
+            performSegue(withIdentifier: "toStartTour", sender: nil)
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -135,7 +144,10 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
     }
     func getTodayLecture(){
-        todayLectures = realm.objects(RealmLecture.self).filter("week = 0").sorted(byKeyPath: "time")
+        let realm = try! Realm()
+        var todayLectures: Results<RealmLecture>!
+        print(weekday)
+        todayLectures = realm.objects(RealmLecture.self).filter("week = \(weekday)").sorted(byKeyPath: "time")
             lectureName.removeAll()
             lectureRoom.removeAll()
             lectureDepartment.removeAll()
@@ -147,5 +159,14 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
             lectureFlag.append(todayLectures[i].cancelFlag)
         }
     }
-   
+    
+    func getToday(){
+        let now = NSDate()
+        let calender = NSCalendar(identifier: NSCalendar.Identifier.gregorian)!
+        let month = calender.component(.month, from: now as Date)
+        let day = calender.component(.day, from: now as Date)
+        today = "\(month)/\(day)"
+        weekday = calender.component(.weekday, from: now as Date) - 2
+        print(weekday)
+    }
 }
